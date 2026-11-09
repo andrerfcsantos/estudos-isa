@@ -1,0 +1,100 @@
+/* Portal de estudo da Isa — estilos partilhados (mesma família visual das páginas de revisões). */
+:root{
+  --paper:#F0F2F5; --card:#FFFFFF; --ink:#18202E; --muted:#596476; --line:#D7DCE4;
+  --accent:#2B4C8C; --accent-soft:#E2E8F4; --ok:#2A7449;
+  /* Filosofia: azul-escuro e branco */
+  --filo:#1E3A6E; --filo-soft:#E3E9F4; --filo-line:#C3CDE0; --filo-2:#FFFFFF; --filo-solid:#1E3A6E; --filo-on:#FFFFFF;
+  /* Geografia: azul e amarelo */
+  --geo:#1F62B5; --geo-soft:#DDEAF8; --geo-line:#BCD1EE; --geo-2:#F2C230; --geo-solid:#1F62B5; --geo-on:#FFD84D;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+/* Modo escuro: só quando escolhido no botão (o claro é o padrão). */
+:root[data-theme="dark"]{
+  --paper:#10141B; --card:#181F2A; --ink:#E5E9F0; --muted:#9AA4B5; --line:#2A3341;
+  --accent:#9DB4E8; --accent-soft:#1F2A44; --ok:#72C597;
+  --filo:#B4C7EE; --filo-soft:#1B2840; --filo-line:#2C3A57; --filo-2:#F4F6FB; --filo-solid:#24427A; --filo-on:#FFFFFF;
+  --geo:#7DB3F5; --geo-soft:#142A45; --geo-line:#2A4363; --geo-2:#F4C842; --geo-solid:#1F5FAE; --geo-on:#FFD84D;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:760px;margin:0 auto;padding-block:40px 80px;display:grid;gap:32px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(2.1rem,6vw,3rem)}
+h2{font-size:1.5rem}
+h3{font-size:1.2rem}
+p{margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--c, var(--accent));outline-offset:2px}
+button{font:inherit;cursor:pointer}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);max-width:60ch}
+header.top{display:grid;gap:12px}
+/* Faixa de cor no topo: no portal junta as cores das disciplinas; nas disciplinas usa as suas. */
+header.top::before{content:"";display:block;width:84px;height:6px;border-radius:3px;
+  background:linear-gradient(90deg,var(--filo-solid) 0 25%,var(--filo-2) 25% 50%,var(--geo-solid) 50% 75%,var(--geo-2) 75%);
+  box-shadow:0 0 0 1px var(--line)}
+body.filo header.top::before,body.geo header.top::before{background:var(--stripe);box-shadow:none}
+body.filo :is(h1,h2,h3),body.geo :is(h1,h2,h3){color:var(--c)}
+.back{justify-self:start;font-size:.92rem;text-decoration:none;color:var(--muted);padding:4px 0}
+.back:hover{color:var(--ink)}
+
+/* Disciplina (cor) */
+/* --c: cor principal (texto e traços) · --c-soft: fundo suave · --c2: segunda cor
+   --c-solid / --c-on: bloco cheio e o que vai por cima dele · --stripe: faixa com as duas cores */
+.filo{--c:var(--filo);--c-soft:var(--filo-soft);--c-line:var(--filo-line);--c2:var(--filo-2);--c-solid:var(--filo-solid);--c-on:var(--filo-on);
+  --stripe:linear-gradient(var(--filo-solid) 0 38%,var(--filo-2) 38% 62%,var(--filo-solid) 62%)}
+.geo{--c:var(--geo);--c-soft:var(--geo-soft);--c-line:var(--geo-line);--c2:var(--geo-2);--c-solid:var(--geo-solid);--c-on:var(--geo-on);
+  --stripe:linear-gradient(90deg,var(--geo-solid) 0 66%,var(--geo-2) 66%)}
+
+/* Continuar */
+.resume{display:flex;gap:14px;align-items:center;text-decoration:none;background:var(--card);
+  border:1px solid var(--c-line, var(--line));border-left:4px solid var(--c, var(--accent));border-radius:10px;padding:14px 18px}
+.resume:hover{border-color:var(--c, var(--accent))}
+.resume .t{display:grid;gap:2px;min-width:0}
+.resume b{font-weight:700;overflow-wrap:anywhere}
+.resume .go{margin-left:auto;font-size:1.3rem;color:var(--c, var(--accent))}
+
+/* Grelha de disciplinas */
+.section-label{display:flex;align-items:baseline;gap:10px;border-top:2px solid var(--c, var(--ink));padding-top:12px}
+.subjects{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.subject{display:grid;gap:10px;align-content:start;text-decoration:none;background:var(--card);
+  border:1px solid var(--c-line);border-radius:12px;padding:20px;position:relative;overflow:hidden;min-height:170px}
+.subject::before{content:"";position:absolute;inset:0 0 auto;height:7px;background:var(--stripe)}
+.subject:hover{border-color:var(--c)}
+.subject .ico{width:44px;height:44px;border-radius:10px;background:var(--c-solid);color:var(--c-on);display:grid;place-items:center}
+.subject .ico svg{width:24px;height:24px}
+.subject h2{font-size:1.6rem;color:var(--c)}
+.subject p{color:var(--muted);font-size:.95rem}
+.subject .count{font-family:var(--mono);font-size:.75rem;color:var(--c);margin-top:auto}
+
+/* Página de disciplina */
+.subject-head{display:flex;gap:14px;align-items:center}
+.subject-head .ico{width:52px;height:52px;border-radius:12px;background:var(--c-solid);color:var(--c-on);display:grid;place-items:center;flex:none}
+.subject-head .ico svg{width:28px;height:28px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.88rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.chip:hover{border-color:var(--c, var(--accent))}
+.chip[aria-pressed="true"]{background:var(--c-solid, var(--ink));color:var(--c-on, var(--paper));border-color:var(--c-solid, var(--ink))}
+.pages{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.page a{display:grid;gap:8px;text-decoration:none;background:var(--card);border:1px solid var(--c-line);
+  border-left:4px solid var(--c);border-radius:10px;padding:16px 18px}
+.page a:hover{border-color:var(--c)}
+.page .row{display:flex;gap:10px;align-items:baseline}
+.page h3{font-size:1.25rem}
+.page .go{margin-left:auto;color:var(--c);font-size:1.2rem}
+.page p{color:var(--muted);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:.72rem;padding:2px 8px;border-radius:999px;background:var(--c-soft);color:var(--c)}
+.meta{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.empty{background:var(--card);border:1px dashed var(--c-line, var(--line));border-radius:10px;padding:22px;color:var(--muted);display:grid;gap:6px}
+.empty b{color:var(--ink)}
+
+footer{color:var(--muted);font-size:.85rem;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;border-top:1px solid var(--line);padding-top:16px}
+footer .dot{width:8px;height:8px;border-radius:50%;background:var(--muted);display:inline-block;margin-right:6px}
+footer .dot.on{background:var(--ok)}

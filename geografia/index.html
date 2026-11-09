@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("isa-tema")==="dark"?"dark":"light")}catch(e){document.documentElement.setAttribute("data-theme","light")}</script>
+<title>Geografia · Estudo da Isa</title>
+<meta name="theme-color" content="#F0F2F5">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/estilo.css">
+<script src="/tema.js" defer></script>
+</head>
+<body class="geo">
+<div class="wrap">
+  <header class="top">
+    <a class="back" href="/">← Todas as disciplinas</a>
+    <div class="subject-head">
+      <span class="ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+      </span>
+      <div>
+        <span class="eyebrow">10.º ano · Humanidades</span>
+        <h1>Geografia</h1>
+      </div>
+    </div>
+    <p class="lede">Páginas de estudo organizadas por tema. Cada uma tem resumos, esquemas e perguntas com a resposta escondida.</p>
+  </header>
+
+  <section style="display:grid;gap:16px" aria-labelledby="pag">
+    <div class="section-label"><h2 id="pag">Páginas de estudo</h2></div>
+    <div class="filters" role="group" aria-label="Filtrar por tema" hidden></div>
+
+    <!-- Para acrescentar uma página: copiar um <li>, mudar o href, o título e os temas (separados por "|"). -->
+    <ul class="pages">
+      <li class="page" data-temas="Módulo inicial|A população">
+        <a href="/geografia/prova-comum-modulo-inicial-populacao.html"
+           data-study="Prova comum: módulo inicial e a população" data-subject="Geografia" data-cls="geo">
+          <span class="row">
+            <h3>Prova comum: módulo inicial e a população</h3>
+            <span class="go" aria-hidden="true">→</span>
+          </span>
+          <p>Plano de estudo até à prova de 13 de novembro, resumos e esquemas, mapas para treinar, exercícios de escalas e de taxas e mais de 200 perguntas com a resposta escondida.</p>
+          <span class="tags"><span class="tag">Módulo inicial</span><span class="tag">A população</span></span>
+          <span class="meta">Manual pp. 4–73 · fichas e slides da professora · prova a 13 nov 2026</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <span id="net"></span>
+    <span>As páginas que abrires ficam guardadas para ler sem rede.</span>
+  </footer>
+</div>
+<script src="/portal.js"></script>
+</body>
+</html>

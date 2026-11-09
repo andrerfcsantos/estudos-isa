@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("isa-tema")==="dark"?"dark":"light")}catch(e){document.documentElement.setAttribute("data-theme","light")}</script>
+<title>Filosofia · Estudo da Isa</title>
+<meta name="theme-color" content="#F0F2F5">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/estilo.css">
+<script src="/tema.js" defer></script>
+</head>
+<body class="filo">
+<div class="wrap">
+  <header class="top">
+    <a class="back" href="/">← Todas as disciplinas</a>
+    <div class="subject-head">
+      <span class="ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10M9.67 21V10M14.33 21V10M19 21V10M2 10h20M12 3 3 8h18z"/></svg>
+      </span>
+      <div>
+        <span class="eyebrow">10.º ano · Humanidades</span>
+        <h1>Filosofia</h1>
+      </div>
+    </div>
+    <p class="lede">Páginas de estudo organizadas por tema. Cada uma tem resumos, esquemas e perguntas com a resposta escondida.</p>
+  </header>
+
+  <section style="display:grid;gap:16px" aria-labelledby="pag">
+    <div class="section-label"><h2 id="pag">Páginas de estudo</h2></div>
+    <div class="filters" role="group" aria-label="Filtrar por tema" hidden></div>
+
+    <!-- Para acrescentar uma página: copiar um <li>, mudar o href, o título e os temas (separados por "|"). -->
+    <ul class="pages">
+      <li class="page" data-temas="Introdução à filosofia|Determinismo e liberdade">
+        <a href="/filosofia/revisoes-introducao-determinismo-liberdade.html"
+           data-study="Revisões: introdução à filosofia, determinismo e liberdade" data-subject="Filosofia" data-cls="filo">
+          <span class="row">
+            <h3>Revisões: introdução à filosofia, determinismo e liberdade</h3>
+            <span class="go" aria-hidden="true">→</span>
+          </span>
+          <p>Correção das fichas, treino dos erros, resumos e esquemas, perguntas com resposta escondida e um quiz rápido.</p>
+          <span class="tags"><span class="tag">Introdução à filosofia</span><span class="tag">Determinismo e liberdade</span></span>
+          <span class="meta">Manual pp. 10–18 e 147–155 · Caderno de atividades pp. 20, 32–33 e 48–51</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <span id="net"></span>
+    <span>As páginas que abrires ficam guardadas para ler sem rede.</span>
+  </footer>
+</div>
+<script src="/portal.js"></script>
+</body>
+</html>

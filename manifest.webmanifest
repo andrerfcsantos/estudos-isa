@@ -1,0 +1,16 @@
+{
+  "name": "Estudo da Isa",
+  "short_name": "Estudo",
+  "description": "Resumos, perguntas e apontamentos do 10.º ano de Humanidades.",
+  "lang": "pt-PT",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F0F2F5",
+  "theme_color": "#3343A6",
+  "icons": [
+    { "src": "/icone-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icone-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icone.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
