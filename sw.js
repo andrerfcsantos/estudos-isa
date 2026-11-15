@@ -2,7 +2,7 @@
    - Páginas e ficheiros do site: tenta a rede (máx. 3 s) e, se falhar, usa a cópia guardada.
    - Fontes do Google: usa a cópia guardada se existir.
    Ao acrescentar uma página nova, junta-a a PRECACHE e muda VERSION. */
-const VERSION = "v6";
+const VERSION = "v7";
 const CACHE = "isa-" + VERSION;
 const PRECACHE = [
   "/",
