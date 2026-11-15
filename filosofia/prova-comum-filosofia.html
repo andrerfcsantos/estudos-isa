@@ -1,0 +1,1862 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("isa-tema")==="dark"?"dark":"light")}catch(e){document.documentElement.setAttribute("data-theme","light")}</script>
+<title>Filosofia: prova comum</title>
+<meta name="description" content="Resumos, esquemas, perguntas e plano de estudo para a prova comum de Filosofia do 10.º ano: introdução à filosofia e determinismo e liberdade na ação humana.">
+<meta name="theme-color" content="#F0F2F5">
+<link rel="icon" href="/icone.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Página de estudo de Filosofia: uma coluna de leitura, barra fixa com secções e progresso,
+   resumos em cartões e perguntas interativas no fim de cada secção. */
+:root{
+  --paper:#F0F2F5; --card:#FFFFFF; --ink:#18202E; --muted:#596476; --line:#D7DCE4;
+  /* Cores da Filosofia: azul-escuro e branco */
+  --accent:#1E3A6E; --accent-soft:#E3E9F4; --navy:#1E3A6E; --on-navy:#FFFFFF; --card-line:#C3CDE0;
+  --sky:#5C7FBF; --sky-soft:#E9EEF8;
+  --ochre:#9C6110; --ochre-soft:#F5E9D4;
+  --yes:#2A7449; --yes-soft:#DCEFE3; --no:#B0333A; --no-soft:#F6DFE0;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+/* Modo escuro: só quando escolhido no botão (o claro é o padrão). */
+:root[data-theme="dark"]{
+  --paper:#10141B; --card:#181F2A; --ink:#E5E9F0; --muted:#9AA4B5; --line:#2A3341;
+  --accent:#B4C7EE; --accent-soft:#1B2840; --navy:#24427A; --on-navy:#FFFFFF; --card-line:#2C3A57;
+  --sky:#8FA9DB; --sky-soft:#1A2436;
+  --ochre:#E2A64C; --ochre-soft:#382B16;
+  --yes:#72C597; --yes-soft:#17301F; --no:#F08B90; --no-soft:#3A1C20; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:30;background:var(--paper)}
+img,svg{max-width:100%}
+.wrap{max-width:780px;margin:0 auto;padding-block:32px 80px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(2rem,6vw,2.9rem)}
+h2{font-size:1.65rem}
+h3{font-size:1.18rem}
+h4{margin:0;font-size:1rem}
+/* Títulos (h1–h3) com a cor da disciplina; exceto sobre fundos cheios */
+h2,h3{color:var(--accent)}
+.part-title h2,.day.exam h3{color:inherit}
+/* Ícone antes dos títulos de perguntas, treinos e exercícios */
+.ht{min-width:0}
+.hi{font-style:normal;margin-right:.3em;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:.9em}
+p{margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button{font:inherit;cursor:pointer;color:inherit}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);max-width:62ch}
+.small{font-size:.88rem;color:var(--muted)}
+header.top{display:grid;gap:12px;padding-bottom:18px}
+/* Identidade da disciplina: faixa azul-escura com risca branca, título a azul-escuro */
+header.top::before{content:"";display:block;width:84px;height:6px;border-radius:3px;
+  background:linear-gradient(var(--navy) 0 38%,#fff 38% 62%,var(--navy) 62%);box-shadow:0 0 0 1px var(--card-line)}
+header.top h1{color:var(--accent)}
+.back{justify-self:start;font-size:.92rem;text-decoration:none;color:var(--muted)}
+.back:hover{color:var(--ink)}
+.count-pill{justify-self:start;display:inline-flex;flex-wrap:wrap;gap:0 10px;align-items:baseline;background:var(--navy);color:var(--on-navy);
+  border-radius:14px;padding:6px 14px;font-weight:700;font-size:.95rem}
+.count-pill .mono{font-family:var(--mono);font-weight:500;font-size:.78rem;opacity:.85}
+
+/* Barra fixa */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);
+  margin:0 -4px 8px;padding:8px 4px}
+.tb{display:flex;gap:10px;align-items:center}
+.tb-btn{display:inline-flex;gap:6px;align-items:center;padding:7px 14px;border-radius:999px;border:1px solid var(--navy);
+  background:var(--navy);color:var(--on-navy);font-size:.92rem;font-weight:700;white-space:nowrap}
+.tb-btn[aria-expanded="true"]{background:var(--card);color:var(--ink)}
+.tb-prog{flex:1;min-width:0;display:grid;gap:4px}
+.tb-prog .txt{font-size:.8rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meter{height:7px;border-radius:99px;background:var(--line);overflow:hidden;display:flex}
+.meter i{display:block;height:100%}
+.meter .k{background:var(--yes)} .meter .r{background:var(--ochre)}
+.idx{margin-top:10px;max-height:min(72vh,600px);overflow:auto;background:var(--card);border:1px solid var(--card-line);border-radius:12px;padding:14px;display:grid;gap:12px}
+.idx h3{font-size:1rem;font-family:var(--body);font-weight:700}
+.idx ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.idx a{display:flex;gap:10px;align-items:center;text-decoration:none;padding:6px 8px;border-radius:8px}
+.idx a:hover{background:var(--paper)}
+.idx .c{font-family:var(--mono);font-size:.75rem;color:var(--muted);min-width:2.2em}
+.idx .t{flex:1;min-width:0}
+.idx .s{font-size:.85rem;white-space:nowrap}
+.fgroup{display:grid;gap:6px}
+.fgroup .flabel{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.86rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.filter-note{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--ochre-soft);border-radius:10px;padding:10px 14px;margin:12px 0;font-size:.92rem}
+.filter-note button{border:1px solid var(--ink);background:transparent;border-radius:999px;padding:3px 12px;font-size:.85rem}
+.sec.qmode:not(.theory-open)>:not(.sec-head):not(.qs):not(.sec-end){display:none}
+.qs .q[data-qhide]{display:none}
+.qf-empty{margin:4px 0}
+.show-theory{display:none}
+.sec.qmode .show-theory{display:inline-block}
+.q .again{justify-self:start}
+.empty-filter{background:var(--card);border:1px dashed var(--line);border-radius:10px;padding:22px;color:var(--muted);margin:20px 0}
+
+/* Blocos e secções */
+section.block,section.sec{display:grid;gap:16px;padding-block:28px;scroll-margin-top:72px}
+.part-title{margin-top:30px;padding:18px 20px;border-radius:12px;background:var(--navy);color:var(--on-navy);display:grid;gap:4px;
+  border-bottom:5px solid var(--sky)}
+.part-title .eyebrow{color:#C9D6F0}
+.part-title h2{font-size:1.5rem}
+.part-title p{opacity:.88;font-size:.93rem}
+.sec-head{display:grid;gap:8px;padding-top:16px;
+  background:linear-gradient(90deg,var(--navy) 0 82%,var(--sky) 82%) top left/100% 3px no-repeat}
+.sec-head h2{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.code{font-family:var(--mono);font-size:.8rem;padding:2px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:500;flex:none}
+.sec.is-read .sec-head .code{background:var(--yes-soft);color:var(--yes)}
+.st{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.st button{font-size:.86rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+.st .st-read[aria-pressed="true"]{background:var(--yes-soft);border-color:var(--yes);color:var(--yes);font-weight:700}
+.st .st-later[aria-pressed="true"]{background:var(--ochre-soft);border-color:var(--ochre);color:var(--ochre);font-weight:700}
+.sec-end{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}
+.sec-end .next{font-size:.92rem;padding:8px 16px;border-radius:999px;border:1px solid var(--navy);background:var(--navy);color:var(--on-navy);font-weight:700}
+.sec-end .next.done{background:transparent;color:var(--accent);border-color:var(--accent)}
+
+.card{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:18px 20px;display:grid;gap:10px;min-width:0}
+.card h3{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.card h3 .pg{margin-left:auto;font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+.card ul,.card ol{margin:0;padding-left:1.25em;display:grid;gap:4px}
+.key{background:var(--accent-soft);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:12px 14px;font-weight:700}
+.key small{display:block;font-weight:400;color:var(--muted);font-size:.86rem;margin-top:4px}
+/* Caixas de texto corrido: display:block (com grid, cada <b> inline virava uma linha). */
+.tip{border-left:4px solid var(--sky);background:var(--sky-soft);border-radius:0 8px 8px 0;padding:10px 14px;display:block;font-size:.95rem}
+.tip b.h,.mn b.h,.warn b.h{display:block;margin-bottom:4px;font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.mn{border-left:4px solid var(--ochre);background:var(--ochre-soft);border-radius:0 8px 8px 0;padding:10px 14px;display:block;font-size:.95rem}
+.mn b.h{color:var(--ochre)}
+.warn{border-left:4px solid var(--no);background:var(--no-soft);border-radius:0 8px 8px 0;padding:10px 14px;display:block;font-size:.95rem}
+.warn b.h{color:var(--no)}
+mark{background:var(--ochre-soft);color:var(--ink);padding:0 .2em;border-radius:3px}
+em.term{font-style:normal;font-weight:700;color:var(--accent)}
+blockquote{margin:0;padding:10px 14px;background:var(--paper);border-left:3px solid var(--card-line);border-radius:0 8px 8px 0;font-style:italic;display:grid;gap:6px}
+blockquote cite{font-style:normal;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs > div{border-radius:8px;padding:12px 14px;min-width:0;background:var(--paper)}
+.vs .good{background:var(--yes-soft)} .vs .bad{background:var(--no-soft)}
+.vs .a{background:var(--accent-soft)} .vs .b{background:var(--sky-soft)} .vs .c{background:var(--ochre-soft)}
+.vs > div > b:first-child{display:block;margin-bottom:2px}
+.vs3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:560px){.vs,.vs3{grid-template-columns:1fr}}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.c{text-align:center}
+.pill{display:inline-block;font-family:var(--mono);font-size:.74rem;padding:2px 8px;border-radius:999px;font-weight:500;white-space:nowrap}
+.pill.y{background:var(--yes-soft);color:var(--yes)} .pill.n{background:var(--no-soft);color:var(--no)}
+.pill.o{background:var(--ochre-soft);color:var(--ochre)} .pill.a{background:var(--accent-soft);color:var(--accent)}
+.objs{display:flex;flex-wrap:wrap;gap:6px}
+.objs .pill{white-space:normal}
+
+/* Argumentos numerados */
+.arg{font-size:.95rem;display:grid;gap:4px;border-left:3px solid var(--card-line);padding-left:12px}
+.arg .l{display:grid;grid-template-columns:2.8em 1fr;gap:6px}
+.arg .n{font-family:var(--mono);font-size:.82rem;color:var(--muted);padding-top:2px}
+.arg .r{font-family:var(--mono);font-size:.74rem;color:var(--muted);display:block}
+.arg .l.c{font-weight:700}
+.arg .l.shared{color:var(--muted)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.split > div{min-width:0;display:grid;gap:8px;align-content:start;border-radius:8px;padding:12px;background:var(--paper)}
+@media (max-width:560px){.split{grid-template-columns:1fr}}
+
+/* Árvore de posições */
+.tree{min-width:540px;display:grid;grid-template-columns:repeat(3,1fr);gap:0 12px;text-align:center;font-size:.9rem}
+.node{border:1px solid var(--card-line);background:var(--card);border-radius:8px;padding:8px 10px}
+.node.q{grid-column:1/-1;justify-self:center;border-color:var(--navy);background:var(--navy);color:var(--on-navy);font-weight:700;max-width:360px}
+.node.mid{grid-column:span 2}
+.node.mid.c{grid-column:span 1}
+.stem{height:18px;position:relative}
+.stem::after{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1.5px solid var(--muted)}
+.hline{grid-column:1/-1;height:18px;position:relative}
+.hline::before{content:"";position:absolute;top:0;left:33%;right:16.5%;border-top:1.5px solid var(--muted)}
+.leaf{display:grid;gap:6px;justify-items:center}
+.leaf .node{width:100%;font-weight:700}
+.tag{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+
+/* Diagrama do objeto/método */
+.flow{display:grid;gap:6px;justify-items:center;text-align:center;font-size:.92rem}
+.flow .box{border-radius:8px;padding:8px 14px;font-weight:700;border:1px solid var(--card-line);background:var(--card);min-width:min(260px,100%)}
+.flow .box.main{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.flow .lnk{font-size:.8rem;color:var(--muted);font-family:var(--mono)}
+.flow .row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.flow .row .box{min-width:0}
+.flow .arrow{color:var(--muted);line-height:1}
+
+/* Perguntas */
+.qs{display:grid;gap:12px}
+.qs-head{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:16px}
+.qs-head h3{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.qs-head .stat{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+.qs-tools{display:grid;gap:8px}
+.qs-tools .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.qs-tools .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);min-width:6.5em}
+.ghost{font-size:.86rem;padding:5px 12px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--muted)}
+.ghost:hover{color:var(--ink);border-color:var(--ink)}
+.q{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:14px 16px;display:grid;gap:10px;min-width:0}
+.q.right{border-left:4px solid var(--yes)} .q.wrong{border-left:4px solid var(--no)}
+.qhead{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline}
+.qn{font-family:var(--mono);font-size:.8rem;color:var(--muted);min-width:2ch}
+.qt{font-weight:700;min-width:0}
+.qt .doc{display:block;font-weight:400;background:var(--paper);border-radius:6px;padding:8px 10px;margin-top:6px;font-size:.93rem}
+.qt .doc i{font-style:italic}
+.qt .src{display:block;font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-top:4px;font-weight:400}
+.qt ol,.qt ul{font-weight:400;margin:6px 0 0;padding-left:1.3em}
+.qmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.lvl{padding:1px 7px;border-radius:999px;font-weight:500}
+.lvl.l1{background:var(--yes-soft);color:var(--yes)} .lvl.l2{background:var(--sky-soft);color:var(--sky)} .lvl.l3{background:var(--no-soft);color:var(--no)}
+.qstar{margin-left:auto;font-family:var(--mono);font-size:.72rem;padding:2px 9px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted)}
+.qstar[aria-pressed="true"]{background:var(--ochre-soft);border-color:var(--ochre);color:var(--ochre);font-weight:700}
+.opts{display:grid;gap:6px}
+.opt{text-align:left;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--paper);font-size:.95rem;display:grid;grid-template-columns:2.2em 1fr;gap:4px}
+.opt b{font-family:var(--mono);font-size:.85rem;color:var(--muted);font-weight:500;padding-top:1px}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--yes-soft);border-color:var(--yes)}
+.opt.wrong{background:var(--no-soft);border-color:var(--no)}
+.tfb{display:flex;gap:8px;flex-wrap:wrap}
+.tfb button{min-width:110px;padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--paper);font-weight:700}
+.tfb button:disabled{cursor:default}
+.tfb button.right{background:var(--yes-soft);border-color:var(--yes);color:var(--yes)}
+.tfb button.wrong{background:var(--no-soft);border-color:var(--no);color:var(--no)}
+.btn{font-size:.9rem;padding:7px 14px;border-radius:8px;border:1px solid var(--accent);background:transparent;color:var(--accent);font-weight:700}
+.btn:hover{background:var(--accent-soft)}
+.fb{font-size:.93rem;font-weight:700}
+.fb.ok{color:var(--yes)} .fb.bad{color:var(--no)}
+details.sol{border-radius:8px;background:var(--paper)}
+details.sol > summary{cursor:pointer;padding:8px 12px;color:var(--accent);font-size:.92rem;font-weight:700;list-style:none}
+details.sol > summary::-webkit-details-marker{display:none}
+details.sol > summary::before{content:"▸ ";display:inline}
+details.sol[open] > summary::before{content:"▾ "}
+details.sol > div{padding:0 12px 12px;display:grid;gap:8px;font-size:.95rem}
+details.sol ul,details.sol ol{margin:0;padding-left:1.25em;display:grid;gap:3px}
+.model{border-left:3px solid var(--accent);padding-left:10px}
+textarea.ans{font:inherit;font-size:.95rem;width:100%;min-height:110px;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);resize:vertical}
+.saved{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.wg-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.wg-msg{font-size:.92rem;min-height:1.6em}
+.wg-msg.ok{color:var(--yes);font-weight:700} .wg-msg.bad{color:var(--no);font-weight:700}
+
+/* Widgets: classificar (sorter) */
+.sorter{display:grid;gap:8px}
+.si{display:grid;gap:6px;background:var(--paper);border-radius:8px;padding:10px 12px;border-left:4px solid transparent}
+.si.right{border-left-color:var(--yes)} .si.wrong{border-left-color:var(--no)}
+.si .stx{font-size:.95rem}
+.si .sbtns{display:flex;flex-wrap:wrap;gap:6px}
+.si .sbtns button{font-size:.85rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+.si .sbtns button:disabled{cursor:default;opacity:.75}
+.si .sbtns button.right{background:var(--yes-soft);border-color:var(--yes);color:var(--yes);opacity:1;font-weight:700}
+.si .sbtns button.wrong{background:var(--no-soft);border-color:var(--no);color:var(--no);opacity:1}
+.si .sfb{font-size:.9rem}
+
+/* Widget: quem aceita? (matriz) */
+.mx{display:grid;gap:8px}
+.mxi{display:grid;gap:8px;background:var(--paper);border-radius:8px;padding:10px 12px;border-left:4px solid transparent}
+.mxi.right{border-left-color:var(--yes)} .mxi.wrong{border-left-color:var(--no)}
+.mxi .mbtns{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mxi .mbtns .tg{font-size:.84rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+.mxi .mbtns .tg[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.mxi .mbtns .tg.miss{outline:2px dashed var(--no);outline-offset:1px}
+.mxi .mbtns .tg.extra{background:var(--no-soft);border-color:var(--no);color:var(--no)}
+.mxi .mfb{font-size:.9rem}
+
+/* Widget: completar (selects) */
+.cloze{display:grid;gap:8px}
+.cloze .cl{background:var(--paper);border-radius:8px;padding:8px 12px;line-height:2.1;font-size:.95rem}
+.cloze select{font:inherit;font-size:.9rem;padding:3px 6px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);max-width:100%}
+.cloze select.right{border-color:var(--yes);background:var(--yes-soft)}
+.cloze select.wrong{border-color:var(--no);background:var(--no-soft)}
+
+/* Widget: descobre a posição */
+.pos{display:grid;gap:12px}
+.pos .pq{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.pos .pq > span{flex:1 1 220px;font-weight:700}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
+.seg button{border:0;background:transparent;padding:5px 16px;font-size:.88rem}
+.seg button[aria-pressed="true"]{background:var(--navy);color:var(--on-navy)}
+.pos-out{border-radius:10px;padding:12px 14px;background:var(--accent-soft);display:grid;gap:4px;min-height:4.2em}
+.pos-out b.big{font-family:var(--display);font-weight:400;font-size:1.3rem;color:var(--accent)}
+
+/* Dominós (cadeia causal) */
+.dom{background:var(--paper);border-radius:8px;padding:8px}
+.dom svg{display:block;width:100%;height:auto}
+.dom .d{transform-box:fill-box;transform-origin:100% 100%;transition:transform .35s ease-in}
+.dom.go .d{transform:rotate(58deg)}
+.dom .d rect{fill:var(--card);stroke:var(--navy);stroke-width:2}
+.dom .d circle{fill:var(--navy)}
+.dom .d.hand rect{fill:var(--accent-soft)}
+.dom text{font-family:var(--mono);font-size:11px;fill:var(--muted)}
+@media (prefers-reduced-motion:reduce){.dom .d{transition:none}}
+
+/* Números-chave */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tile{background:var(--paper);border-radius:8px;padding:10px 12px;display:grid;gap:2px;min-width:0}
+.tile .l{font-size:.8rem;color:var(--muted);line-height:1.3}
+.tile .v{font-family:var(--display);font-size:1.3rem;line-height:1.2;color:var(--accent)}
+.tile .v small{font-family:var(--body);font-size:.8rem;color:var(--muted)}
+.tile .d{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+
+/* Plano */
+.plan{display:grid;gap:12px}
+.day{background:var(--card);border:1px solid var(--card-line);border-radius:12px;padding:14px 16px;display:grid;gap:10px}
+.day.today{border:2px solid var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.day.exam{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.day.exam .dmeta,.day.exam .small{color:inherit;opacity:.85}
+.day.exam a{color:inherit}
+.dhead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.dhead h3{font-size:1.15rem}
+.dmeta{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+.badge{font-family:var(--mono);font-size:.7rem;padding:2px 8px;border-radius:999px;background:var(--navy);color:var(--on-navy)}
+.day.exam .badge{background:#fff;color:var(--navy)}
+.badge.late{background:var(--ochre);color:#fff}
+.badge.done{background:var(--yes);color:#fff}
+.tasks{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.task{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:6px 8px;border-radius:8px;background:var(--paper)}
+.day.exam .task{background:rgba(255,255,255,.1)}
+.task input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--navy)}
+.task.done .tt{text-decoration:line-through;opacity:.65}
+.task .tt a{font-weight:700}
+.task .sub{display:block;font-size:.84rem;color:var(--muted)}
+.day.exam .task .sub{color:inherit;opacity:.85}
+.task .st2{display:block;font-family:var(--mono);font-size:.72rem;color:var(--accent)}
+.day.exam .task .st2{color:inherit}
+
+footer{color:var(--muted);font-size:.85rem;padding-top:30px;border-top:1px solid var(--line);display:grid;gap:6px;margin-top:20px}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+@media print{.topbar,.st,.sec-end,.qs-tools{display:none} details.sol{display:block}}
+</style>
+<script src="/tema.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="back" href="/filosofia/">← Filosofia</a>
+    <span class="eyebrow">Filosofia · 10.º ano · Manual pp. 10–19, 44–47 e 134–159 · fichas de avaliação</span>
+    <h1>Prova comum de Filosofia</h1>
+    <p class="lede">Tudo para a prova de <b>quinta-feira, 19 de novembro</b>: a <b>Introdução à filosofia e ao filosofar</b> e o <b>Determinismo e liberdade na ação humana</b>. Cada secção tem um resumo e esquemas e, no fim, perguntas com a resposta escondida. Marca as secções como lidas ou como "ver melhor mais tarde".</p>
+    <span class="count-pill" id="countdown">Prova: quinta, 19 de novembro</span>
+  </header>
+
+  <div class="topbar">
+    <div class="tb" data-tema-barra>
+      <button class="tb-btn" id="idx-btn" type="button" aria-expanded="false" aria-controls="idx">☰ Secções</button>
+      <div class="tb-prog">
+        <span class="txt" id="tb-txt">0 secções lidas</span>
+        <div class="meter" aria-hidden="true"><i class="k" id="tb-k" style="width:0"></i><i class="r" id="tb-r" style="width:0"></i></div>
+      </div>
+    </div>
+    <div class="idx" id="idx" hidden>
+      <div class="fgroup">
+        <span class="flabel">Secções</span>
+        <div class="chips" role="group" aria-label="Filtrar secções" id="filters">
+          <button class="chip" type="button" data-f="all" aria-pressed="true">Todas</button>
+          <button class="chip" type="button" data-f="unread" aria-pressed="false">Por ler</button>
+          <button class="chip" type="button" data-f="later" aria-pressed="false">★ Ver melhor mais tarde</button>
+          <button class="chip" type="button" data-f="read" aria-pressed="false">✓ Lidas</button>
+        </div>
+      </div>
+      <div class="fgroup">
+        <span class="flabel">Perguntas (em todas as secções)</span>
+        <div class="chips" role="group" aria-label="Filtrar perguntas em todas as secções" id="gq-st"></div>
+        <div class="chips" role="group" aria-label="Filtrar perguntas por dificuldade" id="gq-d"></div>
+      </div>
+      <div id="idx-list"></div>
+    </div>
+  </div>
+  <div class="filter-note" id="filter-note" hidden></div>
+
+  <!-- ===================== PLANO ===================== -->
+  <section class="block" id="plano">
+    <div class="sec-head">
+      <span class="eyebrow">De domingo, 15, a quinta, 19 de novembro</span>
+      <h2><span class="ht"><span class="hi" aria-hidden="true">🗓️</span>Plano de estudo</span></h2>
+      <p class="lede">Quatro dias de estudo e a prova ao quinto. Cada dia está dividido em blocos curtos, para dar para o comboio. Vai marcando o que já fizeste.</p>
+    </div>
+    <div class="tip"><b class="h">Como usar</b>Em cada bloco: lê o resumo, marca a secção como lida e faz as perguntas do fim. O que correr mal, marca com <b>★ ver melhor mais tarde</b> (a secção ou só a pergunta) e fica para quarta à noite. Se te atrasares um dia, junta o que falta ao dia seguinte e corta no treino, não nas secções.</div>
+    <div class="plan" id="plan"></div>
+  </section>
+
+  <!-- ===================== PROVA ===================== -->
+  <section class="block" id="prova">
+    <div class="sec-head">
+      <span class="eyebrow">Com base nas fichas de avaliação da editora</span>
+      <h2>Como é a prova e como responder</h2>
+      <p class="lede">Não tenho a informação oficial da prova comum. As fichas de avaliação que a professora deu têm sempre o mesmo formato e a prova deve ser parecida.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile"><span class="l">Grupo I</span><span class="v">10 × 7 <small>pts</small></span><span class="d">escolha múltipla</span></div>
+      <div class="tile"><span class="l">Grupo II</span><span class="v">4 × 25 <small>pts</small></span><span class="d">respostas curtas, com texto</span></div>
+      <div class="tile"><span class="l">Grupo III</span><span class="v">30 <small>pts</small></span><span class="d">texto + a tua posição</span></div>
+      <div class="tile"><span class="l">Total</span><span class="v">200 <small>pts</small></span><span class="d">mais de metade é escrita</span></div>
+    </div>
+    <div class="card">
+      <h3>O que cada pedido te obriga a fazer</h3>
+      <div class="scroll"><table>
+        <thead><tr><th>Pedido</th><th>O que escrever</th></tr></thead>
+        <tbody>
+          <tr><td><b>Formula o problema</b></td><td>Uma <b>pergunta</b>, de preferência "Será que…?". Ex.: "Será o livre-arbítrio compatível com o determinismo?"</td></tr>
+          <tr><td><b>Identifica a tese / perspetiva</b></td><td>A resposta do autor ao problema, numa frase, e o <b>nome da teoria</b> (ex.: libertismo).</td></tr>
+          <tr><td><b>Formula o argumento</b></td><td>Premissas numeradas (1), (2)… e terminar com "Logo, …". Se souberes, diz a forma: Modus Ponens, Modus Tollens, Silogismo Hipotético.</td></tr>
+          <tr><td><b>Esclarece · Explica</b></td><td>Definir os conceitos e dizer porquê, com as palavras da matéria. Usa o texto: cita uma expressão entre aspas.</td></tr>
+          <tr><td><b>Identifica a objeção</b></td><td>Dar o <b>nome</b> da objeção, <b>contra quem</b> é, e explicar a ideia (com o exemplo, se houver).</td></tr>
+          <tr><td><b>Concordas? Porquê?</b></td><td>Resposta extensa: (1) problema; (2) tese do autor; (3) a tua posição, clara; (4) argumento a favor; (5) uma objeção à posição contrária (ou resposta a uma objeção à tua).</td></tr>
+          <tr><td><b>Posiciona-te face à validade e solidez</b></td><td>Dizer separadamente: é válido? (forma) e é sólido? (válido + premissas verdadeiras). Justificar as duas.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="warn"><b class="h">Os erros mais caros (das fichas anteriores)</b>
+      <b>Quantificadores:</b> determinismo = <b>tudo</b> está determinado; livre-arbítrio = <b>algumas</b> coisas dependem de nós. Trocar "tudo" por "a maioria" ou "algumas" torna a resposta errada.<br>
+      <b>Verdade ≠ validade:</b> proposições são verdadeiras ou falsas; argumentos são válidos ou inválidos. Nunca escrevas "argumento falso" nem "conclusão válida".<br>
+      <b>Premissa (1) do argumento da consequência:</b> os incompatibilistas aceitam-na; os compatibilistas rejeitam-na.<br>
+      <b>Respostas em branco:</b> escreve sempre alguma coisa com os termos da matéria. Em branco é zero.</div>
+    <p class="small">Já fizeste uma página de revisões com a correção das fichas formativas: <a href="/filosofia/revisoes-introducao-determinismo-liberdade.html">Revisões: introdução à filosofia, determinismo e liberdade</a>.</p>
+  </section>
+
+  <!-- ===================== PARTE A ===================== -->
+  <div class="part-title" id="parte-a">
+    <span class="eyebrow">Parte A · manual pp. 10–19 e 44–47</span>
+    <h2>Introdução à filosofia e ao filosofar</h2>
+    <p>O que é a filosofia, que problemas estuda e como, as áreas da filosofia e os conceitos básicos de argumentação.</p>
+  </div>
+
+  <!-- A1 -->
+  <section class="sec" id="a1" data-code="A1" data-title="O que é a filosofia: atitude crítica">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 10–13</span>
+      <h2><span class="code">A1</span> O que é a filosofia? Uma atividade crítica</h2>
+    </header>
+
+    <div class="card">
+      <h3>A definição a saber de cor <span class="pg">p. 11</span></h3>
+      <p>Todos temos <b>crenças fundamentais</b> sobre o mundo, os outros e nós próprios, quase sempre sem pensar nelas.</p>
+      <div class="key">A filosofia é a atividade de questionamento crítico e radical das nossas crenças fundamentais.<small>"Radical" vem de raiz: vai ao fundo das questões.</small></div>
+      <p><b>Etimologia:</b> <i>philia</i> (amor, amizade) + <i>sophia</i> (sabedoria) = <mark>amor pela sabedoria</mark>. Mostra que a filosofia procura conhecimento, mas <b>não chega para a definir</b>: a física, a biologia ou a matemática também o procuram.</p>
+    </div>
+
+    <div class="card">
+      <h3>Laboratório mental: "Desenlear as novelas" <span class="pg">p. 10</span></h3>
+      <p>Uma seita de Weatherfield vivia fechada num abrigo. Desde pequenos, os membros aprendiam que as telenovelas eram documentários da realidade. Kenneth fugiu e descobriu que uma rua famosa era afinal um cenário de estúdio. Quando voltou e contou, chamaram-lhe lunático e expulsaram-no.</p>
+      <div class="vs">
+        <div class="bad"><b>Atitude dogmática</b>Os weatherfieldianos aceitam sem questionar o que o líder lhes diz. Não tinham com que comparar e rejeitam o que é diferente.</div>
+        <div class="good"><b>Atitude crítica</b>Kenneth desafia a autoridade e vai ver por si mesmo. Mesmo ficando com mais dúvidas do que certezas, ficou mais perto da verdade.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Filósofo ≠ sábio: Pitágoras <span class="pg">p. 12</span></h3>
+      <p><b>Pitágoras</b> (séc. VI a.C.) terá sido o primeiro a usar a palavra <i>philosophos</i>, para se distinguir do <i>sophos</i>:</p>
+      <div class="vs">
+        <div class="a"><b><i>Sophos</i> (sábio)</b>Possui, ou julga possuir, o conhecimento.</div>
+        <div class="b"><b><i>Philosophos</i> (filósofo)</b>Procura o conhecimento e admite que ainda não o tem.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Atitude crítica vs atitude dogmática <span class="pg">pp. 12–13</span></h3>
+      <div class="key">A filosofia é uma atividade crítica: implica avaliar de forma rigorosa e imparcial as razões que temos para pensar desta ou daquela maneira.<small>Não é ser "do contra". Podes concordar com uma ideia, desde que tenhas avaliado as razões a favor e contra.</small></div>
+      <ul>
+        <li><b>Atitude crítica:</b> estar disposto a analisar as nossas opiniões, avaliando as razões a favor e contra.</li>
+        <li><b>Atitude dogmática:</b> achar que certas ideias devem ser aceites sem as questionar.</li>
+      </ul>
+      <div class="mn"><b class="h">Atenção</b>A atitude crítica <b>não basta</b> para distinguir a filosofia da ciência: os cientistas também formulam teorias e põem-nas à prova de forma sistemática. No tempo de Pitágoras nem havia separação entre as duas. Para distinguir a filosofia, é preciso ver o <b>tipo de problemas</b> que estuda (A2 e A3).</div>
+    </div>
+
+    <div class="qs" data-s="a1"></div>
+  </section>
+
+  <!-- A2 -->
+  <section class="sec" id="a2" data-code="A2" data-title="Sócrates, conceitos, objeto e método">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 13–15 e 44</span>
+      <h2><span class="code">A2</span> Uma atividade conceptual: Sócrates, objeto e método</h2>
+    </header>
+
+    <div class="card">
+      <h3>"Só sei que nada sei" <span class="pg">pp. 13–14</span></h3>
+      <ul>
+        <li>O <b>oráculo de Delfos</b> disse que Sócrates era o homem mais sábio da Grécia. Ele achava que sabia muito pouco.</li>
+        <li>Foi interrogar quem era tido por sábio (políticos, militares, professores, artistas): "O que é a justiça? E a coragem? E a beleza?" Nenhum sabia responder bem.</li>
+        <li>Percebeu a mensagem do oráculo: a sua sabedoria era ter <mark>consciência da sua ignorância</mark>. Os outros nem sabiam que não sabiam.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Como se testa uma definição: o contraexemplo <span class="pg">p. 14</span></h3>
+      <p>Na <i>República</i> de Platão, Polemarco define justiça como <b>"restituir a cada um o que se lhe deve"</b>.</p>
+      <p>Sócrates responde com um <b>contraexemplo</b>: se um amigo nos deixar armas e depois enlouquecer e as pedir de volta, devolver-lhas não seria justo. Logo, a definição não serve para todos os casos.</p>
+      <div class="tip"><b class="h">Truque</b>Para atacar uma definição "x é y", procura um caso que é y mas não é x (ou que é x mas não é y).</div>
+    </div>
+
+    <div class="card">
+      <h3>Atividade conceptual <span class="pg">p. 15</span></h3>
+      <div class="key">A filosofia é uma atividade conceptual: ocupa-se de problemas acerca de conceitos fundamentais, muitas vezes com a forma "O que é x?".</div>
+      <p>Quer saber em que consistem conceitos como justiça, conhecimento, liberdade ou beleza, a que se aplicam e como se relacionam com outros.</p>
+    </div>
+
+    <div class="card">
+      <h3>Objeto e método: o esquema da síntese <span class="pg">pp. 15 e 44</span></h3>
+      <div class="flow" role="img" aria-label="A filosofia é uma atividade conceptual e crítica que se debruça sobre problemas acerca da natureza da realidade, do conhecimento e do valor. Para lhes responder, os filósofos formulam teses, que têm de se apoiar em argumentos, que podem ser válidos, sólidos e persuasivos.">
+        <span class="box main">Filosofia: atividade conceptual e crítica</span>
+        <span class="lnk">debruça-se sobre</span>
+        <span class="box">Problemas fundamentais acerca da natureza da…</span>
+        <span class="row"><span class="box">realidade</span><span class="box">conhecimento</span><span class="box">valor</span></span>
+        <span class="lnk">para lhes responder, os filósofos formulam</span>
+        <span class="box">Teses (teorias)</span>
+        <span class="lnk">que têm de se apoiar em</span>
+        <span class="box">Argumentos</span>
+        <span class="lnk">que podem ser</span>
+        <span class="row"><span class="box">válidos</span><span class="box">sólidos</span><span class="box">persuasivos</span></span>
+      </div>
+      <div class="vs">
+        <div class="a"><b>Objeto</b>Problemas fundamentais acerca da realidade, do conhecimento e do valor.</div>
+        <div class="c"><b>Método</b>Reflexão crítica, argumentação e discussão racional. <b>Não</b> é empírico.</div>
+      </div>
+      <p><b>Para fazer filosofia é preciso:</b> formular problemas · analisar conceitos · propor teorias (teses) · argumentar a favor delas · imaginar objeções.</p>
+    </div>
+
+    <div class="qs" data-s="a2"></div>
+  </section>
+
+  <!-- A3 -->
+  <section class="sec" id="a3" data-code="A3" data-title="Problemas filosóficos, científicos e matemáticos">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 16–18</span>
+      <h2><span class="code">A3</span> Que tipo de problema é?</h2>
+    </header>
+
+    <div class="card">
+      <h3>Três tipos de problemas <span class="pg">pp. 16–17</span></h3>
+      <div class="scroll"><table>
+        <thead><tr><th>Problemas</th><th>Empíricos?</th><th>Como se resolvem</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          <tr><td><b>Científicos</b></td><td><span class="pill y">Sim</span></td><td>Observação e experiência</td><td>Quantos dentes tem um urso polar?</td></tr>
+          <tr><td><b>Matemáticos</b></td><td><span class="pill n">Não</span></td><td>Pensamento, com <b>cálculos e provas formais</b></td><td>Qual é a área deste triângulo?</td></tr>
+          <tr><td><b>Filosóficos</b></td><td><span class="pill n">Não</span></td><td>Pensamento, <b>sem</b> cálculos: reflexão crítica, argumentação e discussão racional</td><td>O aborto é moralmente aceitável?</td></tr>
+        </tbody>
+      </table></div>
+      <p><b>Empírico</b> = resolve-se pela observação e experiência (olhar, medir, consultar dados).</p>
+      <p>Porque é que observar não resolve problemas filosóficos? Porque a observação diz-nos como as coisas <b>são</b>, não como <b>devem</b> (ou podem) ser.</p>
+    </div>
+
+    <div class="card">
+      <h3>Dois géneros de problemas filosóficos <span class="pg">p. 16</span></h3>
+      <div class="vs">
+        <div class="a"><b>Esclarecimento de conceitos</b>O que é a verdade? O que é a arte? O que é um número? O que é a consciência?</div>
+        <div class="b"><b>Relações entre conceitos</b>A mente é diferente do corpo? A existência de Deus é compatível com o mal? Pode haver guerras justas? O livre-arbítrio é compatível com o determinismo?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">👆</span>Classifica o problema</span></h3>
+      <p class="small">Toca no tipo de cada problema. Repara se a pergunta se resolve a olhar ou a medir, com cálculos, ou só a pensar e argumentar.</p>
+      <div class="wg" data-sort="tipos"></div>
+    </div>
+
+    <div class="card">
+      <h3>Duas conclusões precipitadas <span class="pg">p. 18</span></h3>
+      <p>Discutimos problemas que já ocupavam os gregos e continua a não haver acordo. Mas daí <b>não</b> se segue que:</p>
+      <div class="vs">
+        <div class="bad"><b>1. "Não há resposta certa."</b>Errado. "Deus existe" e "Deus não existe" dizem o contrário uma da outra, por isso não podem ser ambas verdadeiras. Uma delas está certa, mesmo que não saibamos qual.</div>
+        <div class="bad"><b>2. "Discutir é inútil."</b>Errado. Mesmo sem resposta definitiva, vale a pena pesar as razões, ver de que lado estão as mais fortes e viver de acordo com isso (como numa decisão importante da vida).</div>
+      </div>
+    </div>
+
+    <div class="qs" data-s="a3"></div>
+  </section>
+
+  <!-- A4 -->
+  <section class="sec" id="a4" data-code="A4" data-title="Áreas da filosofia">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 19 e 44–45</span>
+      <h2><span class="code">A4</span> Áreas da filosofia</h2>
+    </header>
+
+    <div class="card">
+      <h3>As quatro grandes áreas <span class="pg">p. 19</span></h3>
+      <p>Tal como a ciência tem várias disciplinas, a filosofia divide-se consoante o grupo de problemas de que se ocupa.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Área</th><th>Estuda a natureza…</th><th>Pergunta central</th><th>Outros problemas</th></tr></thead>
+        <tbody>
+          <tr><td><b>Metafísica</b></td><td>da <b>realidade</b></td><td>"O que é que há?"</td><td>Que tipos de coisas existem? Tudo o que existe é físico? <b>Há livre-arbítrio?</b> Pode haver ações livres num mundo em que tudo é causado?</td></tr>
+          <tr><td><b>Epistemologia</b></td><td>do <b>conhecimento</b></td><td>"Em que condições podemos dizer que sabemos seja o que for?"</td><td>O que é o conhecimento? Que tipos há? O conhecimento é possível ou vivemos numa ilusão?</td></tr>
+          <tr><td><b>Axiologia</b></td><td>do <b>valor</b></td><td>"O que são os valores?"</td><td>O que tem valor em si e o que tem valor só como meio? Os valores são subjetivos? O que torna uma ação certa ou errada? O aborto é aceitável?</td></tr>
+          <tr><td><b>Lógica</b></td><td>da <b>argumentação</b></td><td>O que torna um argumento correto?</td><td>Estuda os aspetos relevantes para a argumentação correta.</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>A <b>ética</b> (ou filosofia moral) é uma <b>subdivisão da axiologia</b>: trata dos valores morais (justiça, benevolência, honestidade…), ou seja, de como devemos conduzir a vida.</li>
+        <li>Há <b>outras disciplinas</b> ligadas a atividades humanas: filosofia da arte (estética), da religião, da linguagem… Ocupam-se dos problemas metafísicos, epistemológicos, axiológicos e lógicos que surgem nesses domínios.</li>
+      </ul>
+      <div class="mn"><b class="h">Liga com a Parte B</b>O problema do livre-arbítrio é um <b>problema metafísico</b>: é sobre a natureza da realidade (existem ou não ações genuinamente livres?).</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">👆</span>De que área é?</span></h3>
+      <p class="small">Toca na área a que pertence cada problema.</p>
+      <div class="wg" data-sort="areas"></div>
+    </div>
+
+    <div class="qs" data-s="a4"></div>
+  </section>
+
+  <!-- A5 -->
+  <section class="sec" id="a5" data-code="A5" data-title="Teses e argumentos">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 44–47 (síntese e exercícios)</span>
+      <h2><span class="code">A5</span> Teses, proposições e argumentos</h2>
+    </header>
+
+    <div class="card">
+      <h3>Proposições <span class="pg">p. 45</span></h3>
+      <ul>
+        <li>As <b>teses</b> (ou teorias) são as respostas dos filósofos aos problemas. São compostas por, pelo menos, uma proposição.</li>
+        <li>Uma <b>proposição</b> é o pensamento verdadeiro ou falso literalmente expresso por uma <b>frase declarativa</b>.</li>
+        <li>Frases <b>interrogativas</b> ("Será que…?"), <b>imperativas</b> ("Fecha a porta!") e <b>exclamativas/optativas</b> ("Oxalá…!") <b>não</b> exprimem proposições.</li>
+        <li>Frases diferentes podem exprimir a <b>mesma proposição</b>: "Alguns filósofos não são loucos" e "Nem todos os filósofos são loucos" = 2 frases, 1 proposição.</li>
+        <li>Um conjunto de proposições é <b>consistente</b> quando todas podem ser verdadeiras ao mesmo tempo. Se duas são <b>inconsistentes</b>, não podem ser ambas verdadeiras.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Argumentos <span class="pg">p. 45</span></h3>
+      <p>Um <b>argumento</b> é um conjunto de proposições em que se pretende justificar uma delas (a <b>conclusão</b>) com base nas outras (as <b>premissas</b>). Nem todo o conjunto de proposições é um argumento.</p>
+      <div class="vs">
+        <div class="a"><b>Dedutivos</b>Pretende-se que a verdade das premissas <b>garanta</b> a verdade da conclusão.</div>
+        <div class="b"><b>Não-dedutivos</b>Pretende-se apenas que a verdade das premissas <b>apoie</b> a conclusão (a torne provável).</div>
+      </div>
+      <div class="scroll"><table>
+        <thead><tr><th>Conceito</th><th>Definição (de cor!)</th></tr></thead>
+        <tbody>
+          <tr><td><b>Válido</b> <span class="tag">dedutivo</span></td><td>É <b>impossível</b> as premissas serem todas verdadeiras e a conclusão falsa.</td></tr>
+          <tr><td><b>Forte</b> <span class="tag">não-dedutivo</span></td><td>É <b>improvável</b> as premissas serem todas verdadeiras e a conclusão falsa.</td></tr>
+          <tr><td><b>Sólido</b></td><td>É <b>válido e tem premissas verdadeiras</b>. Por isso, a conclusão de um argumento sólido é sempre verdadeira.</td></tr>
+          <tr><td><b>Persuasivo</b> (bom)</td><td>É sólido e as premissas são <b>mais aceitáveis do que a conclusão</b>. Um argumento sólido pode não ser persuasivo se for <b>viciosamente circular</b>.</td></tr>
+        </tbody>
+      </table></div>
+      <div class="warn"><b class="h">Não confundir</b>Proposições: <b>verdadeiras ou falsas</b>. Argumentos: <b>válidos ou inválidos</b> (fortes ou fracos). Um argumento válido pode ter premissas falsas; só não pode ter premissas verdadeiras e conclusão falsa.</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">👆</span>Pode ser válido?</span></h3>
+      <p class="small">Toca em "Pode" ou "Nunca" para cada combinação de premissas e conclusão num argumento dedutivo.</p>
+      <div class="wg" data-sort="valido"></div>
+    </div>
+
+    <div class="card">
+      <h3>Formas que convém reconhecer</h3>
+      <div class="scroll"><table>
+        <thead><tr><th>Forma</th><th>Esquema</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><b>Modus Ponens</b></td><td>Se P, então Q. P. Logo, Q.</td><td><span class="pill y">válida</span></td></tr>
+          <tr><td><b>Modus Tollens</b></td><td>Se P, então Q. Não Q. Logo, não P.</td><td><span class="pill y">válida</span></td></tr>
+          <tr><td><b>Silogismo Hipotético</b></td><td>Se P, então Q. Se Q, então R. Logo, se P, então R.</td><td><span class="pill y">válida</span></td></tr>
+          <tr><td>Afirmação da consequente</td><td>Se P, então Q. Q. Logo, P.</td><td><span class="pill n">inválida</span></td></tr>
+          <tr><td>Negação da antecedente</td><td>Se P, então Q. Não P. Logo, não Q.</td><td><span class="pill n">inválida</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Exemplo do manual (p. 47): "Se o Marcelo está em Portugal, está na Europa. O Marcelo está na Europa. Logo, está em Portugal." É <b>inválido</b> (afirmação da consequente): podia estar em Espanha.</p>
+      <p class="small">Os argumentos da Parte B usam exatamente estas formas.</p>
+    </div>
+
+    <div class="card">
+      <h3>Refutar e contra-argumentar <span class="pg">p. 45</span></h3>
+      <p><b>Refutar</b> um argumento é mostrar que não é persuasivo. Há três formas:</p>
+      <ol>
+        <li>mostrar que as premissas não garantem nem apoiam a conclusão (não é <b>válido</b> nem <b>forte</b>);</li>
+        <li>mostrar que pelo menos uma premissa é <b>falsa</b> (mesmo válido, não é <b>sólido</b>);</li>
+        <li>mostrar que as premissas não são mais plausíveis do que a conclusão (mesmo sólido, é <b>viciosamente circular</b>).</li>
+      </ol>
+      <p><b>Contra-argumentar</b> é argumentar contra uma teoria ou argumento:</p>
+      <ul>
+        <li><b>De forma direta:</b> construir um argumento cuja conclusão é a <b>negação</b> da teoria (ou de uma premissa a favor dela).</li>
+        <li><b>De forma indireta</b> (<b>redução ao absurdo</b>): assumir a proposição como premissa e mostrar que leva, validamente, a consequências absurdas ou inaceitáveis.</li>
+      </ul>
+      <div class="mn"><b class="h">Exemplo da Parte B</b>A objeção da responsabilidade moral é uma redução ao absurdo do determinismo radical: se fosse verdadeiro, ninguém seria culpado de nada, o que é absurdo.</div>
+    </div>
+
+    <div class="qs" data-s="a5"></div>
+  </section>
+
+  <!-- ===================== PARTE B ===================== -->
+  <div class="part-title" id="parte-b">
+    <span class="eyebrow">Parte B · manual pp. 134–159</span>
+    <h2>Determinismo e liberdade na ação humana</h2>
+    <p>O problema do livre-arbítrio, o problema da compatibilidade e as três respostas: determinismo radical, libertismo e determinismo moderado.</p>
+  </div>
+
+  <!-- B1 -->
+  <section class="sec" id="b1" data-code="B1" data-title="O desafio do determinismo">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 134–137</span>
+      <h2><span class="code">B1</span> O desafio do determinismo</h2>
+    </header>
+
+    <div class="card">
+      <h3>Laboratório mental: "Um crime sem culpados" <span class="pg">p. 134</span></h3>
+      <p>Chicago, anos 1920. Leopold e Loeb ("Leopoldo e Carlos"), de 18 anos e de famílias conhecidas, mataram um rapaz só para cometer "o crime perfeito". O advogado <b>Clarence Darrow</b> pediu ao juiz compaixão: o ato deles resultou de <b>causas que não controlavam</b> ("um número infinito de causas que vão até ao início"). Foram condenados a prisão perpétua e não à morte.</p>
+      <p class="small">No fim do capítulo vais ver o que cada teoria diz desta estratégia (B7).</p>
+    </div>
+
+    <div class="card">
+      <h3>Que liberdade nos interessa? <span class="pg">p. 135</span></h3>
+      <p>"Liberdade" tem muitos sentidos: fazer o que nos apetece (não estar preso), eleger o governo, estar livre de preocupações, publicar o que quisermos…</p>
+      <p>Aqui interessa um sentido específico, ligado à <b>responsabilidade moral</b>: dizer que alguém agiu livremente é dizer que é, de algum modo, <b>responsável</b> por essa ação. Dizer que há ações livres é dizer que existe <b>livre-arbítrio</b>.</p>
+      <div class="key">Temos livre-arbítrio se, e só se, algumas das coisas que acontecem dependem, em última análise, da nossa vontade.<small>Basta <b>algumas</b>. Não é preciso que tudo dependa de nós.</small></div>
+      <p><b>Problema do livre-arbítrio:</b> "Será que temos livre-arbítrio?" É um problema <b>metafísico</b>.</p>
+      <p><b>Porque é importante?</b> Se não tivermos livre-arbítrio, teremos de rever práticas como o elogio e a censura, o prémio e o castigo. Se tivermos, algumas coisas são culpa nossa e merecemos ser responsabilizados por elas.</p>
+    </div>
+
+    <div class="card">
+      <h3>Porque acreditamos que temos livre-arbítrio <span class="pg">pp. 135–136</span></h3>
+      <p>Todos os dias escolhemos entre várias opções (chá, leite com chocolate, leite com café…). A escolha é influenciada por hábitos, pelo que há em casa ou pelo corpo, mas parece depender, <b>em última análise</b>, da nossa vontade.</p>
+      <p>E achamos o mesmo dos outros: por isso os censuramos quando fazem algo errado e os elogiamos quando fazem algo bom. Sentimos que podiam ter agido de outra forma.</p>
+    </div>
+
+    <div class="card">
+      <h3>…e porque acreditamos que tudo tem uma causa <span class="pg">pp. 136–137</span></h3>
+      <p>Também não conseguimos viver sem assumir que <b>todos os acontecimentos têm uma causa</b>. Se o leite não aquecesse ao lume, não encolhíamos os ombros: íamos procurar a causa (fogão avariado? leite estragado?).</p>
+      <div class="key">O determinismo é a tese de que tudo o que acontece é a consequência necessária de acontecimentos anteriores e das leis da natureza.<small><b>Tudo</b>, e não "a maioria" nem "alguns".</small></div>
+      <p>Se o determinismo for verdadeiro, <mark>o passado e as leis da natureza determinam, a cada instante, um único futuro possível</mark>. Dadas as mesmas condições iniciais, as leis da natureza geram necessariamente os mesmos resultados.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">👆</span>Uma cadeia de causas</span></h3>
+      <p class="small">Toca em "Empurrar" e vê o que acontece. O primeiro dominó é o passado distante e o último é a tua escolha de hoje.</p>
+      <div class="wg-tools"><button class="btn" type="button" id="dom-go">Empurrar o primeiro dominó</button><span class="wg-msg" id="dom-msg" aria-live="polite"></span></div>
+      <div class="dom" id="dom"></div>
+    </div>
+
+    <div class="card">
+      <h3>O demónio de Laplace <span class="pg">p. 137</span></h3>
+      <blockquote><p>"Podemos encarar o estado atual do universo como o efeito do seu passado e a causa do seu futuro. Um intelecto que conhecesse todas as forças da natureza e as posições de todos os objetos […] abrangeria numa única fórmula os movimentos dos maiores corpos e do átomo mais ínfimo. Para esse intelecto, nada seria incerto, e o futuro, como o passado, estaria diante dos seus olhos."</p><cite>Pierre-Simon Laplace, matemático francês (séc. XIX)</cite></blockquote>
+      <p class="small">A série <i>DEVS</i> trocou o demónio por um supercomputador.</p>
+    </div>
+
+    <div class="card">
+      <h3>A tensão <span class="pg">p. 137</span></h3>
+      <div class="vs">
+        <div class="a"><b>Crença 1</b>Temos livre-arbítrio: algumas coisas dependem de nós.</div>
+        <div class="b"><b>Crença 2</b>Determinismo: tudo é consequência necessária do passado e das leis da natureza.</div>
+      </div>
+      <p>As nossas ações também são acontecimentos. Se tudo é consequência necessária de fatores que <b>não controlamos</b> (o passado e as leis da natureza), <b>como podem as nossas ações depender de nós?</b></p>
+    </div>
+
+    <div class="qs" data-s="b1"></div>
+  </section>
+
+  <!-- B2 -->
+  <section class="sec" id="b2" data-code="B2" data-title="Os dois problemas e as três posições">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 138–139 e 154–155</span>
+      <h2><span class="code">B2</span> Dois problemas, três posições</h2>
+    </header>
+
+    <div class="card">
+      <h3>Os dois problemas <span class="pg">p. 138</span></h3>
+      <div class="vs">
+        <div class="a"><b>Problema tradicional</b>"Temos livre-arbítrio?"</div>
+        <div class="b"><b>Problema da compatibilidade</b>"Será o livre-arbítrio compatível com o determinismo?" Ou seja, podem as duas crenças ser <b>ambas verdadeiras</b>?</div>
+      </div>
+      <p>Há duas respostas ao problema da compatibilidade:</p>
+      <ul>
+        <li><b>Incompatibilismo:</b> o livre-arbítrio <b>não</b> é compatível com o determinismo. Ou seja, aceita a condicional "<b>Se o determinismo for verdadeiro, não temos livre-arbítrio</b>".</li>
+        <li><b>Compatibilismo:</b> o livre-arbítrio <b>é</b> compatível com o determinismo.</li>
+      </ul>
+      <div class="mn"><b class="h">Atenção</b>Ser incompatibilista ainda <b>não</b> responde ao problema tradicional: não diz se o determinismo é verdadeiro nem se temos livre-arbítrio. Por isso há <b>dois</b> tipos de incompatibilistas.</div>
+    </div>
+
+    <div class="card">
+      <h3>Mapa das posições <span class="pg">pp. 138, 154</span></h3>
+      <div class="scroll">
+        <div class="tree" role="img" aria-label="O livre-arbítrio é compatível com o determinismo? Não: incompatibilismo, que inclui o determinismo radical (sem livre-arbítrio) e o libertismo (com livre-arbítrio). Sim: compatibilismo, que inclui o determinismo moderado (com livre-arbítrio).">
+          <div class="node q">O livre-arbítrio é compatível com o determinismo?</div>
+          <div class="hline"></div>
+          <div class="node mid"><span class="pill n">Não</span> Incompatibilismo</div>
+          <div class="node mid c"><span class="pill y">Sim</span> Compatibilismo</div>
+          <div class="stem"></div><div class="stem"></div><div class="stem"></div>
+          <div class="leaf"><div class="node">Determinismo radical</div><span class="tag">Livre-arbítrio? <span class="pill n">Não</span></span></div>
+          <div class="leaf"><div class="node">Libertismo</div><span class="tag">Livre-arbítrio? <span class="pill y">Sim</span></span></div>
+          <div class="leaf"><div class="node">Determinismo moderado</div><span class="tag">Livre-arbítrio? <span class="pill y">Sim</span></span></div>
+        </div>
+      </div>
+      <div class="scroll"><table>
+        <thead><tr><th>Teoria</th><th>Compatíveis?</th><th>Temos livre-arbítrio?</th><th>Determinismo verdadeiro?</th></tr></thead>
+        <tbody>
+          <tr><td><b>Libertismo</b> <span class="tag">incompat.</span></td><td class="c"><span class="pill n">Não</span></td><td class="c"><span class="pill y">Sim</span></td><td class="c"><span class="pill n">Não</span></td></tr>
+          <tr><td><b>Determinismo radical</b> <span class="tag">incompat.</span></td><td class="c"><span class="pill n">Não</span></td><td class="c"><span class="pill n">Não</span></td><td class="c"><span class="pill y">Sim</span></td></tr>
+          <tr><td><b>Determinismo moderado</b> <span class="tag">compat.</span></td><td class="c"><span class="pill y">Sim</span></td><td class="c"><span class="pill y">Sim</span></td><td class="c"><span class="pill y">Sim</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="card">
+      <h3>As três teses em i), ii), iii) <span class="pg">pp. 138, 155</span></h3>
+      <div class="vs vs3">
+        <div class="b"><b>Libertismo</b>i) LA incompatível com determinismo; ii) temos LA; logo iii) <b>nem tudo</b> está determinado.</div>
+        <div class="bad"><b>Determinismo radical</b>i) LA incompatível com determinismo; ii) <b>tudo</b> está determinado; logo iii) não temos LA.</div>
+        <div class="good"><b>Determinismo moderado</b>i) LA <b>compatível</b> com determinismo; ii) tudo está determinado; e iii) temos LA.</div>
+      </div>
+      <div class="tip"><b class="h">Para decorar</b>Libertismo e determinismo moderado <b>concordam</b> que temos livre-arbítrio. Determinismo radical e moderado <b>concordam</b> que tudo está determinado. Libertismo e determinismo radical <b>concordam</b> que são incompatíveis.</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">👆</span>Descobre a posição</span></h3>
+      <p class="small">Responde às duas perguntas e vê que teoria defenderias.</p>
+      <div class="pos" id="pos"></div>
+    </div>
+
+    <div class="qs" data-s="b2"></div>
+  </section>
+
+  <!-- B3 -->
+  <section class="sec" id="b3" data-code="B3" data-title="A resposta incompatibilista">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 140–142</span>
+      <h2><span class="code">B3</span> A resposta incompatibilista: o argumento da consequência</h2>
+    </header>
+
+    <div class="card">
+      <h3>O argumento da consequência (Peter van Inwagen) <span class="pg">p. 140</span></h3>
+      <div class="arg">
+        <div class="l"><span class="n">(1)</span><span>Se o determinismo é verdadeiro, então não temos possibilidades alternativas.</span></div>
+        <div class="l"><span class="n">(2)</span><span>Se não temos possibilidades alternativas, então não temos livre-arbítrio.</span></div>
+        <div class="l c"><span class="n">(3)</span><span>Logo, se o determinismo é verdadeiro, então não temos livre-arbítrio.<span class="r">De 1 e 2, por Silogismo Hipotético</span></span></div>
+      </div>
+      <p>É <b>válido</b> (Silogismo Hipotético): quem aceita as premissas é racionalmente forçado a aceitar a conclusão. A questão é se é <b>sólido</b>. Os incompatibilistas acham que sim.</p>
+      <p><b>Possibilidades alternativas</b> = poder ter agido de outro modo.</p>
+      <p><b>Porquê "da consequência"?</b> Porque, se o determinismo é verdadeiro, as nossas ações são a <b>consequência</b> de coisas que não controlamos, por isso também escapam ao nosso controlo.</p>
+    </div>
+
+    <div class="card">
+      <h3>Como se defende cada premissa <span class="pg">pp. 140–142</span></h3>
+      <div class="split">
+        <div>
+          <b>Defesa da premissa (1)</b>
+          <p style="font-size:.93rem">Se o passado e as leis da natureza determinam um único futuro, e nós não controlamos o passado nem as leis da natureza, então quando agimos não temos genuinamente possibilidades alternativas.</p>
+          <blockquote><p>"Nem aquilo que aconteceu antes de termos nascido, nem as leis da natureza, dependem de nós. Logo, as consequências destas coisas (incluindo os atos que realizamos agora) não dependem de nós."</p><cite>van Inwagen</cite></blockquote>
+          <p style="font-size:.9rem">Na banda desenhada (p. 141): somos feitos de átomos. Se só há uma sequência possível de movimentos dos átomos, só há uma sequência possível para nós, sejam quais forem as nossas crenças e desejos.</p>
+        </div>
+        <div>
+          <b>Defesa da premissa (2)</b>
+          <p style="font-size:.93rem">Intuitivamente, só achamos que alguém agiu de livre vontade se podia ter agido de outro modo. Se não podia, não é apropriado responsabilizá-lo.</p>
+          <blockquote><p>Raptam-te, obrigam-te a disparar, hipnotizam-te para envenenar e empurram-te de um avião para cima de uma terceira vítima. Sobrevives e és acusado de homicídio. Será justo culpar-te?</p><cite>Sider e Conee (adaptado)</cite></blockquote>
+          <p style="font-size:.9rem">Respondemos que não, porque <b>não havia nada que pudesses ter feito</b> para o evitar. Sem possibilidades alternativas, não há responsabilidade, logo não há livre-arbítrio.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">✏️</span>Completa o argumento</span></h3>
+      <p class="small">Escolhe a opção certa em cada espaço e toca em "Verificar".</p>
+      <div class="cloze" data-cloze="consequencia"></div>
+    </div>
+
+    <div class="qs" data-s="b3"></div>
+  </section>
+
+  <!-- B4 -->
+  <section class="sec" id="b4" data-code="B4" data-title="A resposta compatibilista e as gomas">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 143–146</span>
+      <h2><span class="code">B4</span> A resposta compatibilista: a análise condicional</h2>
+    </header>
+
+    <div class="card">
+      <h3>Rejeitar a premissa (1) <span class="pg">p. 143</span></h3>
+      <p>O argumento da consequência é válido. Para não aceitarem a conclusão, os compatibilistas têm de rejeitar uma premissa. Os <b>compatibilistas clássicos</b> aceitam a (2) e <b>rejeitam a (1)</b>.</p>
+      <p>A (1) é uma <b>condicional</b>. Para mostrar que é falsa, é preciso <b>afirmar a antecedente e negar a consequente</b>: "<b>ainda que o determinismo seja verdadeiro, temos possibilidades alternativas</b>".</p>
+    </div>
+
+    <div class="card">
+      <h3>G. E. Moore: o que quer dizer "eu poderia"? <span class="pg">p. 143</span></h3>
+      <blockquote><p>"Em que sentido eu poderia ter caminhado uma milha em vinte minutos esta manhã, ainda que não o tenha feito? […] Quero dizer apenas que eu tê-lo-ia feito, se assim tivesse escolhido. […] Neste sentido, muitas vezes poderíamos ter feito o que não fizemos, e isso não é de forma alguma inconsistente com o princípio de que tudo tem uma causa."</p><cite>G. E. Moore, Ethics</cite></blockquote>
+      <div class="key">"Eu poderia ter feito x" significa "Eu teria feito x, se assim tivesse escolhido".<small>Moore não estava paralisado, a porta não estava trancada, ninguém o amarrou: não havia constrangimentos externos.</small></div>
+    </div>
+
+    <div class="card">
+      <h3>A análise condicional <span class="pg">p. 144</span></h3>
+      <div class="key">Um agente tem possibilidades alternativas se, e só se, caso tivesse escolhido fazer outra coisa, teria feito outra coisa (isto é, não teria sido impedido por nada nem ninguém de o fazer).</div>
+      <p><b>Exemplo da festa:</b> tens testes na próxima semana, és convidado para uma festa e decides ficar a estudar. Essa decisão foi determinada pelo passado e pelas leis da natureza.</p>
+      <div class="vs">
+        <div class="bad"><b>🔒 Cenário A</b>A porta do quarto estava trancada. Mesmo que decidisses ir à festa, não conseguias. <b>Não foste livre.</b></div>
+        <div class="good"><b>🔓 Cenário B</b>A porta estava aberta. Se tivesses escolhido ir, terias ido. <b>Foste livre</b> (apesar de a decisão ser determinada).</div>
+      </div>
+      <div class="key">Para os compatibilistas clássicos, somos livres quando não somos coagidos: quando nenhuma pessoa ou circunstância externa nos impede de fazer o que queremos (ou nos força a fazer o que não queremos).<small>Liberdade = ausência de constrangimento externo.</small></div>
+      <div class="vs">
+        <div class="bad"><b>Não livre</b>Quem passa fome no deserto: mesmo que decida comer, é impedido pelas circunstâncias.</div>
+        <div class="good"><b>Livre</b>Quem faz greve de fome por uma causa política: se quisesse comer, nada o impediria.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>O argumento dos compatibilistas clássicos <span class="pg">p. 145</span></h3>
+      <div class="arg">
+        <div class="l"><span class="n">(1)</span><span>Temos possibilidades alternativas se, e só se, há situações em que, caso tivéssemos escolhido fazer outra coisa, teríamos feito outra coisa.</span></div>
+        <div class="l"><span class="n">(2)</span><span>Ainda que o determinismo seja verdadeiro, há situações em que, caso tivéssemos escolhido fazer outra coisa, teríamos feito outra coisa.</span></div>
+        <div class="l c"><span class="n">(3)</span><span>Logo, ainda que o determinismo seja verdadeiro, temos possibilidades alternativas.<span class="r">De 1 e 2 · é a negação da premissa (1) do argumento da consequência</span></span></div>
+        <div class="l"><span class="n">(4)</span><span>Se temos possibilidades alternativas, podemos ter livre-arbítrio.</span></div>
+        <div class="l c"><span class="n">(5)</span><span>Logo, ainda que o determinismo seja verdadeiro, podemos ter livre-arbítrio.<span class="r">De 3 e 4</span></span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">👆</span>Livre ou não livre?</span></h3>
+      <p class="small">Segundo o compatibilismo clássico, cada ação é livre ou não livre? Toca na resposta. (Exercício 4 da p. 146 e mais alguns.)</p>
+      <div class="wg" data-sort="livre"></div>
+    </div>
+
+    <div class="card">
+      <h3>Objeção à análise condicional: o caso das gomas vermelhas <span class="pg">pp. 145–146</span></h3>
+      <p>Os incompatibilistas não aceitam que estas duas frases digam o mesmo:</p>
+      <div class="vs">
+        <div class="a"><b>a)</b>"Eu podia ter agido de outro modo."</div>
+        <div class="b"><b>b)</b>"Se eu tivesse escolhido agir de outro modo, então teria agido de outro modo."</div>
+      </div>
+      <p>Se dissessem o mesmo, sempre que uma fosse verdadeira a outra também seria. Mas há casos em que <b>b) é verdadeira e a) é falsa</b>:</p>
+      <blockquote><p>Oferecem a alguém um frasco de doces com gomas vermelhas. A pessoa tem uma <b>aversão patológica</b> a gomas vermelhas (lembram-lhe gotas de sangue) e não tira nenhuma. É verdade que tiraria um doce <i>se escolhesse fazê-lo</i>, mas, dada a aversão, <b>nunca poderia ter escolhido</b> isso. Não podemos dizer que tinha, de facto, a capacidade de tirar um doce.</p></blockquote>
+      <p><b>Conclusão dos incompatibilistas:</b> "teria feito x, se tivesse escolhido" não chega. Num mundo determinista, dado o passado e as leis da natureza, <b>jamais poderíamos ter escolhido</b> outra coisa, por isso nunca poderíamos ter agido de outra maneira.</p>
+    </div>
+
+    <div class="qs" data-s="b4"></div>
+  </section>
+
+  <!-- B5 -->
+  <section class="sec" id="b5" data-code="B5" data-title="Determinismo radical e objeções">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 147–148</span>
+      <h2><span class="code">B5</span> Determinismo radical</h2>
+    </header>
+
+    <div class="card">
+      <h3>O argumento <span class="pg">p. 147</span></h3>
+      <p>Os deterministas radicais completam o argumento da consequência (linhas 1 a 3) com uma premissa nova:</p>
+      <div class="arg">
+        <div class="l shared"><span class="n">(1)</span><span>Se o determinismo é verdadeiro, então não temos possibilidades alternativas.</span></div>
+        <div class="l shared"><span class="n">(2)</span><span>Se não temos possibilidades alternativas, então não temos livre-arbítrio.</span></div>
+        <div class="l shared"><span class="n">(3)</span><span>Se o determinismo é verdadeiro, então não temos livre-arbítrio.<span class="r">De 1 e 2, por Silogismo Hipotético</span></span></div>
+        <div class="l"><span class="n">(4)</span><span><b>O determinismo é verdadeiro.</b></span></div>
+        <div class="l c"><span class="n">(5)</span><span>Logo, não temos livre-arbítrio.<span class="r">De 3 e 4, por Modus Ponens</span></span></div>
+      </div>
+      <p class="small">Gralha no manual: na p. 147, a linha (5) diz "De 1 e 2"; deve ser <b>"De 3 e 4"</b>.</p>
+    </div>
+
+    <div class="card">
+      <h3>Defesa da premissa (4) <span class="pg">p. 147</span></h3>
+      <ul>
+        <li><b>Experiência do dia a dia:</b> não conseguimos viver sem assumir que as mesmas causas têm os mesmos efeitos. Quando algo falha, procuramos uma causa diferente no passado.</li>
+        <li><b>Sucesso da ciência:</b> a explicação e previsão dos fenómenos naturais assenta na convicção de que tudo é consequência dos acontecimentos anteriores e das leis da natureza.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Objeção da mecânica quântica <span class="pg">pp. 147–148</span></h3>
+      <p>Os <b>libertistas</b> também são incompatibilistas (aceitam 1 a 3). Por isso, para refutar o determinismo radical, só podem atacar a <b>premissa (4)</b>: mostrar que o determinismo é falso.</p>
+      <p>A mecânica quântica estuda as partículas elementares. Segundo uma interpretação comum, nunca podemos saber com exatidão a posição futura de certas partículas, só calcular a <b>mais provável</b>. Dois sistemas com as mesmas condições iniciais e as mesmas leis deviam dar o mesmo resultado, mas há resultados experimentais que sugerem o contrário.</p>
+      <div class="key">Logo, parece haver acontecimentos genuinamente indeterminados no universo, e o determinismo é falso.</div>
+    </div>
+
+    <div class="card">
+      <h3>Objeção da responsabilidade moral <span class="pg">p. 148</span></h3>
+      <blockquote><p>"Se o livre-arbítrio não existir, a responsabilidade moral também não existe. É, contudo, evidente que a responsabilidade moral existe; se não existisse, nada seria culpa de ninguém e é evidente que existem estados de coisas em relação aos quais podemos apontar o dedo e dizer, com justiça, a certas pessoas: Isto é culpa tua."</p><cite>Peter van Inwagen</cite></blockquote>
+      <p>O determinismo radical implica que <b>ninguém é moralmente responsável por nada</b>. Mas a admiração, a censura, o louvor e a culpa pressupõem que somos responsáveis por algumas coisas. Se não aceitamos que todos estes comportamentos são absurdos, somos <b>racionalmente forçados a rejeitar o determinismo</b>.</p>
+      <div class="tip"><b class="h">Ideia-chave</b>Há responsabilidade moral; por isso, o determinismo (radical) é falso. É uma redução ao absurdo.</div>
+    </div>
+
+    <div class="qs" data-s="b5"></div>
+  </section>
+
+  <!-- B6 -->
+  <section class="sec" id="b6" data-code="B6" data-title="Libertismo e objeções">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 149–151</span>
+      <h2><span class="code">B6</span> Libertismo</h2>
+    </header>
+
+    <div class="card">
+      <h3>O argumento <span class="pg">p. 149</span></h3>
+      <div class="arg">
+        <div class="l shared"><span class="n">(1)</span><span>Se o determinismo é verdadeiro, então não temos possibilidades alternativas.</span></div>
+        <div class="l shared"><span class="n">(2)</span><span>Se não temos possibilidades alternativas, então não temos livre-arbítrio.</span></div>
+        <div class="l shared"><span class="n">(3)</span><span>Se o determinismo é verdadeiro, então não temos livre-arbítrio.<span class="r">De 1 e 2, por Silogismo Hipotético</span></span></div>
+        <div class="l"><span class="n">(4*)</span><span><b>Temos livre-arbítrio.</b></span></div>
+        <div class="l c"><span class="n">(5*)</span><span>Logo, o determinismo é falso.<span class="r">De 3 e 4*, por Modus Tollens</span></span></div>
+      </div>
+      <div class="split">
+        <div><b>Det. radical</b><span class="small">Se D, então não LA. <b>D.</b> Logo, não LA.</span><span class="pill a">Modus Ponens</span></div>
+        <div><b>Libertismo</b><span class="small">Se D, então não LA. <b>LA.</b> Logo, não D.</span><span class="pill a">Modus Tollens</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Defesa da premissa (4*) <span class="pg">pp. 149–150</span></h3>
+      <p>Para os libertistas, a crença no livre-arbítrio é <b>inegável</b>: não somos capazes de viver, fazer escolhas e agir <b>sem pressupor</b> o livre-arbítrio. Temos sempre a sensação de que as decisões, mesmo influenciadas, dependem em última análise da nossa vontade.</p>
+      <p>É <b>mais plausível</b> que isso se deva a termos mesmo livre-arbítrio do que a um erro permanente e sistemático da nossa parte.</p>
+      <p class="small">Exemplo: se alguém nos bate, é inevitável pensar que podia parar se quisesse (a não ser que tenha uma perturbação mental ou compulsão).</p>
+    </div>
+
+    <div class="card">
+      <h3>Objeção da ilusão (Espinosa, Schopenhauer) <span class="pg">p. 150</span></h3>
+      <p>Os deterministas radicais aceitam a linha (3), por isso atacam a <b>premissa (4*)</b>. A sensação de liberdade é uma <b>ilusão</b>:</p>
+      <div class="key">Julgamo-nos livres porque temos consciência dos nossos desejos, mas ignoramos as causas que os determinam.</div>
+      <blockquote><p>Uma pedra recebe um impulso e continua a mover-se. Se a pedra, enquanto se move, pensasse, acreditaria ser livre e mover-se por vontade própria. "Assim é esta liberdade humana que todos os homens se vangloriam de ter."</p><cite>Bento de Espinosa (1632–1677)</cite></blockquote>
+    </div>
+
+    <div class="card">
+      <h3>Objeção da aleatoriedade (deterministas moderados) <span class="pg">pp. 150–151</span></h3>
+      <p>Os deterministas moderados também acham que temos livre-arbítrio, por isso não atacam (4*). Tentam mostrar que o livre-arbítrio não só é compatível com o determinismo como <b>parece impossível sem ele</b>.</p>
+      <div class="key">Uma escolha que não é determinada por acontecimentos anteriores não é livre: é aleatória, fruto do acaso, que não controlamos.</div>
+      <blockquote><p>John hesitava entre férias no Havai ou no Colorado e escolheu o Havai. Se a escolha foi indeterminada, exatamente a mesma deliberação, as mesmas crenças e desejos podiam, por puro acaso, tê-lo levado ao Colorado. Isso seria um acidente e não uma escolha racional.</p><cite>Robert Kane (adaptado)</cite></blockquote>
+      <p>Uma decisão assim seria <b>arbitrária e irracional</b>, não livre e responsável.</p>
+    </div>
+
+    <div class="qs" data-s="b6"></div>
+  </section>
+
+  <!-- B7 -->
+  <section class="sec" id="b7" data-code="B7" data-title="Determinismo moderado, Darrow e síntese">
+    <header class="sec-head">
+      <span class="eyebrow">Manual pp. 151–155</span>
+      <h2><span class="code">B7</span> Determinismo moderado, o caso Darrow e a síntese</h2>
+    </header>
+
+    <div class="card">
+      <h3>O argumento do determinismo moderado <span class="pg">p. 151</span></h3>
+      <p>Se há boas razões para pensar que o determinismo é verdadeiro <b>e</b> que temos livre-arbítrio, e se são compatíveis, chega-se ao determinismo moderado.</p>
+      <div class="arg">
+        <div class="l shared"><span class="n">(1)</span><span>Temos possibilidades alternativas se, e só se, há situações em que, caso tivéssemos escolhido fazer outra coisa, teríamos feito outra coisa.</span></div>
+        <div class="l shared"><span class="n">(2)</span><span>Ainda que o determinismo seja verdadeiro, há situações dessas.</span></div>
+        <div class="l shared"><span class="n">(3)</span><span>Logo, ainda que o determinismo seja verdadeiro, temos possibilidades alternativas.<span class="r">De 1 e 2</span></span></div>
+        <div class="l shared"><span class="n">(4)</span><span>Se temos possibilidades alternativas, podemos ter livre-arbítrio.</span></div>
+        <div class="l shared"><span class="n">(5)</span><span>Logo, ainda que o determinismo seja verdadeiro, podemos ter livre-arbítrio.<span class="r">De 3 e 4</span></span></div>
+        <div class="l"><span class="n">(6)</span><span><b>O determinismo é verdadeiro.</b></span></div>
+        <div class="l"><span class="n">(7)</span><span><b>Temos livre-arbítrio.</b></span></div>
+        <div class="l c"><span class="n">(8)</span><span>Logo, temos livre-arbítrio, apesar de o determinismo ser verdadeiro.<span class="r">De 6 e 7</span></span></div>
+      </div>
+      <p><b>Objeções:</b> às linhas (1)–(5), o <b>caso das gomas vermelhas</b> (análise condicional, B4). À (6), a <b>mecânica quântica</b>. À (7), a <b>ilusão</b>.</p>
+    </div>
+
+    <div class="card">
+      <h3>Objeções: quem ataca quem</h3>
+      <div class="scroll"><table>
+        <thead><tr><th>Objeção</th><th>Contra</th><th>Ataca</th><th>Ideia numa frase</th></tr></thead>
+        <tbody>
+          <tr><td><b>Mecânica quântica</b></td><td>Det. radical (e o determinismo em geral)</td><td>premissa (4)</td><td>Há acontecimentos genuinamente indeterminados.</td></tr>
+          <tr><td><b>Responsabilidade moral</b> <span class="tag">van Inwagen</span></td><td>Det. radical</td><td>premissa (4)</td><td>Há responsabilidade moral; logo o determinismo é falso.</td></tr>
+          <tr><td><b>Ilusão</b> <span class="tag">Espinosa, Schopenhauer</span></td><td>Libertismo</td><td>premissa (4*)</td><td>Conhecemos os desejos, ignoramos as suas causas.</td></tr>
+          <tr><td><b>Aleatoriedade</b> <span class="tag">Kane</span></td><td>Libertismo</td><td>premissa (4*)</td><td>Ação indeterminada = acaso, não liberdade.</td></tr>
+          <tr><td><b>Gomas vermelhas</b></td><td>Det. moderado / compatibilismo clássico</td><td>análise condicional</td><td>"Faria se escolhesse" não garante que podia escolher.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">✏️</span>Liga cada objeção ao alvo</span></h3>
+      <p class="small">Escolhe contra que teoria é cada objeção e toca em "Verificar".</p>
+      <div class="cloze" data-cloze="objecoes"></div>
+    </div>
+
+    <div class="card">
+      <h3>O caso de Clarence Darrow, outra vez <span class="pg">p. 153</span></h3>
+      <div class="scroll"><table>
+        <thead><tr><th>Teoria</th><th>Darrow?</th><th>Porquê</th></tr></thead>
+        <tbody>
+          <tr><td><b>Libertismo</b></td><td><span class="pill n">Discorda</span></td><td>O passado influenciou, mas não determinou a decisão. Eram livres de cometer ou não o crime, logo são responsáveis.</td></tr>
+          <tr><td><b>Determinismo moderado</b></td><td><span class="pill n">Discorda</span></td><td>O crime foi determinado, mas correspondia à vontade deles: não foram forçados por fatores externos. Foram livres e são responsáveis.</td></tr>
+          <tr><td><b>Determinismo radical</b></td><td><span class="pill y">Pode concordar</span></td><td>Não havia nada que pudessem ter feito para evitar o crime, por isso não faz sentido responsabilizá-los. <b>Mas</b> pode defender uma pena severa, não porque a mereçam, e sim para <b>dissuadir</b> crimes futuros: o presente também determina o futuro.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="card">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">🎯</span>Quem aceita esta afirmação?</span></h3>
+      <p class="small">É aqui que se perdem mais pontos. Para cada afirmação, toca nas teorias que a aceitam (pode ser mais do que uma, ou nenhuma) e depois em "Verificar". As mais difíceis são das pp. 156–157 do manual.</p>
+      <div class="mx" id="mx"></div>
+    </div>
+
+    <div class="qs" data-s="b7"></div>
+  </section>
+
+  <!-- ===================== CÁBULA ===================== -->
+  <section class="block" id="cabula">
+    <div class="sec-head">
+      <span class="eyebrow">Para ler na quinta de manhã</span>
+      <h2>Cábula</h2>
+    </div>
+    <div class="card">
+      <h3>Definições de cor</h3>
+      <ul>
+        <li><b>Filosofia:</b> atividade de questionamento crítico e radical das nossas crenças fundamentais. Atividade <b>crítica</b> e <b>conceptual</b>.</li>
+        <li><b>Objeto:</b> problemas fundamentais acerca da realidade (metafísica), do conhecimento (epistemologia) e do valor (axiologia; a ética é uma parte).</li>
+        <li><b>Método:</b> reflexão crítica, argumentação e discussão racional. Não empírico e sem cálculos.</li>
+        <li><b>Válido:</b> impossível premissas verdadeiras e conclusão falsa. <b>Forte:</b> improvável. <b>Sólido:</b> válido + premissas verdadeiras. <b>Persuasivo:</b> sólido + premissas mais aceitáveis do que a conclusão.</li>
+        <li><b>Livre-arbítrio:</b> <u>algumas</u> das coisas que acontecem dependem, em última análise, da nossa vontade.</li>
+        <li><b>Determinismo:</b> <u>tudo</u> o que acontece é a consequência necessária de acontecimentos anteriores e das leis da natureza.</li>
+        <li><b>Incompatibilismo:</b> LA não é compatível com o determinismo. <b>Compatibilismo:</b> é compatível.</li>
+        <li><b>Análise condicional:</b> temos possibilidades alternativas sse, caso tivéssemos escolhido fazer outra coisa, teríamos feito outra coisa.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Os três argumentos numa linha</h3>
+      <div class="scroll"><table>
+        <thead><tr><th>Teoria</th><th>Junta às linhas comuns</th><th>Conclusão</th><th>Forma</th></tr></thead>
+        <tbody>
+          <tr><td><b>Det. radical</b></td><td>(1)–(3) + (4) O determinismo é verdadeiro</td><td>Não temos LA</td><td>Modus Ponens</td></tr>
+          <tr><td><b>Libertismo</b></td><td>(1)–(3) + (4*) Temos LA</td><td>O determinismo é falso</td><td>Modus Tollens</td></tr>
+          <tr><td><b>Det. moderado</b></td><td>Análise condicional (1)–(5) + (6) determinismo + (7) LA</td><td>Temos LA apesar do determinismo</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Linhas comuns (argumento da consequência): (1) Se D, então não há possibilidades alternativas. (2) Se não há possibilidades alternativas, não há LA. (3) Logo, se D, não há LA (Silogismo Hipotético).</p>
+    </div>
+    <div class="card">
+      <h3>Objeções e quem as faz</h3>
+      <div class="objs">
+        <span class="pill o">Mecânica quântica → det. radical</span>
+        <span class="pill o">Responsabilidade moral (van Inwagen) → det. radical</span>
+        <span class="pill o">Ilusão (Espinosa, pedra) → libertismo</span>
+        <span class="pill o">Aleatoriedade (Kane, John e o Havai) → libertismo</span>
+        <span class="pill o">Gomas vermelhas → análise condicional (det. moderado)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TREINO ===================== -->
+  <section class="block" id="treino">
+    <div class="sec-head">
+      <span class="eyebrow">Revisão final</span>
+      <h2><span class="ht"><span class="hi" aria-hidden="true">🎲</span>Treino aleatório</span></h2>
+      <p class="lede">Dez perguntas de escolha múltipla ou verdadeiro/falso, misturadas de todas as secções. As respostas daqui não contam para o progresso.</p>
+    </div>
+    <div class="wg-tools">
+      <button class="btn" type="button" id="rnd-new">Nova ronda</button>
+      <label class="small"><input type="checkbox" id="rnd-later"> só secções ★</label>
+      <label class="small"><input type="checkbox" id="rnd-qlater"> só perguntas ★</label>
+      <label class="small"><input type="checkbox" id="rnd-wrong"> só as que errei</label>
+      <label class="small">Parte <select id="rnd-part"><option value="">A e B</option><option value="a">só A</option><option value="b">só B</option></select></label>
+      <span class="wg-msg" id="rnd-score" aria-live="polite"></span>
+    </div>
+    <div class="qs" id="rnd"></div>
+  </section>
+
+  <footer>
+    <span>Baseado no manual (pp. 10–19, 44–47 e 134–159) e nas fichas de avaliação da editora (Introdução à filosofia; Determinismo e liberdade). As fichas de lógica formal e informal, ética e justiça não entram, porque são de matéria fora destas páginas.</span>
+    <span><button class="ghost" type="button" id="reset-all">Apagar todo o progresso desta página</button></span>
+  </footer>
+</div>
+
+<script>
+/* ===== Banco de perguntas =====
+   mc(nível, pergunta, opções, índice certo, explicação)
+   tf(nível, afirmação, true/false, explicação)
+   op(nível, "r" curta | "x" extensa, pergunta, pontos-chave[], exemplo de resposta)
+   Nível: 1 fácil, 2 médio, 3 difícil. */
+const mc=(d,q,o,a,e)=>({t:"mc",d,q,o,a,e});
+const tf=(d,q,a,e)=>({t:"tf",d,q,a,e});
+const op=(d,k,q,pts,m)=>({t:"op",d,k,q,pts,m});
+const doc=(t,src)=>`<span class="doc">${t}${src?`<span class="src">${src}</span>`:""}</span>`;
+
+const Q = {
+a1:[
+ mc(1,`A palavra «filosofia» vem do grego e significa…`,[`amor pela sabedoria.`,`estudo da natureza.`,`conhecimento das causas.`,`arte de discutir.`],0,`<i>Philia</i> (amor, amizade) + <i>sophia</i> (sabedoria).`),
+ tf(1,`A etimologia da palavra «filosofia» chega para a distinguir das outras áreas do saber.`,false,`Não chega: mostra que a filosofia procura o conhecimento, mas a física, a biologia ou a matemática também o procuram.`),
+ mc(1,`Segundo Pitágoras, o filósofo (<i>philosophos</i>) distingue-se do sábio (<i>sophos</i>) porque…`,[`já possui todo o conhecimento.`,`procura o conhecimento e admite que ainda não o tem.`,`não se interessa pelo conhecimento.`,`só estuda matemática.`],1,`O sábio possui (ou julga possuir) o conhecimento. O filósofo procura-o.`),
+ mc(1,`No laboratório mental dos weatherfieldianos, a atitude de Kenneth é…`,[`dogmática, porque obedece ao líder.`,`crítica, porque desafia a autoridade e procura ver a realidade por si mesmo.`,`dogmática, porque acaba expulso.`,`crítica, porque acredita nas telenovelas.`],1,`Kenneth questiona o que lhe ensinaram. Os companheiros aceitam sem questionar (atitude dogmática) e rejeitam o que é diferente.`),
+ mc(2,`«A atividade filosófica pressupõe uma atitude dogmática.» Esta afirmação é…`,[`verdadeira, porque a filosofia tenta combater os dogmas e preconceitos do senso comum.`,`falsa, porque a filosofia tenta combater os dogmas e preconceitos do senso comum enraizados na sociedade.`,`verdadeira, porque a filosofia estabelece dogmas que possam ser adotados por todos.`,`falsa, porque a função principal da filosofia é a análise das nossas opiniões de forma rigorosa e crítica.`],1,`Ficha de avaliação, Grupo I, item 1: a resposta da proposta de resolução é a (B). A filosofia combate o dogmatismo.`),
+ mc(2,`«Tal como a filosofia, também a ciência assume uma perspetiva crítica sobre o mundo.» Esta afirmação é…`,[`verdadeira, porque quer a filosofia, quer a ciência formulam problemas que são depois postos à prova de forma sistemática.`,`falsa, porque a filosofia é a única disciplina com um olhar crítico.`,`verdadeira, porque ambas procuram certezas sobre os fenómenos da natureza.`,`falsa, porque só a filosofia é crítica de forma sistemática.`],0,`Ficha de avaliação, item 2 (A). A atitude crítica não chega para distinguir a filosofia da ciência.`),
+ tf(2,`Ter uma atitude crítica é discordar sempre das opiniões dos outros.`,false,`Ser crítico é avaliar de forma rigorosa e imparcial as razões a favor e contra. Podes acabar a concordar, desde que tenhas boas razões.`),
+ tf(3,`A Rita concorda com os pais sobre a eutanásia, mas só depois de ler os argumentos a favor e contra e de os pesar. A atitude da Rita é dogmática.`,false,`É crítica: o que conta não é concordar ou discordar, é ter avaliado as razões. Seria dogmática se aceitasse a opinião sem a questionar.`),
+ mc(3,`Porque é que a atitude crítica não basta para definir a filosofia?`,[`Porque a filosofia não é crítica.`,`Porque a ciência também é crítica: os cientistas formulam teorias e põem-nas à prova.`,`Porque a atitude crítica é só da matemática.`,`Porque Pitágoras era dogmático.`],1,`Para distinguir a filosofia, é preciso olhar para o tipo de problemas que estuda (conceptuais e não empíricos).`),
+ op(1,"r",`O que distingue a atitude de Kenneth da atitude dos seus companheiros?`,[`Kenneth tem uma atitude <b>crítica</b>: questiona o que lhe ensinaram e procura ver por si mesmo.`,`Os companheiros têm uma atitude <b>dogmática</b>: aceitam sem questionar o que o líder diz e rejeitam o que é diferente (chamam-lhe lunático).`],`Kenneth tem uma atitude crítica, porque não aceita sem mais o que o líder lhe ensinou: sai do abrigo para ver a realidade com os próprios olhos e avalia o que descobre. Os companheiros têm uma atitude dogmática, porque aceitam sem questionar que as telenovelas são documentários e, quando Kenneth lhes mostra razões para duvidar, em vez de as examinar, chamam-lhe lunático e expulsam-no.`),
+ op(2,"r",`Ainda que Kenneth tenha acabado com mais dúvidas do que certezas, terá valido a pena sair do abrigo? Porquê?`,[`Sim: trocou uma crença falsa (as novelas são documentários) por dúvidas fundamentadas, mais perto da verdade.`,`Liga com a atitude crítica e com a segunda «conclusão precipitada»: mesmo sem certezas, pensar e pesar razões vale a pena.`],`Sim. Antes de sair, Kenneth tinha certezas, mas eram falsas. Depois de sair ficou com dúvidas, mas baseadas no que viu e pensou por si. É preferível ter dúvidas fundamentadas a certezas sem razões. É isto a atitude crítica da filosofia: mesmo quando não chegamos a uma resposta definitiva, examinar as razões aproxima-nos da verdade.`),
+ op(3,"x",`Lê o texto e explica em que medida o «sono da razão» produz monstros, evidenciando a componente crítica da atividade filosófica.${doc(`«Uma das séries de sátiras gravadas pelo pintor espanhol Goya tem por título "O Sono da Razão Produz Monstros". Goya pensava que muitas das loucuras da humanidade resultam do "sono da razão". (…) As convicções são contagiosas e é possível convencer as pessoas de praticamente tudo. (…) Quando estas convicções implicam o sono da razão, o despertar crítico é o antídoto. A reflexão permite-nos recuar, ver que talvez a nossa perspetiva sobre uma dada situação esteja distorcida ou seja cega, ou, pelo menos, ver se há argumentos a favor dos nossos hábitos, ou se é tudo meramente subjetivo.»`,`Simon Blackburn, Pense · Ficha de avaliação, Grupo III`)}`,[`A filosofia é uma atividade crítica: avaliar de forma rigorosa e imparcial as razões para pensar desta ou daquela maneira.`,`«Sono da razão» = atitude acrítica e dogmática: aceitar sem questionar o que nos dizem.`,`As convicções são «contagiosas»: sem pensamento crítico é possível convencer as pessoas de quase tudo, e daí vêm muitas «loucuras» (guerras, perseguições, extermínios).`,`O «despertar crítico» é o antídoto: refletir, ver se a nossa perspetiva está distorcida, procurar argumentos a favor e contra os nossos hábitos.`],`Segundo o texto, o «sono da razão» é a atitude de quem aceita sem questionar as convicções que lhe transmitem, ou seja, uma atitude dogmática. Como as convicções são contagiosas, sem pensamento crítico é possível convencer as pessoas de quase tudo, e muitas das loucuras da humanidade, como guerras ou perseguições, resultaram precisamente desta falta de crítica. Por isso o sono da razão «produz monstros». O antídoto é o despertar crítico, que é a essência da filosofia: a filosofia é uma atividade crítica, porque implica avaliar de forma rigorosa e imparcial as razões que temos para pensar desta ou daquela maneira. A reflexão permite-nos recuar, perceber se a nossa perspetiva está distorcida e ver se há bons argumentos a favor das nossas crenças e hábitos.`)
+],
+a2:[
+ mc(1,`«Só sei que nada sei» mostra que Sócrates…`,[`não se interessava pelo conhecimento.`,`tinha consciência da sua ignorância.`,`desprezava os sábios.`,`achava que o conhecimento é impossível.`],1,`A sabedoria de Sócrates era saber que não sabia. Os outros nem disso tinham consciência.`),
+ mc(1,`O oráculo de Delfos disse que…`,[`Sócrates era o homem mais sábio da Grécia.`,`Pitágoras inventou a palavra filosofia.`,`ninguém podia conhecer a justiça.`,`Polemarco tinha razão.`],0,`Sócrates foi testar o oráculo interrogando os supostos sábios e percebeu que eles também não sabiam, mas julgavam saber.`),
+ mc(2,`Polemarco define justiça como «restituir a cada um o que se lhe deve». Sócrates mostra que a definição falha…`,[`com uma sondagem aos atenienses.`,`com um contraexemplo: devolver armas a um amigo que enlouqueceu não seria justo.`,`com um cálculo matemático.`,`dizendo que a justiça não existe.`],1,`Um contraexemplo é um caso que cumpre a definição, mas não é aquilo que se quer definir.`),
+ mc(3,`Alguém define «amigo» como «pessoa com quem passamos muito tempo». Qual é o melhor contraexemplo socrático?`,[`Os amigos são importantes.`,`Um colega de turma com quem passas muito tempo, mas de quem não és amigo.`,`Uma amiga com quem passas muito tempo.`,`Não existem amigos verdadeiros.`],1,`Mostra um caso que cumpre a definição (passas muito tempo com ele) mas não é amigo. Logo, a definição falha.`),
+ mc(1,`O objeto de estudo da filosofia é…`,[`a natureza e os seres vivos.`,`um conjunto de problemas fundamentais acerca da realidade, do conhecimento e do valor.`,`os números e as figuras.`,`a história das ideias.`],1,`Síntese, p. 44.`),
+ mc(1,`O método de investigação filosófica <b>não</b> é…`,[`a reflexão crítica.`,`a argumentação e a discussão racional.`,`fundamentalmente empírico.`,`o pensamento e a análise crítica.`],2,`Ficha de avaliação, item 4 (C). Empírico = baseado na observação e na experiência, que é o método da ciência.`),
+ mc(2,`A filosofia é uma atividade conceptual e crítica porque…`,[`implica um pensamento crítico e reflexivo acerca de problemas conceptuais fundamentais.`,`implica pensar sobre problemas não conceptuais.`,`resolve problemas com fórmulas e teoremas.`,`implica uma atitude dogmática sobre os conceitos.`],0,`Ficha de avaliação, item 5 (A).`),
+ mc(1,`As teses dos filósofos devem ser suportadas por…`,[`problemas.`,`teorias.`,`conceitos.`,`argumentos.`],3,`Ficha de avaliação, item 7 (D). Teses sem argumentos são só opiniões.`),
+ tf(1,`Um problema conceptual tem muitas vezes a forma «O que é x?».`,true,`Ex.: O que é a justiça? O que é o conhecimento? O que é a liberdade?`),
+ tf(2,`Para fazer filosofia basta ter opiniões sobre os grandes temas da vida.`,false,`É preciso formular problemas, analisar conceitos, propor teorias, argumentar a favor delas e imaginar objeções.`),
+ op(1,"r",`Indica as cinco coisas que temos de ser capazes de fazer para fazer filosofia.`,[`Formular problemas.`,`Analisar conceitos fundamentais.`,`Propor teorias (respostas aos problemas).`,`Argumentar a favor dessas teorias.`,`Imaginar possíveis objeções.`],`Para fazer filosofia temos de ser capazes de formular problemas, analisar conceitos fundamentais, propor teorias que respondam a esses problemas, apresentar argumentos a favor dessas teorias e imaginar objeções que lhes possam ser feitas.`),
+ op(2,"r",`Porque se diz que a filosofia é uma atividade conceptual e crítica?`,[`<b>Conceptual:</b> ocupa-se de problemas acerca de conceitos fundamentais («O que é x?»), como justiça ou conhecimento.`,`<b>Crítica:</b> implica avaliar de forma rigorosa e imparcial as razões a favor e contra as nossas crenças.`,`Dar um exemplo (Sócrates e a justiça; Kenneth).`],`A filosofia é uma atividade conceptual porque se ocupa de problemas acerca de conceitos fundamentais, muitas vezes com a forma «O que é x?», como «O que é a justiça?», a pergunta que Sócrates fazia aos atenienses. E é uma atividade crítica porque, para responder a esses problemas, temos de avaliar de forma rigorosa e imparcial as razões que temos para pensar desta ou daquela maneira, em vez de aceitar ideias sem as questionar.`)
+],
+a3:[
+ mc(1,`Qual destes problemas <b>não</b> é filosófico?`,[`Como devem ser distribuídos os bens numa sociedade justa?`,`Será que somos efetivamente livres?`,`Será a eutanásia moralmente aceitável?`,`Quais as religiões que acreditam num único Deus?`],3,`Ficha de avaliação, item 6 (D). Responde-se consultando dados sobre as religiões, por isso é empírico.`),
+ mc(2,`Considera: 1. Será que Deus existe? 2. Qual é a religião com mais crentes? 3. Quais são os principais rituais católicos? 4. Será que devemos permitir todo o tipo de práticas religiosas?`,[`1 e 2 são filosóficos, mas 3 e 4 não.`,`3 e 4 são filosóficos, mas 1 e 2 não.`,`1 e 4 são filosóficos, mas 2 e 3 não.`,`2 e 3 são filosóficos, mas 1 e 4 não.`],2,`Manual p. 46, item 1 (C). 2 e 3 respondem-se com dados; 1 (realidade) e 4 (valor) só com reflexão e argumentação.`),
+ tf(1,`Os problemas filosóficos resolvem-se pela observação e pela experiência.`,false,`Esses são os problemas científicos (empíricos). Os filosóficos resolvem-se pelo pensamento: reflexão crítica, argumentação e discussão racional.`),
+ tf(2,`Os problemas matemáticos, tal como os filosóficos, não são empíricos.`,true,`Ambos se resolvem pelo pensamento. A diferença é que a matemática usa cálculos e provas formais.`),
+ mc(2,`O que distingue os problemas filosóficos dos matemáticos?`,[`Os matemáticos são empíricos.`,`Os filosóficos não se resolvem com cálculos nem métodos formais de prova.`,`Os filosóficos resolvem-se pela observação.`,`Nada: são do mesmo tipo.`],1,`Ambos são não empíricos. Os matemáticos usam cálculos e provas formais; os filosóficos, reflexão crítica e argumentação.`),
+ mc(2,`«A mente é diferente do corpo?» é um problema de…`,[`esclarecimento de um conceito.`,`relação entre conceitos.`,`ciência.`,`matemática.`],1,`Pergunta como se relacionam dois conceitos (mente e corpo). Tal como «O livre-arbítrio é compatível com o determinismo?».`),
+ tf(2,`Como os filósofos discutem há mais de 2000 anos sem chegar a acordo, não existe resposta certa para os problemas filosóficos.`,false,`É a primeira conclusão precipitada. «Deus existe» e «Deus não existe» não podem ser ambas verdadeiras: uma está certa, mesmo que não saibamos qual.`),
+ mc(2,`Que conclusão precipitada é contrariada pela ideia de que vale a pena pesar razões e seguir as mais fortes, mesmo sem resposta definitiva?`,[`Que não há resposta certa.`,`Que a discussão filosófica é inútil.`,`Que a filosofia é dogmática.`,`Que a ciência é crítica.`],1,`Segunda conclusão precipitada: «a discussão filosófica é inútil».`),
+ tf(3,`Uma sondagem que mostre que 70% dos portugueses acham a pena de morte injusta resolve o problema de saber se a pena de morte é justa.`,false,`A sondagem é empírica: diz o que as pessoas <b>pensam</b>, não se a pena de morte <b>é</b> justa. A observação diz como as coisas são, não como devem ser.`),
+ mc(3,`«Quantos dentes tem um urso polar?» não é um problema filosófico porque…`,[`é fácil.`,`se resolve observando ursos polares e calculando a média: é empírico.`,`não é sobre seres humanos.`,`não tem resposta.`],1,`Problemas empíricos resolvem-se pela observação e experiência. A dificuldade não interessa.`),
+ op(2,"r",`Lê o texto e esclarece em que medida o questionamento filosófico difere dos restantes tipos de questionamento.${doc(`«Eis algumas perguntas que qualquer um de nós pode fazer sobre nós mesmos: O que sou eu? O que é a consciência? Será que eu poderia sobreviver à morte do meu corpo? (…) O que há de singular nestas perguntas é que não apenas são desconcertantes à primeira vista, mas também desafiam processos simples de solução. Se alguém me perguntar quando é maré cheia, sei como fazer para obter uma resposta. (…) Uma pergunta deste género refere-se à experiência: é uma pergunta empírica. (…) As perguntas acima não são assim. Parecem exigir mais reflexão. Não sabemos imediatamente para onde olhar.»`,`Simon Blackburn, Pense · Ficha de avaliação, Grupo II, 1`)}`,[`Os problemas filosóficos são <b>conceptuais</b> (acerca de conceitos: «O que é a consciência?»).`,`<b>Não são empíricos</b>: não se resolvem pela observação e experiência, ao contrário de «Quando é maré cheia?».`,`Resolvem-se pelo pensamento, como os matemáticos, mas <b>sem cálculos nem provas formais</b>: reflexão crítica, argumentação e discussão racional.`,`Não têm uma resposta definitiva e consensual («desafiam processos simples de solução»).`],`O questionamento filosófico difere dos outros porque, como diz o texto, «desafia processos simples de solução». Perguntas como «O que é a consciência?» são problemas conceptuais e não empíricos: não se resolvem pela observação nem pela experiência, como acontece com «Quando é maré cheia?», que se responde consultando tabelas ou medindo as marés. Também não se resolvem com cálculos ou provas formais, como os problemas da matemática. Resolvem-se apenas pelo pensamento, através da reflexão crítica, da argumentação e da discussão racional. Por isso «não sabemos imediatamente para onde olhar».`),
+ op(3,"r",`Lê o texto. (a) O que pretende defender quem o apresenta? (b) Formula explicitamente o argumento.${doc(`«A filosofia é diferente da ciência e da matemática. Ao contrário da ciência, não assenta em experimentações nem na observação, mas apenas no pensamento. E, ao contrário da matemática, não tem métodos formais de prova.»`,`Thomas Nagel, Que Quer Dizer Tudo Isto? · Ficha de avaliação, Grupo II, 3`)}`,[`(a) Tese: a filosofia é diferente da ciência e da matemática.`,`(b) Premissas numeradas e «Logo, …» no fim.`],`(a) Pretende defender que a filosofia é diferente da ciência e da matemática.<br>(b) (1) Se a filosofia fosse igual à ciência e à matemática, assentaria em experimentações e na observação ou teria métodos formais de prova. (2) A filosofia não assenta em experimentações nem na observação, mas apenas no pensamento. (3) A filosofia não tem métodos formais de prova. (4) Logo, a filosofia é diferente da ciência e da matemática.`)
+],
+a4:[
+ mc(1,`A metafísica ocupa-se dos problemas acerca da natureza…`,[`da realidade.`,`do conhecimento.`,`do valor.`,`da argumentação.`],0,`Pergunta central: «O que é que há?»`),
+ mc(1,`«Em que condições podemos dizer que sabemos seja o que for?» é a pergunta central da…`,[`metafísica.`,`epistemologia.`,`axiologia.`,`lógica.`],1,`Epistemologia = teoria do conhecimento.`),
+ mc(1,`A axiologia estuda…`,[`a natureza do valor.`,`a natureza da realidade.`,`os argumentos corretos.`,`a história da filosofia.`],0,`Pergunta central: «O que são os valores?»`),
+ mc(2,`A ética (ou filosofia moral) é…`,[`uma área independente das quatro grandes áreas.`,`uma subdivisão da axiologia que trata dos valores morais.`,`uma parte da epistemologia.`,`o mesmo que a lógica.`],1,`Trata dos valores que dizem respeito a como devemos conduzir a vida: justiça, benevolência, honestidade.`),
+ mc(2,`«Há livre-arbítrio?» é um problema da…`,[`metafísica.`,`epistemologia.`,`lógica.`,`estética.`],0,`O manual põe-no na metafísica (p. 19): é sobre o que existe (ações genuinamente livres).`),
+ mc(2,`«Será o aborto moralmente aceitável?» pertence à…`,[`metafísica.`,`epistemologia.`,`axiologia (ética).`,`lógica.`],2,`É um problema de valor moral.`),
+ tf(2,`«Será que o conhecimento é possível ou vivemos numa ilusão permanente?» é um problema epistemológico.`,true,`É sobre a natureza e a possibilidade do conhecimento.`),
+ tf(1,`A lógica estuda os aspetos relevantes para a argumentação correta.`,true,`Síntese, p. 45.`),
+ tf(3,`A filosofia da arte e a filosofia da religião ocupam-se de problemas que não são metafísicos, epistemológicos, axiológicos nem lógicos.`,false,`É o contrário: ocupam-se precisamente dos problemas metafísicos, epistemológicos, axiológicos e lógicos que surgem nesses domínios (p. 45).`),
+ mc(3,`«O que é que tem valor por si mesmo e o que tem valor apenas como meio para outra coisa?» é um problema…`,[`metafísico.`,`epistemológico.`,`axiológico.`,`científico.`],2,`Distingue valor intrínseco e valor instrumental: é sobre a natureza do valor.`),
+ op(1,"r",`Define metafísica, epistemologia e axiologia e dá um exemplo de problema de cada uma.`,[`<b>Metafísica:</b> natureza da realidade («O que é que há?», «Há livre-arbítrio?»).`,`<b>Epistemologia:</b> natureza do conhecimento («O que é o conhecimento?»).`,`<b>Axiologia:</b> natureza do valor («Os valores são subjetivos?»); a ética é uma parte.`],`A metafísica ocupa-se dos problemas fundamentais acerca da natureza da realidade, como «Há livre-arbítrio?». A epistemologia ocupa-se dos problemas acerca da natureza do conhecimento, como «O que é o conhecimento?». A axiologia ocupa-se dos problemas acerca da natureza do valor, como «Serão os valores meramente subjetivos?»; a ética é a parte da axiologia que trata dos valores morais.`)
+],
+a5:[
+ mc(1,`Uma proposição é…`,[`qualquer frase.`,`o pensamento verdadeiro ou falso literalmente expresso por uma frase declarativa.`,`uma pergunta filosófica.`,`um argumento curto.`],1,`Síntese, p. 45.`),
+ mc(2,`1. O Marcelo está em Lisboa. 2. Se o Marcelo está em Lisboa, então está em Portugal. 3. Oxalá o Marcelo esteja em Lisboa! 4. Será que o Marcelo está em Lisboa?`,[`1 e 2 expressam proposições, mas 3 e 4 não.`,`1 e 4 expressam proposições, mas 2 e 3 não.`,`3 e 4 expressam proposições, mas 1 e 2 não.`,`2 e 3 expressam proposições, mas 1 e 4 não.`],0,`Manual p. 46, item 2 (A). Só as declarativas exprimem proposições. A condicional (2) também é declarativa.`),
+ mc(2,`«Alguns filósofos não são loucos» e «Nem todos os filósofos são loucos» correspondem a…`,[`2 frases e 2 proposições.`,`2 frases, mas 1 só proposição.`,`2 proposições, mas 1 só frase.`,`1 só frase e 1 só proposição.`],1,`Manual p. 46, item 3 (B). Dizem exatamente o mesmo por palavras diferentes.`),
+ mc(2,`«Nenhum filósofo é cientista» e «Não existem filósofos que sejam cientistas» correspondem a…`,[`duas frases e duas proposições distintas.`,`uma frase, mas duas proposições.`,`uma frase e uma proposição.`,`duas frases diferentes, mas uma só proposição.`],3,`Ficha de avaliação, item 3 (D).`),
+ mc(2,`Se duas proposições são inconsistentes entre si, então…`,[`são ambas verdadeiras.`,`são ambas falsas.`,`não podem ser ambas verdadeiras.`,`não podem ser ambas falsas.`],2,`Manual p. 46, item 4 (C). Consistente = podem ser todas verdadeiras ao mesmo tempo.`),
+ mc(2,`Num argumento não-dedutivo forte…`,[`a conclusão não pode ser falsa.`,`as premissas não podem ser falsas.`,`a conclusão não pode ser falsa, se as premissas forem verdadeiras.`,`a conclusão pode ser falsa, ainda que as premissas sejam verdadeiras.`],3,`Manual p. 47, item 5 (D). Forte = é <b>improvável</b> (não impossível) premissas verdadeiras e conclusão falsa.`),
+ mc(2,`Num argumento dedutivo válido…`,[`a conclusão não pode ser falsa.`,`as premissas não podem ser falsas.`,`a conclusão não pode ser falsa, caso as premissas sejam verdadeiras.`,`a conclusão pode ser falsa, ainda que as premissas sejam verdadeiras.`],2,`Manual p. 47, item 6 (C). A validade não garante que a conclusão seja verdadeira: só garante que, <b>se</b> as premissas forem verdadeiras, a conclusão também é.`),
+ mc(2,`Se um argumento é inválido, então…`,[`as suas premissas não garantem a sua conclusão.`,`as suas premissas não apoiam a sua conclusão.`,`as suas premissas não podem ser falsas.`,`a sua conclusão não pode ser falsa.`],0,`Manual p. 47, item 7 (A). Um argumento inválido pode ainda ser forte (apoiar a conclusão), se não for dedutivo.`),
+ mc(2,`Um argumento sólido…`,[`pode ter a conclusão falsa.`,`não pode ter a conclusão falsa.`,`pode ser inválido.`,`pode ter premissas falsas.`],1,`Manual p. 47, item 8 (B). Válido + premissas verdadeiras ⇒ conclusão verdadeira.`),
+ mc(2,`Qual é a relação entre validade e solidez?`,[`Nenhum argumento sólido é válido.`,`Todos os argumentos válidos são sólidos.`,`Todos os argumentos sólidos são válidos.`,`Alguns argumentos sólidos são válidos.`],2,`Ficha de avaliação, item 8 (C). Ser válido faz parte da definição de sólido.`),
+ mc(2,`Num argumento não-dedutivo fraco…`,[`a verdade das premissas não torna provável a verdade da conclusão.`,`a verdade das premissas torna necessária a verdade da conclusão.`,`as premissas são falsas e a conclusão não pode ser verdadeira.`,`as premissas são verdadeiras e a conclusão não pode ser falsa.`],0,`Ficha de avaliação, item 9 (A).`),
+ mc(2,`«Se os profissionais de saúde usarem máscara 24 horas seguidas, vão ficar com marcas na cara. Os profissionais de saúde usaram máscara 24 horas seguidas. Logo, vão ficar com marcas na cara.»`,[`É dedutivamente válido, porque é impossível as premissas serem todas verdadeiras e a conclusão falsa.`,`É dedutivamente inválido, porque a verdade das premissas não torna necessária a conclusão.`,`É dedutivamente válido, porque a verdade das premissas torna provável a conclusão.`,`É dedutivamente inválido, porque as premissas podem ser verdadeiras e a conclusão falsa.`],0,`Ficha de avaliação, item 10 (A). É um Modus Ponens. Atenção à (C): «provável» é a definição de forte, não de válido.`),
+ mc(3,`Argumento 1: «Até hoje, o Sol nasceu todos os dias. Logo, o Sol irá nascer amanhã.» Argumento 2: «Ontem, vi uma estrela cadente. Logo, hoje irei ver uma estrela cadente.»`,[`São ambos dedutivamente válidos.`,`São ambos dedutivamente inválidos.`,`Apenas o Argumento 1 é dedutivamente válido.`,`Apenas o Argumento 2 é dedutivamente válido.`],1,`Manual p. 47, item 9 (B). Nos dois é <b>possível</b> premissas verdadeiras e conclusão falsa. O 1 é indutivamente forte; o 2 é fraco.`),
+ mc(3,`Argumento 1: «Se o Marcelo está em Portugal, então está na Europa. O Marcelo está em Portugal. Logo, está na Europa.» Argumento 2: «Se o Marcelo está em Portugal, então está na Europa. O Marcelo está na Europa. Logo, está em Portugal.»`,[`São ambos dedutivamente válidos.`,`São ambos dedutivamente inválidos.`,`Apenas o Argumento 1 é dedutivamente válido.`,`Apenas o Argumento 2 é dedutivamente válido.`],2,`Manual p. 47, item 10 (C). O 1 é Modus Ponens (válido). O 2 é afirmação da consequente (inválido): podia estar em Espanha.`),
+ tf(3,`Um argumento sólido é sempre persuasivo.`,false,`Pode ser viciosamente circular: as premissas não são mais aceitáveis do que a conclusão (ex.: «Deus existe porque a Bíblia o diz, e a Bíblia é a palavra de Deus»).`),
+ tf(2,`Um argumento válido pode ter todas as premissas falsas.`,true,`Ex.: «Todos os peixes voam. O Nemo é um peixe. Logo, o Nemo voa.» É válido, mas não é sólido.`),
+ mc(2,`Num argumento válido, mostrar que uma premissa é falsa serve para mostrar que o argumento…`,[`é inválido.`,`não é sólido.`,`é circular.`,`é forte.`],1,`É a 2.ª forma de refutar: mesmo válido, não é sólido.`),
+ mc(3,`Assumir uma proposição como premissa e mostrar que dela se seguem consequências absurdas é…`,[`contra-argumentar de forma direta.`,`contra-argumentar por redução ao absurdo (de forma indireta).`,`um argumento circular.`,`um Modus Ponens.`],1,`Exemplo: a objeção da responsabilidade moral ao determinismo radical.`),
+ op(2,"r",`Posiciona-te face à validade e à solidez do argumento. Justifica.${doc(`«Se o Marcelo Rebelo de Sousa é médico, então o pico do Arieiro fica na Madeira. O Marcelo Rebelo de Sousa é médico. Logo, o pico do Arieiro fica na Madeira.»`,`Ficha de avaliação, Grupo II, 2`)}`,[`<b>Válido:</b> é um Modus Ponens; é impossível as premissas serem verdadeiras e a conclusão falsa.`,`<b>Não é sólido:</b> sólido = válido + premissas verdadeiras; a premissa 1 é falsa (a profissão do Marcelo nada tem a ver com o Arieiro) e a 2 também (não é médico).`,`A conclusão é verdadeira, mas isso não torna o argumento sólido.`],`O argumento é válido, porque tem a forma Modus Ponens («Se P, então Q; P; logo, Q»): se as premissas fossem verdadeiras, a conclusão teria de ser verdadeira. Mas não é sólido, porque um argumento sólido tem de ser válido e ter premissas verdadeiras, e aqui as premissas são falsas: a primeira liga duas coisas sem relação (a profissão do Marcelo e a localização do pico do Arieiro) e a segunda é falsa, porque Marcelo Rebelo de Sousa não é médico. O facto de a conclusão ser verdadeira não torna o argumento sólido.`)
+],
+b1:[
+ mc(1,`Temos livre-arbítrio se, e só se,…`,[`tudo o que acontece depende da nossa vontade.`,`algumas das coisas que acontecem dependem, em última análise, da nossa vontade.`,`a maioria das coisas depende de nós.`,`não estamos presos.`],1,`<b>Algumas</b>. É o erro mais repetido nas fichas.`),
+ mc(1,`O determinismo é a tese de que…`,[`alguns acontecimentos têm causas.`,`a maioria dos acontecimentos é consequência do passado.`,`tudo o que acontece é a consequência necessária de acontecimentos anteriores e das leis da natureza.`,`nada depende de nós.`],2,`<b>Tudo</b>. «Nada depende de nós» é uma conclusão do determinismo radical, não a definição de determinismo.`),
+ mc(2,`O sentido de «liberdade» que interessa no problema do livre-arbítrio é o que está ligado…`,[`à liberdade política de eleger o governo.`,`à responsabilidade moral.`,`a não estar preso.`,`à liberdade de expressão.`],1,`Dizer que alguém agiu livremente é dizer que é, de algum modo, responsável por essa ação.`),
+ mc(1,`O problema do livre-arbítrio é um problema…`,[`metafísico.`,`epistemológico.`,`lógico.`,`científico.`],0,`É sobre se existem ou não ações genuinamente livres (natureza da realidade).`),
+ tf(2,`Se concluirmos que não temos livre-arbítrio, poderemos ter de rever práticas como o elogio, a censura, o prémio e o castigo.`,true,`Por isso o problema tem grande importância filosófica (p. 135).`),
+ tf(2,`Segundo o determinismo, dadas as mesmas condições iniciais e as mesmas leis da natureza, podem surgir resultados diferentes.`,false,`É o contrário: o passado e as leis determinam um único futuro possível; as mesmas causas têm sempre os mesmos efeitos.`),
+ mc(2,`O demónio de Laplace serve para ilustrar que, se o determinismo for verdadeiro,…`,[`o futuro é imprevisível.`,`um intelecto que conhecesse todas as forças e posições poderia prever todo o futuro.`,`temos livre-arbítrio.`,`há acontecimentos sem causa.`],1,`«Nada seria incerto, e o futuro, como o passado, estaria diante dos seus olhos.»`),
+ mc(2,`Quando o leite não aquece ao lume, procuramos a causa (fogão avariado?). Isto mostra que…`,[`acreditamos que todos os acontecimentos têm uma causa.`,`temos livre-arbítrio.`,`o determinismo é falso.`,`a ciência não funciona.`],0,`É uma das razões para acreditar no determinismo.`),
+ tf(3,`A tensão entre o livre-arbítrio e o determinismo surge porque as nossas ações também são acontecimentos.`,true,`Se tudo é consequência necessária de fatores que não controlamos, e as ações são acontecimentos, parece que nenhuma ação depende de nós.`),
+ tf(3,`Uma pessoa que é obrigada a ficar em casa por causa de uma tempestade fica sem livre-arbítrio no sentido estudado.`,false,`Fica impedida de fazer uma coisa nessa situação. O livre-arbítrio é a questão de saber se <b>algumas</b> coisas dependem, em última análise, da nossa vontade, e não depende de uma situação concreta.`),
+ op(2,"r",`Explica porque é que parece existir uma tensão entre a crença no determinismo e a crença no livre-arbítrio.`,[`Determinismo: tudo é consequência necessária do passado e das leis da natureza.`,`As nossas ações também são acontecimentos, logo também seriam consequência necessária desses fatores.`,`Não controlamos o passado nem as leis da natureza.`,`Então, parece que nada depende, em última análise, de nós, o que contraria a crença no livre-arbítrio.`],`O determinismo diz que tudo o que acontece é a consequência necessária de acontecimentos anteriores e das leis da natureza. Como as nossas ações também são acontecimentos, também elas seriam a consequência necessária desses fatores. Mas nós não controlamos o passado nem as leis da natureza. Assim, parece que nenhuma das nossas ações depende, em última análise, da nossa vontade, o que contradiz a crença de que temos livre-arbítrio, isto é, de que algumas coisas dependem de nós.`),
+ op(3,"r",`Imagina que o demónio de Laplace teria, de facto, o passado e o futuro diante dos olhos. Haveria espaço para o livre-arbítrio? Porquê? (manual p. 137)`,[`Se o demónio pode prever tudo, o determinismo é verdadeiro: há um único futuro possível.`,`Um <b>incompatibilista</b> diria que não há espaço para o livre-arbítrio (não há possibilidades alternativas).`,`Um <b>compatibilista</b> diria que pode haver: somos livres quando agimos de acordo com a nossa vontade, sem constrangimentos externos, mesmo que isso seja previsível.`,`Dizer qual é a tua posição e porquê.`],`Se o demónio de Laplace conhecesse todo o futuro, isso significaria que o determinismo é verdadeiro: o passado e as leis da natureza determinam um único futuro possível, incluindo as nossas escolhas. Um incompatibilista diria que, nesse caso, não há espaço para o livre-arbítrio, porque nunca poderíamos ter agido de outra forma. Já um compatibilista diria que ainda pode haver livre-arbítrio, porque ser livre é agir de acordo com a nossa vontade sem sermos impedidos por nada externo, e isso não deixa de acontecer por a ação ser previsível. Parece-me mais plausível a resposta incompatibilista, porque, se tudo estivesse escrito antes de eu nascer, as minhas escolhas não dependeriam, em última análise, de mim.`)
+],
+b2:[
+ mc(1,`Qual destas formulações corresponde ao problema tradicional do livre-arbítrio?`,[`Temos livre-arbítrio?`,`Será o livre-arbítrio compatível com o determinismo?`,`Podemos ter livre-arbítrio se Deus sabe tudo de antemão?`,`As pessoas que vivem numa ditadura têm livre-arbítrio?`],0,`Ficha de avaliação, item 1 (A). A (B) é o problema da compatibilidade.`),
+ mc(2,`Perante a questão «Será a crença no livre-arbítrio compatível com a crença no determinismo?», o que está em causa é…`,[`saber qual das crenças é verdadeira.`,`saber se ambas as crenças podem ser falsas.`,`saber se as crenças podem ser ambas verdadeiras.`,`saber se a crença no livre-arbítrio é verdadeira.`],2,`Ficha de avaliação, item 9 (C). Compatível = podem ser verdadeiras ao mesmo tempo.`),
+ mc(1,`O incompatibilismo é a tese de que…`,[`não temos livre-arbítrio.`,`o livre-arbítrio não é compatível com o determinismo.`,`o determinismo é falso.`,`tudo está determinado.`],1,`É só uma tese sobre a <b>relação</b> entre as duas crenças.`),
+ tf(3,`Um incompatibilista tem de acreditar que não temos livre-arbítrio.`,false,`Os libertistas são incompatibilistas e acham que temos livre-arbítrio (e que o determinismo é falso).`),
+ tf(2,`Ao aceitar o incompatibilismo, ainda não estamos a tomar posição sobre o problema tradicional.`,true,`Só aceitamos a condicional «Se o determinismo for verdadeiro, não temos livre-arbítrio».`),
+ mc(2,`«Os seres humanos, e só os seres humanos, transcendem as leis da natureza: são livres.» Para um libertista, isto significa que…`,[`o ser humano é livre e, portanto, nada está determinado.`,`o ser humano é livre e, portanto, nem tudo está determinado.`,`o ser humano é livre mesmo que tudo esteja determinado.`,`nenhuma ação humana tem causas anteriores.`],1,`Ficha de avaliação, item 8 (B). «Nada está determinado» é demasiado forte; «mesmo que tudo esteja determinado» é o det. moderado.`),
+ mc(3,`«Se <b>alguns</b> acontecimentos são a consequência necessária do passado e das leis da natureza, então não temos livre-arbítrio.»`,[`Quer compatibilistas, quer incompatibilistas rejeitam esta afirmação.`,`Quer compatibilistas, quer incompatibilistas aceitam esta afirmação.`,`Apenas os compatibilistas a aceitam.`,`Apenas os incompatibilistas a aceitam.`],0,`Manual p. 156, item 1 (A). Os incompatibilistas só dizem que o LA é incompatível com <b>tudo</b> estar determinado. Os libertistas aceitam que alguns acontecimentos estão determinados.`),
+ mc(2,`«Tudo o que acontece é consequência necessária do passado e das leis da natureza.»`,[`Det. radicais e det. moderados aceitam-na, mas os libertistas rejeitam-na.`,`Det. radicais e libertistas aceitam-na, mas os det. moderados rejeitam-na.`,`Apenas os det. radicais a aceitam.`,`Apenas os libertistas a aceitam.`],0,`Manual p. 156, item 2 (A). É a tese do determinismo.`),
+ mc(2,`«Temos livre-arbítrio e, portanto, nem todos os acontecimentos são a consequência necessária do passado e das leis da natureza.»`,[`Det. radicais e det. moderados aceitam-na.`,`Det. moderados e libertistas aceitam-na, mas os det. radicais rejeitam-na.`,`Apenas os det. radicais a aceitam.`,`Apenas os libertistas a aceitam.`],3,`Manual p. 156, item 3 (D). Os det. moderados acham que temos LA, mas que tudo está determinado.`),
+ mc(2,`«Tudo está determinado, por isso não temos livre-arbítrio.»`,[`Det. radicais e det. moderados aceitam-na.`,`Det. radicais e libertistas aceitam-na.`,`Apenas os det. radicais a aceitam.`,`Apenas os libertistas a aceitam.`],2,`Manual p. 156, item 4 (C).`),
+ mc(3,`«Se o determinismo é verdadeiro, então não temos livre-arbítrio.»`,[`Det. radicais e det. moderados aceitam-na, mas os libertistas rejeitam-na.`,`Det. radicais e libertistas aceitam-na, mas os det. moderados rejeitam-na.`,`Apenas os det. radicais a aceitam.`,`Apenas os det. moderados a aceitam.`],1,`Manual p. 157, item 5 (B). É a tese do incompatibilismo: os dois incompatibilistas aceitam-na.`),
+ mc(2,`«Temos livre-arbítrio, apesar de todos os acontecimentos serem a consequência necessária do passado e das leis da natureza.»`,[`Det. radicais e det. moderados aceitam-na.`,`Det. radicais e libertistas aceitam-na.`,`Apenas os det. radicais a aceitam.`,`Apenas os det. moderados a aceitam.`],3,`Manual p. 157, item 6 (D).`),
+ op(1,"r",`Em que consiste o problema da compatibilidade? Que respostas pode ter?`,[`Pergunta: «Será o livre-arbítrio compatível com o determinismo?» (podem as duas crenças ser ambas verdadeiras?).`,`Respostas: incompatibilismo (não) e compatibilismo (sim).`],`O problema da compatibilidade consiste em saber se o livre-arbítrio é compatível com o determinismo, ou seja, se a crença de que temos livre-arbítrio e a crença de que tudo está determinado podem ser ambas verdadeiras. Há duas respostas: o incompatibilismo, que diz que não são compatíveis, e o compatibilismo, que diz que são.`)
+],
+b3:[
+ mc(1,`Segundo o argumento da consequência, o que se segue de «Se o determinismo é verdadeiro, então não temos possibilidades alternativas» e «Se não temos possibilidades alternativas, então não temos livre-arbítrio»?`,[`O determinismo é verdadeiro e não temos livre-arbítrio.`,`Se o determinismo é verdadeiro, então não temos livre-arbítrio.`,`Não temos livre-arbítrio.`,`O determinismo é verdadeiro.`],1,`Ficha de avaliação, item 2 (B). Silogismo Hipotético: a conclusão também é uma condicional.`),
+ mc(1,`Quem formulou o argumento da consequência?`,[`Espinosa.`,`G. E. Moore.`,`Peter van Inwagen.`,`Robert Kane.`],2,`Filósofo norte-americano.`),
+ mc(1,`O argumento da consequência é válido porque é um…`,[`Modus Ponens.`,`Modus Tollens.`,`Silogismo Hipotético.`,`argumento indutivo.`],2,`Se P, então Q; se Q, então R; logo, se P, então R.`),
+ mc(2,`Os incompatibilistas defendem a premissa (1) dizendo que…`,[`a ciência ainda não provou o determinismo.`,`não controlamos o passado nem as leis da natureza, que determinam um único futuro.`,`só somos responsáveis quando podíamos ter agido de outro modo.`,`temos a sensação de ser livres.`],1,`A (C) é a defesa da premissa (2).`),
+ mc(2,`O caso de quem é raptado e obrigado a matar (Sider e Conee) serve para defender…`,[`a premissa (1).`,`a premissa (2).`,`a conclusão (3).`,`o compatibilismo.`],1,`Não o culpamos porque não podia ter feito nada para o evitar: sem possibilidades alternativas não há responsabilidade nem livre-arbítrio.`),
+ mc(3,`Na banda desenhada da p. 141, van Inwagen diz à rapariga que ela é feita de átomos e que só há uma sequência possível para eles. Isto apoia…`,[`a premissa (1).`,`a premissa (2).`,`a objeção da aleatoriedade.`,`a análise condicional.`],0,`Mostra que, se o determinismo é verdadeiro, não temos possibilidades alternativas, sejam quais forem as nossas crenças e desejos.`),
+ mc(2,`O argumento chama-se «da consequência» porque…`,[`tem consequências para a ética.`,`se o determinismo é verdadeiro, as nossas ações são a consequência de coisas que não controlamos.`,`a conclusão é uma consequência das premissas.`,`trata das consequências das ações.`],1,`Se não controlamos o passado nem as leis, também não controlamos as suas consequências, incluindo os nossos atos.`),
+ tf(2,`Como o argumento da consequência é válido, quem aceita as premissas é racionalmente forçado a aceitar a conclusão.`,true,`É isso que a validade garante.`),
+ tf(3,`Mostrar que o argumento da consequência é válido chega para mostrar que é sólido.`,false,`Sólido = válido <b>e</b> com premissas verdadeiras. A discussão é precisamente sobre se a premissa (1) é verdadeira.`),
+ tf(2,`Tanto os deterministas radicais como os libertistas aceitam o argumento da consequência.`,true,`São ambos incompatibilistas: aceitam as linhas (1) a (3). Diferem na premissa que acrescentam.`),
+ op(2,"r",`Formula o argumento da consequência a favor do incompatibilismo.`,[`(1) Se o determinismo é verdadeiro, então não temos possibilidades alternativas.`,`(2) Se não temos possibilidades alternativas, então não temos livre-arbítrio.`,`(3) Logo, se o determinismo é verdadeiro, então não temos livre-arbítrio. (De 1 e 2, por Silogismo Hipotético)`],`(1) Se o determinismo é verdadeiro, então não temos possibilidades alternativas. (2) Se não temos possibilidades alternativas, então não temos livre-arbítrio. (3) Logo, se o determinismo é verdadeiro, então não temos livre-arbítrio (de 1 e 2, por Silogismo Hipotético).`),
+ op(3,"r",`De que forma justificam os incompatibilistas cada uma das premissas do argumento da consequência?`,[`<b>(1):</b> o determinismo diz que o passado e as leis da natureza determinam um único futuro; não controlamos nenhum deles; logo, quando agimos, não temos genuinamente possibilidades alternativas.`,`<b>(2):</b> intuitivamente, só achamos que alguém agiu livremente (e é responsável) se podia ter agido de outro modo. Exemplo do raptado.`],`Para defender a premissa (1), os incompatibilistas lembram que, segundo o determinismo, o passado e as leis da natureza determinam a cada instante um único futuro possível. Como não controlamos o passado nem as leis da natureza, também não controlamos as suas consequências, e por isso, quando agimos, não temos realmente possibilidades alternativas. Para defender a premissa (2), apelam à intuição de que só consideramos que alguém agiu livremente se podia ter agido de outro modo. Por exemplo, não culpamos alguém que foi raptado e obrigado a matar, porque não havia nada que pudesse ter feito para o evitar. Sem possibilidades alternativas não há responsabilidade, e portanto não há livre-arbítrio.`)
+],
+b4:[
+ mc(1,`Os compatibilistas clássicos…`,[`aceitam ambas as premissas do argumento da consequência.`,`rejeitam ambas as premissas.`,`rejeitam apenas a premissa (1).`,`rejeitam apenas a premissa (2).`],2,`Manual p. 158, item 10 (C).`),
+ mc(2,`Para mostrar que a condicional «Se o determinismo é verdadeiro, não temos possibilidades alternativas» é falsa, é preciso…`,[`negar a antecedente.`,`afirmar a antecedente e negar a consequente.`,`afirmar a consequente.`,`negar as duas.`],1,`Ou seja: «ainda que o determinismo seja verdadeiro, temos possibilidades alternativas».`),
+ mc(1,`Segundo os compatibilistas clássicos, dizer que, numa dada ocasião, tínhamos a capacidade de agir de outro modo significa que…`,[`o mesmo passado e as mesmas leis são compatíveis com diferentes futuros.`,`somos capazes de alterar o passado ou as leis da natureza.`,`há acontecimentos indeterminados.`,`se tivéssemos escolhido fazer outra coisa, teríamos feito outra coisa.`],3,`Manual p. 157, item 8 (D). É a análise condicional.`),
+ mc(2,`Para os compatibilistas, o que faz uma ação ser livre é…`,[`não ser causada nem determinada.`,`não ser causada.`,`a ausência de constrangimento.`,`o agente ter feito A não podendo ter feito B.`],2,`Ficha de avaliação, item 6 (C). Livre = não ser coagido por nada nem ninguém externo.`),
+ mc(2,`Para Moore, «eu poderia ter caminhado uma milha em vinte minutos» quer dizer que…`,[`tinha pernas fortes.`,`tê-lo-ia feito, se assim tivesse escolhido.`,`a minha ação foi indeterminada.`,`o futuro não estava determinado.`],1,`Não havia constrangimentos externos (não estava paralisado, a porta não estava trancada).`),
+ tf(2,`No cenário A (porta do quarto trancada), para o compatibilismo clássico, a tua decisão de ficar em casa foi livre.`,false,`Não foi: mesmo que decidisses ir à festa, não conseguirias. No cenário B (porta aberta) é que foi livre.`),
+ tf(2,`Para o compatibilismo clássico, uma ação determinada pelos nossos desejos e crenças pode ser livre.`,true,`O que importa é não haver constrangimento externo. As causas internas (desejos, crenças) não tiram a liberdade.`),
+ mc(2,`O caso das gomas vermelhas é uma objeção…`,[`ao libertismo.`,`à análise condicional do conceito de «possibilidades alternativas».`,`à mecânica quântica.`,`ao determinismo radical.`],1,`Mostra que «faria se escolhesse» pode ser verdade sem a pessoa poder, de facto, agir de outro modo.`),
+ mc(3,`O Pedro tem fobia de cobras e diz que não é capaz de entrar no reptilário. Os colegas dizem que mente, porque se quisesse entrava. Os críticos da análise condicional…`,[`podem usar o caso para mostrar que ela é falsa: ainda que seja verdade que o Pedro teria entrado se assim tivesse escolhido, é falso que podia, efetivamente, tê-lo feito.`,`não podem usar o caso, porque ainda que seja verdade que teria entrado se tivesse escolhido, é falso que podia tê-lo feito.`,`podem usar o caso, porque ainda que o Pedro pudesse ter entrado, é falso que o teria feito se tivesse escolhido.`,`não podem usar o caso, porque ainda que o Pedro pudesse ter entrado, é falso que o teria feito se tivesse escolhido.`],0,`Manual p. 158, item 9 (A). É um caso igual ao das gomas vermelhas: b) verdadeira e a) falsa.`),
+ tf(3,`Para os incompatibilistas, a análise condicional é irrelevante porque, num mundo determinista, dado o passado e as leis da natureza, nunca poderíamos ter escolhido outra coisa.`,true,`Por isso, para eles, nunca poderíamos ter agido de maneira diferente daquela como agimos (p. 146).`),
+ op(2,"r",`Considera os cenários. A: o João decide fazer greve de fome como protesto contra uma tourada ilegal. B: o João não come há três dias porque partiu uma perna em casa e não se consegue mover. Para os compatibilistas, o que têm em comum e o que os distingue?`,[`<b>Em comum:</b> ambos estão sujeitos ao determinismo (são consequência necessária de acontecimentos anteriores).`,`Para o compatibilista, liberdade = ausência de constrangimento externo (análise condicional).`,`<b>A é livre:</b> resulta de causas internas (crenças, desejos); se quisesse comer, nada o impediria.`,`<b>B não é livre:</b> uma causa externa (a perna partida) impede-o de comer, mesmo que o queira.`],`Para os compatibilistas clássicos, os dois cenários têm em comum o facto de estarem ambos determinados: são a consequência necessária de acontecimentos anteriores e das leis da natureza. O que os distingue é a presença de constrangimento externo. No cenário A, o João não come porque decidiu protestar; a ação resulta das suas crenças e desejos e, se tivesse escolhido comer, nada o impediria. Por isso é uma ação livre. No cenário B, o João não come porque a perna partida o impede; mesmo que escolhesse comer, não conseguiria. É uma ação não livre, porque há um constrangimento externo.`),
+ op(3,"r",`Lê o texto. Será que o autor aceita o argumento da consequência? Porquê?${doc(`«[D]izer que eu poderia ter agido de outra maneira é dizer, primeiro, que eu teria agido de outra maneira se assim o tivesse escolhido; segundo, que a minha ação foi voluntária no sentido em que as ações, digamos, de um cleptomaníaco não o são; e, em terceiro lugar, que ninguém me obrigou a escolher o que escolhi. E estas três condições podem muito bem ser respeitadas. E quando o são, pode dizer-se que agi livremente. Mas isto não significa que agir como agi foi uma questão de acaso (…). E que as minhas ações possam ser explicadas é tudo o que é exigido pelo postulado do determinismo.»`,`A. J. Ayer, «Freedom and Necessity» · Manual p. 158, Grupo II, 1`)}`,[`Não aceita: Ayer é compatibilista (determinista moderado).`,`Rejeita a premissa (1): usa a análise condicional («teria agido de outra maneira se assim o tivesse escolhido»).`,`Liberdade = ausência de coação («ninguém me obrigou»), compatível com as ações serem explicadas/determinadas.`],`Não. Ayer é compatibilista: defende que podemos agir livremente mesmo que as nossas ações sejam explicadas, como exige o determinismo. Por isso rejeita a premissa (1) do argumento da consequência («Se o determinismo é verdadeiro, não temos possibilidades alternativas»). Para isso usa a análise condicional: «eu poderia ter agido de outra maneira» quer dizer «eu teria agido de outra maneira se assim o tivesse escolhido», o que pode ser verdade num mundo determinista. Para Ayer, agimos livremente quando a ação é voluntária e ninguém nos obrigou, ou seja, quando não há constrangimento.`),
+ op(2,"r",`Formula uma possível objeção à análise condicional do conceito de «possibilidades alternativas».`,[`Análise condicional: «podia ter feito x» = «teria feito x se tivesse escolhido».`,`Contraexemplo: as gomas vermelhas (aversão patológica): é verdade que tiraria uma goma se escolhesse, mas nunca poderia escolher.`,`Logo, as duas frases não são equivalentes e a análise falha.`],`Segundo a análise condicional, ter possibilidades alternativas é ter situações em que, se tivéssemos escolhido fazer outra coisa, teríamos feito outra coisa. Mas imagina alguém com uma aversão patológica a gomas vermelhas. É verdade que tiraria uma goma se escolhesse fazê-lo, mas, por causa da aversão, nunca poderia escolher isso. A análise condicional diria que essa pessoa podia ter tirado uma goma, quando claramente não podia. Logo, «faria se escolhesse» não significa o mesmo que «podia fazer», e a análise condicional falha.`)
+],
+b5:[
+ mc(1,`Que premissa acrescentam os deterministas radicais ao argumento da consequência?`,[`(4) O determinismo é verdadeiro.`,`(4*) Temos livre-arbítrio.`,`(4) Se temos possibilidades alternativas, podemos ter livre-arbítrio.`,`(4) Há responsabilidade moral.`],0,`E concluem (5) «Logo, não temos livre-arbítrio».`),
+ mc(2,`No argumento do determinismo radical, a conclusão (5) obtém-se…`,[`de 1 e 2, por Modus Ponens.`,`de 3 e 4, por Modus Ponens.`,`de 3 e 4, por Modus Tollens.`,`de 1 e 2, por Silogismo Hipotético.`],1,`Se D, então não LA (3); D (4); logo, não LA. O manual tem uma gralha: diz «De 1 e 2».`),
+ mc(2,`Como justificam os deterministas radicais a premissa (4)?`,[`Com a sensação de que somos livres.`,`Com a experiência do dia a dia (mesmas causas, mesmos efeitos) e com o sucesso da ciência.`,`Com a mecânica quântica.`,`Com o caso das gomas vermelhas.`],1,`p. 147.`),
+ mc(2,`Porque é que os libertistas só podem refutar o determinismo radical atacando a premissa (4)?`,[`Porque aceitam as linhas (1) a (3), já que também são incompatibilistas.`,`Porque são compatibilistas.`,`Porque a (4) é a mais fácil.`,`Porque não acreditam na ciência.`],0,`p. 147.`),
+ mc(2,`A objeção da mecânica quântica diz que…`,[`a ciência prova o determinismo.`,`existem acontecimentos genuinamente indeterminados, logo o determinismo é falso.`,`as partículas têm livre-arbítrio.`,`não podemos prever nada.`],1,`Só podemos calcular a posição mais provável de certas partículas; sistemas iguais podem dar resultados diferentes.`),
+ mc(2,`«Se tudo é causalmente determinado, não podemos responsabilizar moralmente os agentes» e «Faz sentido responsabilizar moralmente os agentes». Estas afirmações podem constituir…`,[`uma objeção ao det. radical e um argumento a favor do det. moderado.`,`uma objeção ao libertismo e ao det. moderado.`,`uma objeção ao det. radical e um argumento a favor do libertismo.`,`um argumento a favor do det. radical.`],2,`Ficha de avaliação, item 10 (C). Juntas, dão um Modus Tollens: logo, nem tudo é determinado, que é a tese libertista.`),
+ mc(2,`«Aceitar o determinismo radical implica renunciar à responsabilidade moral.» Esta afirmação é…`,[`verdadeira, porque, para um determinista radical, como tudo está determinado, não temos livre-arbítrio nem somos moralmente responsáveis.`,`falsa, porque foi o agente que fez a ação.`,`verdadeira, porque o agente deve ser punido se fizer o mal.`,`falsa, porque o agente não escapa à responsabilização.`],0,`Ficha de avaliação, item 7 (A).`),
+ tf(1,`A objeção da responsabilidade moral é apresentada por Peter van Inwagen.`,true,`«É evidente que a responsabilidade moral existe (…) podemos apontar o dedo e dizer: Isto é culpa tua.»`),
+ tf(3,`A objeção da mecânica quântica prova definitivamente que o determinismo é falso.`,false,`O manual diz que «parece sugerir» e fala numa «interpretação comum». O próprio manual pergunta (p. 152) se a mecânica quântica conseguiu mesmo provar isso.`),
+ tf(3,`A objeção da responsabilidade moral é uma redução ao absurdo do determinismo radical.`,true,`Se o det. radical fosse verdadeiro, ninguém seria culpado de nada e a culpa, o louvor e a censura seriam absurdos. Como isso é inaceitável, rejeita-se o determinismo.`),
+ op(2,"r",`Lê o texto. Identifica e explica a objeção que pode ser levantada, decorrente da aceitação do determinismo.${doc(`«(…) Portanto, dado o determinismo, não é verdade que eu, a cada momento, possa agir ou escolher de modo diferente daquele que acabo por fazer, que tenha controlo sobre o meu próprio querer. Em risco está, então, também a ideia de que somos responsáveis pelas nossas ações.»`,`Sofia Miguens e Susana Cadilha · Ficha de avaliação, Grupo II, 3`)}`,[`Objeção da <b>responsabilidade moral</b> (van Inwagen), contra o <b>determinismo radical</b>.`,`Se tudo está determinado, não temos livre-arbítrio e ninguém é moralmente responsável por nada.`,`Mas a culpa, a censura, o louvor e a gratidão pressupõem responsabilidade. Não os aceitamos como absurdos.`,`Logo, somos racionalmente forçados a rejeitar o determinismo.`],`A objeção que pode ser levantada é a objeção da responsabilidade moral, apresentada por Peter van Inwagen contra o determinismo radical. Se o determinismo for verdadeiro, como diz o texto, não podemos agir de modo diferente daquele que acabamos por agir e, por isso, não temos livre-arbítrio. Daqui segue-se que ninguém é moralmente responsável por nada do que faz. Mas grande parte dos nossos comportamentos, como a culpa, a censura, o louvor e a admiração, pressupõem que somos responsáveis por pelo menos algumas coisas. Como não aceitamos que estes comportamentos sejam absurdos, somos racionalmente forçados a rejeitar o determinismo.`),
+ op(3,"r",`Lê o texto. Qual das teorias estudadas está a ser criticada? Porquê?${doc(`«Há certos aspetos da conduta humana que merecem aprovação e louvor e outros que merecem censura e punição (…). Aquilo que não é de todo voluntário não pode merecer aprovação ou censura. O que é feito por inevitável necessidade pode ser agradável ou desagradável, útil ou prejudicial, mas não pode ser objeto de culpa ou de aprovação moral. Os homens podem ser em larga medida culpados por não fazerem aquilo que deveriam ter feito, bem como por fazerem aquilo que não deveriam ter feito.»`,`Thomas Reid · Manual p. 159, Grupo II, 3`)}`,[`Critica o <b>determinismo radical</b>.`,`É a objeção da responsabilidade moral: há ações que merecem louvor e censura (somos culpados).`,`O que é feito por «inevitável necessidade» (ou seja, determinado) não pode ser objeto de culpa.`,`Logo, nem tudo o que fazemos é por necessidade: temos livre-arbítrio.`],`O texto critica o determinismo radical, com a objeção da responsabilidade moral. Reid parte da ideia de que há ações que merecem louvor e outras que merecem censura e punição, ou seja, de que há responsabilidade moral. Mas o que é feito «por inevitável necessidade» não pode ser objeto de culpa. Se o determinismo radical fosse verdadeiro, tudo o que fazemos seria necessário e ninguém poderia ser culpado de nada. Como os homens podem ser culpados pelo que fazem, o determinismo radical tem de ser falso.`)
+],
+b6:[
+ mc(1,`Que premissa acrescentam os libertistas ao argumento da consequência?`,[`(4) O determinismo é verdadeiro.`,`(4*) Temos livre-arbítrio.`,`(4*) Há acontecimentos aleatórios.`,`(4*) Tudo tem uma causa.`],1,`E concluem (5*) «Logo, o determinismo é falso».`),
+ mc(2,`No argumento libertista, (5*) obtém-se de (3) e (4*) por…`,[`Modus Ponens.`,`Modus Tollens.`,`Silogismo Hipotético.`,`redução ao absurdo.`],1,`Se D, então não LA; LA (nega-se a consequente); logo, não D.`),
+ mc(2,`Como justificam os libertistas a premissa (4*)?`,[`Com o sucesso da ciência.`,`Não conseguimos viver, escolher e agir sem pressupor o livre-arbítrio; é mais plausível termos LA do que estarmos sempre enganados.`,`Com o caso das gomas vermelhas.`,`Com o demónio de Laplace.`],1,`pp. 149–150.`),
+ mc(2,`A objeção da ilusão diz que…`,[`as nossas ações são aleatórias.`,`julgamo-nos livres porque temos consciência dos nossos desejos, mas ignoramos as causas que os determinam.`,`a liberdade é uma ilusão de ótica.`,`não existem desejos.`],1,`Espinosa e Schopenhauer.`),
+ mc(1,`Quem compara o ser humano a uma pedra que, ao ser lançada, se julgaria livre?`,[`Espinosa.`,`Kane.`,`Van Inwagen.`,`Moore.`],0,`Bento de Espinosa (1632–1677).`),
+ mc(2,`«Se as nossas ações forem indeterminadas, não são livres, mas aleatórias.» Que objeção é esta?`,[`Objeção da ilusão.`,`Objeção da mecânica quântica.`,`Objeção da aleatoriedade.`,`Objeção da responsabilidade moral.`],2,`Ilustrada por Robert Kane com o exemplo de John (Havai ou Colorado).`),
+ mc(2,`«Ainda está por provar que fenómenos mentais como as decisões não estão de modo algum determinados pelas leis físicas.» Esta afirmação é uma objeção ao…`,[`determinismo radical.`,`determinismo moderado.`,`determinismo.`,`libertismo.`],3,`Ficha de avaliação, item 4 (D). Ataca a ideia libertista de que as decisões escapam ao determinismo.`),
+ mc(3,`«(1) Se o determinismo é verdadeiro, então não temos livre-arbítrio. (2) Temos livre-arbítrio. (3) Logo, o determinismo não é verdadeiro.»`,[`Apenas os det. radicais e os det. moderados aceitam o argumento.`,`Apenas os det. radicais aceitam o argumento.`,`Apenas os det. moderados aceitam o argumento.`,`Apenas os libertistas aceitam o argumento.`],3,`Manual p. 157, item 7 (D). Os det. radicais rejeitam (2); os det. moderados rejeitam (1) e (3).`),
+ mc(3,`«Se as nossas ações fossem indeterminadas, então "apareceriam do nada"; não seriam mais livres do que se resultassem da manipulação do nosso sistema nervoso por um demónio bizarro. Portanto, ação livre não é meramente compatível com o determinismo; ela implica o determinismo.» Que teoria está a ser criticada?`,[`O determinismo radical.`,`O libertismo.`,`O determinismo moderado.`,`O compatibilismo.`],1,`Manual p. 159, item 4.1 (van Inwagen, a apresentar a ideia compatibilista). É a objeção da aleatoriedade, contra o libertismo.`),
+ tf(2,`Os deterministas radicais atacam a premissa (4*) do libertismo e não a linha (3).`,true,`Também são incompatibilistas: aceitam a (3).`),
+ tf(2,`A objeção da aleatoriedade é usada pelos deterministas moderados.`,true,`Querem mostrar que o livre-arbítrio parece impossível sem o determinismo.`),
+ tf(3,`Para Kane, se a escolha de John fosse indeterminada, a mesma deliberação podia tê-lo levado ao Colorado, e isso tornaria a escolha mais livre.`,false,`Tornaria a escolha arbitrária e irracional, fruto do acaso. Não seria uma escolha livre e responsável.`),
+ op(2,"r",`Lê o texto. Esclarece a perspetiva defendida face ao problema do livre-arbítrio e o principal argumento que a sustenta.${doc(`«(…) Como muitos filósofos salientaram, se existe um facto da experiência com que todos estamos familiarizados, é o facto simples de que as nossas próprias escolhas, decisões, raciocínios e cogitações diferem do nosso comportamento efetivo. Há toda uma série de experiências que temos da vida em que parece ser um facto da nossa experiência que, embora tenhamos feito uma coisa, temos a certeza de sabermos perfeitamente que poderíamos ter feito algo mais. (…) Tínhamos consciência de que havia também razões para escolher outra coisa e, na verdade, podíamos ter agido por essas razões e escolhido essa outra coisa.»`,`John Searle, Mente, Cérebro e Ciência · Ficha de avaliação, Grupo II, 1`)}`,[`Perspetiva: <b>libertismo</b>.`,`Argumento: defesa da premissa (4*) pela <b>experiência</b>: não conseguimos viver nem escolher sem pressupor o LA.`,`O texto: temos a certeza de que «poderíamos ter feito algo mais», ou seja, temos possibilidades alternativas.`,`É mais plausível termos LA do que estarmos sempre enganados.`],`A perspetiva defendida é o libertismo: temos livre-arbítrio e, por isso, nem tudo está determinado. O principal argumento é o da experiência, usado para defender a premissa (4*) «Temos livre-arbítrio». Como diz Searle, em muitas situações da vida, embora tenhamos feito uma coisa, «temos a certeza» de que poderíamos ter feito outra, porque tínhamos razões para escolher outra coisa. Para os libertistas, não conseguimos viver, fazer escolhas e agir sem pressupor o livre-arbítrio, e é mais plausível que essa sensação se deva a termos realmente livre-arbítrio do que a um erro permanente da nossa parte.`),
+ op(2,"r",`Em que consistem a objeção da ilusão e a objeção da aleatoriedade? Contra quem são?`,[`Ambas são contra o <b>libertismo</b> (atacam a premissa 4*).`,`<b>Ilusão</b> (Espinosa, Schopenhauer; deterministas radicais): conhecemos os desejos, ignoramos as causas; pedra lançada.`,`<b>Aleatoriedade</b> (deterministas moderados; Kane): ações indeterminadas seriam acaso, não liberdade; John e o Havai.`],`As duas objeções são dirigidas ao libertismo. A objeção da ilusão, de deterministas radicais como Espinosa e Schopenhauer, diz que a nossa sensação de liberdade é uma ilusão: temos consciência dos nossos desejos, mas ignoramos as causas que os determinam, como uma pedra lançada que, se pensasse, julgaria mover-se por vontade própria. A objeção da aleatoriedade, usada pelos deterministas moderados, diz que uma escolha não determinada por acontecimentos anteriores não seria livre, mas aleatória: no exemplo de Kane, a mesma deliberação podia levar John ao Havai ou ao Colorado por puro acaso, e isso seria arbitrário e não uma escolha livre e responsável.`)
+],
+b7:[
+ mc(1,`O determinismo moderado defende que…`,[`nem tudo está determinado e temos LA.`,`tudo está determinado e não temos LA.`,`tudo está determinado e, mesmo assim, temos LA.`,`não temos LA nem tudo está determinado.`],2,`É uma perspetiva compatibilista.`),
+ mc(2,`No argumento do determinismo moderado, (8) «Temos livre-arbítrio, apesar de o determinismo ser verdadeiro» obtém-se de…`,[`(1) e (2).`,`(3) e (4).`,`(6) e (7).`,`(5) e (6).`],2,`(6) O determinismo é verdadeiro. (7) Temos livre-arbítrio.`),
+ mc(2,`Que objeção <b>não</b> se aplica ao determinismo moderado?`,[`Gomas vermelhas.`,`Mecânica quântica.`,`Ilusão.`,`Aleatoriedade.`],3,`A aleatoriedade é usada <b>pelos</b> deterministas moderados contra o libertismo. As outras atacam a análise condicional, a premissa (6) e a premissa (7).`),
+ mc(2,`Quem poderia concordar com a estratégia de Clarence Darrow?`,[`Os libertistas.`,`Os deterministas moderados.`,`Os deterministas radicais.`,`Ninguém.`],2,`Para eles, os jovens não podiam ter feito nada para evitar o crime.`),
+ mc(2,`Porque é que os deterministas moderados discordam de Darrow?`,[`Porque acham que o crime não foi determinado.`,`Porque, mesmo determinado, o crime correspondia à vontade dos jovens e não foram forçados por fatores externos.`,`Porque são contra a pena de morte.`,`Porque acham que ninguém é responsável.`],1,`A ação foi livre (sem coação), logo são responsáveis.`),
+ mc(3,`Um determinista radical pode defender uma pena severa para Leopold e Loeb porque…`,[`eles merecem ser castigados.`,`o castigo pode ajudar a determinar que outras pessoas não cometam crimes no futuro.`,`eles tinham livre-arbítrio.`,`a pena é sempre justa.`],1,`Não por merecimento, mas por dissuasão: o presente também determina o futuro.`),
+ mc(2,`Considera: 1. A perspetiva compatibilista rejeita a crença de que, se o determinismo é verdadeiro, então não existem ações livres. 2. Quer o libertista, quer o det. radical acreditam que o LA é incompatível com o determinismo. 3. Para o libertista, o ser humano é livre e, portanto, nem tudo está determinado. 4. Para o libertista, o ser humano é livre e, portanto, nada está determinado.`,[`1, 2 e 3 são verdadeiras; 4 é falsa.`,`1, 2 e 4 são verdadeiras; 3 é falsa.`,`2 e 4 são verdadeiras; 1 e 3 são falsas.`,`2 e 3 são verdadeiras; 1 e 4 são falsas.`],0,`Ficha de avaliação, item 5 (A). «Nada está determinado» é demasiado forte.`),
+ tf(3,`Os deterministas moderados e os radicais pensam que o livre-arbítrio não passa de uma ilusão.`,false,`Só os radicais. Os moderados acham que temos livre-arbítrio.`),
+ tf(2,`Os libertistas discordam de Darrow porque acham que o passado influenciou, mas não determinou, a decisão dos jovens.`,true,`Eram livres de cometer ou não o crime, logo são responsáveis.`),
+ tf(3,`O determinismo moderado e o libertismo discordam sobre se temos livre-arbítrio.`,false,`Concordam que temos. Discordam sobre se o determinismo é verdadeiro (e sobre se é compatível com o LA).`),
+ op(2,"r",`«Ninguém merece castigo por falhar em fazer algo que não possa fazer.» A partir desta frase, relaciona o conceito de liberdade com o de responsabilidade moral.`,[`Ser livre implica ser moralmente responsável pelo que fazemos e pelas consequências.`,`Só faz sentido responsabilizar alguém se a ação teve origem na sua vontade e se podia ter agido de outro modo.`,`Exemplo concreto (o vidro partido, o raptado obrigado a matar).`,`Liberdade traz responsabilidade; sem liberdade, não há responsabilidade.`],`A liberdade e a responsabilidade moral estão ligadas: se somos livres de agir desta ou daquela maneira, somos também responsáveis pelo que fazemos e pelas consequências. Só faz sentido responsabilizar alguém se a ação teve origem na sua vontade e se podia ter agido de outro modo. É isso que diz a frase: ninguém merece castigo por não fazer algo que não podia fazer. Por exemplo, não culpamos um aluno por um vidro que outro partiu, nem alguém que foi obrigado à força a cometer um crime. Assim, a liberdade traz consigo a responsabilidade e, sem liberdade, não há responsabilidade.`),
+ op(3,"x",`O poema parece sugerir que, ainda que tudo esteja determinado, existe livre-arbítrio. Concordas? Porquê? Na resposta: identifica e formula o problema; formula a tua posição; argumenta a favor dela.${doc(`«Uma vez mais, se o movimento sempre está conectado,<br>Gerando-se novos movimentos de velhos numa ordem fixa,<br>Se os átomos nunca guinam e originam<br>Movimentos que possam quebrar as grilhetas do fado,<br>Enganando a cadeia infinita de causa e efeito,<br>Qual é a origem deste livre-arbítrio<br>Que as criaturas vivas em toda a Terra possuem?»`,`Lucrécio, Da Natureza das Coisas · Ficha de avaliação, Grupo III`)}`,[`<b>Problema:</b> problema da compatibilidade: «Será o livre-arbítrio compatível com o determinismo?»`,`<b>Posição clara</b>: compatibilismo (concordo) ou incompatibilismo (discordo).`,`<b>Se concordas:</b> análise condicional; liberdade = ausência de constrangimento; causas internas vs externas; exemplo (greve de fome vs deserto); objeção da aleatoriedade ao libertismo.`,`<b>Se discordas:</b> argumento da consequência (válido, Silogismo Hipotético); defesa de (1) (não controlamos passado nem leis) e (2) (só é livre quem podia agir de outro modo); objeção das gomas vermelhas à análise condicional.`],`O problema subjacente ao texto é o problema da compatibilidade: «Será o livre-arbítrio compatível com o determinismo?». O poema sugere que sim, ou seja, que mesmo que tudo esteja preso à «cadeia infinita de causa e efeito», as criaturas vivas têm livre-arbítrio. Eu discordo: defendo o incompatibilismo. O meu principal argumento é o argumento da consequência: (1) se o determinismo é verdadeiro, então não temos possibilidades alternativas; (2) se não temos possibilidades alternativas, então não temos livre-arbítrio; (3) logo, se o determinismo é verdadeiro, não temos livre-arbítrio. O argumento é válido, por Silogismo Hipotético. A premissa (1) é plausível porque, se o determinismo for verdadeiro, o passado e as leis da natureza determinam um único futuro e nós não controlamos nenhum deles. A premissa (2) também, porque só consideramos alguém livre e responsável se podia ter agido de outro modo. Os compatibilistas respondem com a análise condicional: «podia ter agido de outro modo» quer dizer «teria agido de outro modo, se tivesse escolhido». Mas o caso das gomas vermelhas mostra que isto não chega: quem tem uma aversão patológica tiraria uma goma se escolhesse, mas nunca poderia escolher. Por isso, se tudo estiver determinado, não temos livre-arbítrio.`),
+ op(3,"x",`Lê o texto. Concordas com a perspetiva do autor? Porquê? Na resposta: esclarece o problema; identifica justificadamente a tese do autor; formula a tua perspetiva; argumenta a favor dela; formula objeções às perspetivas a que te opões.${doc(`«Para esclarecer em concreto (…) a origem [da ilusão do livre-arbítrio], imaginemos um homem que (…) dissesse a si próprio: "São seis horas da tarde, o dia de trabalho terminou. Posso dar um passeio ou ir ao clube; posso subir à torre para observar o pôr-do-sol; posso ir ao teatro ou visitar este ou aquele amigo; na realidade posso abandonar tudo, percorrer o mundo e nunca mais voltar. (…) Contudo não farei qualquer destas coisas, tão livre como antes, voltarei para casa e para a minha mulher." O mesmo aconteceria se a água dissesse a si própria: "Posso provocar ondas altas (sim!, no mar, durante uma tempestade), posso descer pelos montes (sim!, no leito de um rio) (…). Contudo, não farei qualquer destas coisas; permanecerei voluntariamente água calma e límpida no meditativo lago."»`,`Arthur Schopenhauer, Ensaio sobre o Livre-Arbítrio · Manual p. 159, Grupo III`)}`,[`<b>Problema:</b> «Temos livre-arbítrio?» (problema tradicional).`,`<b>Tese do autor:</b> determinismo radical: o livre-arbítrio é uma <b>ilusão</b>. O homem julga-se livre como a água que julgasse ficar no lago «voluntariamente»: só faz o que as circunstâncias determinam (objeção da ilusão).`,`<b>Tua posição</b> e argumento (det. radical, libertismo ou det. moderado).`,`<b>Objeções</b> às posições rivais: contra o det. radical, responsabilidade moral ou mecânica quântica; contra o libertismo, ilusão ou aleatoriedade; contra o det. moderado, gomas vermelhas.`],`O texto trata do problema tradicional do livre-arbítrio: «Será que temos livre-arbítrio?». Schopenhauer defende o determinismo radical: o livre-arbítrio é uma ilusão. O homem pensa que pode fazer muitas coisas, mas acaba sempre por fazer aquilo a que as causas o levam, tal como a água só faz ondas se houver tempestade e só fica calma no lago porque as circunstâncias o determinam. Julgamo-nos livres porque conhecemos os nossos desejos, mas ignoramos as causas que os determinam. Eu discordo e defendo o libertismo. Parto do argumento da consequência, que é válido: se o determinismo é verdadeiro, não temos livre-arbítrio. Mas temos livre-arbítrio: não conseguimos viver, decidir e agir sem o pressupor, e é mais plausível que esta experiência seja verdadeira do que estarmos sempre enganados. Logo, por Modus Tollens, o determinismo é falso. Contra o determinismo radical, a objeção da responsabilidade moral mostra que, se fosse verdadeiro, ninguém seria culpado de nada, o que é absurdo, porque censuramos e louvamos as pessoas com justiça. Um determinista moderado poderia responder com a objeção da aleatoriedade: uma escolha indeterminada seria fruto do acaso. Mas um libertista pode responder que a escolha não é aleatória, porque é feita pelo agente com base nas suas razões.`)
+]
+};
+
+/* ===== Dados dos exercícios interativos ===== */
+const SORT={
+ tipos:{cats:["Filosófico","Científico","Matemático"],items:[
+  ["Qual é a temperatura a que a água ferve ao nível do mar?",1,"Mede-se: é empírico."],
+  ["O que é a justiça?",0,"Problema conceptual («O que é x?»)."],
+  ["Quanto é 17 × 23?",2,"Resolve-se com cálculo."],
+  ["Será que temos livre-arbítrio?",0,"Não se resolve a observar nem a calcular."],
+  ["Quantos dentes tem um urso polar?",1,"Exemplo do manual: observa-se e calcula-se a média."],
+  ["Será a eutanásia moralmente aceitável?",0,"Problema de valor (ética)."],
+  ["Há infinitos números primos?",2,"Resolve-se com uma prova formal."],
+  ["Quantos países têm pena de morte?",1,"Consulta de dados: empírico (não é sobre se é justa)."],
+  ["A mente é diferente do corpo?",0,"Relação entre conceitos."],
+  ["Qual é a área de um triângulo com 4 cm de base e 3 cm de altura?",2,"Fórmula: 4 × 3 / 2 = 6 cm²."]]},
+ areas:{cats:["Metafísica","Epistemologia","Axiologia","Lógica"],items:[
+  ["Tudo o que existe é físico?",0,"Sobre o que há."],
+  ["O que é o conhecimento?",1,"Natureza do conhecimento."],
+  ["Os valores são meramente subjetivos?",2,"Natureza do valor."],
+  ["O que torna um argumento válido?",3,"Argumentação correta."],
+  ["Há livre-arbítrio?",0,"O manual põe-no na metafísica (p. 19)."],
+  ["Será que podemos saber alguma coisa com certeza?",1,"Possibilidade do conhecimento."],
+  ["O que torna uma ação certa ou errada?",2,"Ética, que é parte da axiologia."],
+  ["Deus existe?",0,"Sobre o que existe."],
+  ["Que tipos de conhecimento existem?",1,"Epistemologia."]]},
+ valido:{cats:["Pode ser válido","Nunca é válido"],items:[
+  ["Premissas verdadeiras e conclusão verdadeira",0,"Ex.: Todos os homens são mortais; Sócrates é homem; logo, Sócrates é mortal."],
+  ["Premissas falsas e conclusão falsa",0,"Ex.: Todos os homens são imortais; Marcelo é homem; logo, Marcelo é imortal."],
+  ["Premissas falsas e conclusão verdadeira",0,"Ex.: Todos os peixes são mamíferos; a baleia é um peixe; logo, a baleia é mamífero."],
+  ["Premissas verdadeiras e conclusão falsa",1,"É exatamente isto que a validade proíbe."],
+  ["Uma premissa falsa, as outras verdadeiras, conclusão falsa",0,"Pode ser válido, mas não é sólido."]]},
+ livre:{cats:["Livre","Não livre"],items:[
+  ["Gandhi passa fome porque quer libertar a Índia.",0,"Causa interna (o seu objetivo). Se quisesse comer, podia."],
+  ["Uma pessoa passa fome num deserto porque não há comida.",1,"Constrangimento externo: mesmo que decidisse comer, não podia."],
+  ["Uma pessoa rouba pão porque está com fome.",0,"Age segundo o seu desejo, sem ser forçada por ninguém. (Livre não quer dizer certo!)"],
+  ["Uma pessoa foi forçada a roubar porque lhe apontaram uma arma à cabeça.",1,"Coação externa."],
+  ["Uma pessoa assina uma confissão porque quer dizer a verdade.",0,"Causa interna."],
+  ["Uma pessoa assina uma confissão porque foi torturada.",1,"Coação."],
+  ["Uma pessoa abandona o escritório porque quer lanchar.",0,"Causa interna."],
+  ["Uma pessoa abandona o escritório forçada pela polícia.",1,"Coação."],
+  ["Estás trancado no quarto sem saber e decides ficar a estudar.",1,"Se tivesses decidido sair, não conseguias: não tinhas possibilidades alternativas (caderno de atividades)."],
+  ["Assaltas um banco porque queres ficar rico.",0,"Para o compatibilismo, é livre (e és responsável)."]]}
+};
+
+const CLOZE={
+ consequencia:[
+  "(1) Se o determinismo é verdadeiro, então não temos [[livre-arbítrio|*possibilidades alternativas|responsabilidade moral]].",
+  "(2) Se não temos possibilidades alternativas, então [[*não temos livre-arbítrio|o determinismo é falso|temos livre-arbítrio]].",
+  "(3) Logo, se o determinismo é verdadeiro, então não temos livre-arbítrio. (De 1 e 2, por [[Modus Ponens|Modus Tollens|*Silogismo Hipotético]])",
+  "Determinismo radical: (4) [[*O determinismo é verdadeiro|Temos livre-arbítrio|O determinismo é falso]]. (5) Logo, não temos livre-arbítrio. (De 3 e 4, por [[*Modus Ponens|Modus Tollens|Silogismo Hipotético]])",
+  "Libertismo: (4*) [[O determinismo é verdadeiro|*Temos livre-arbítrio|Não temos possibilidades alternativas]]. (5*) Logo, [[não temos livre-arbítrio|*o determinismo é falso|o determinismo é verdadeiro]]. (De 3 e 4*, por [[Modus Ponens|*Modus Tollens|Silogismo Hipotético]])",
+  "Os compatibilistas clássicos rejeitam a premissa [[*(1)|(2)|(3)]] com a [[*análise condicional|objeção da ilusão|mecânica quântica]]."
+ ],
+ objecoes:[
+  "Objeção da mecânica quântica → contra o [[*determinismo radical|libertismo|compatibilismo clássico]]",
+  "Objeção da responsabilidade moral → contra o [[*determinismo radical|libertismo|determinismo moderado]]",
+  "Objeção da ilusão → contra o [[determinismo radical|*libertismo|determinismo moderado]]",
+  "Objeção da aleatoriedade → contra o [[determinismo radical|*libertismo|determinismo moderado]]",
+  "Caso das gomas vermelhas → contra a [[*análise condicional (det. moderado)|premissa (4) do det. radical|premissa (4*) do libertismo]]",
+  "Quem faz a objeção da aleatoriedade? Os [[deterministas radicais|*deterministas moderados|libertistas]] (exemplo de [[Espinosa|*Kane|Moore]])",
+  "Quem faz a objeção da ilusão? Os [[*deterministas radicais|deterministas moderados|libertistas]] (exemplo de [[*Espinosa|Kane|van Inwagen]])"
+ ]
+};
+
+/* Quem aceita? [afirmação, [radical, libertismo, moderado], explicação] */
+const MX=[
+ ["Tudo o que acontece é a consequência necessária do passado e das leis da natureza.",[1,0,1],"É o determinismo: os dois deterministas aceitam-no."],
+ ["Temos livre-arbítrio.",[0,1,1],"Libertismo e det. moderado."],
+ ["Se o determinismo é verdadeiro, então não temos livre-arbítrio.",[1,1,0],"É o incompatibilismo: radical e libertismo."],
+ ["Se o determinismo é verdadeiro, então não temos possibilidades alternativas.",[1,1,0],"Premissa (1): os compatibilistas rejeitam-na."],
+ ["Se não temos possibilidades alternativas, então não temos livre-arbítrio.",[1,1,1],"Premissa (2): até os compatibilistas clássicos a aceitam."],
+ ["Nem tudo está determinado.",[0,1,0],"Só o libertismo."],
+ ["Se alguns acontecimentos são consequência necessária do passado e das leis da natureza, então não temos livre-arbítrio.",[0,0,0],"Ninguém: os incompatibilistas falam de <b>todos</b> os acontecimentos. O libertista aceita que alguns estão determinados."],
+ ["Se temos livre-arbítrio, então nem tudo está determinado.",[1,1,0],"É a mesma condicional do incompatibilismo, dita ao contrário. O radical aceita-a, só nega que tenhamos LA."],
+ ["O livre-arbítrio é uma ilusão.",[1,0,0],"Só o det. radical (objeção da ilusão)."],
+ ["Uma ação indeterminada seria aleatória, e não livre.",[0,0,1],"Objeção da aleatoriedade, do det. moderado."],
+ ["Ninguém é moralmente responsável por nada do que faz.",[1,0,0],"Consequência do det. radical."],
+ ["Darrow tinha razão: os jovens não eram responsáveis.",[1,0,0],"Só o det. radical pode concordar."]
+];
+</script>
+
+<script>
+(function(){
+"use strict";
+/* ===================== Utilidades ===================== */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+function el(tag,attrs,...kids){const n=document.createElement(tag);if(attrs)for(const k in attrs){const v=attrs[k];if(v==null||v===false)continue;
+  if(k==="class")n.className=v;else if(k==="html")n.innerHTML=v;else if(k==="text")n.textContent=v;else if(k.startsWith("on"))n.addEventListener(k.slice(2),v);else n.setAttribute(k,v===true?"":v);}
+  kids.flat(Infinity).forEach(c=>{if(c==null||c===false)return;n.append(c.nodeType?c:document.createTextNode(c));});return n;}
+const NS="http://www.w3.org/2000/svg";
+function sv(tag,attrs,...kids){const n=document.createElementNS(NS,tag);if(attrs)for(const k in attrs){const v=attrs[k];if(v==null||v===false)continue;
+  if(k==="text")n.textContent=v;else n.setAttribute(k,v);}kids.flat(Infinity).forEach(c=>{if(c)n.append(c)});return n;}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* ===================== Estado (localStorage) ===================== */
+const KEY="isa-filo-prova-comum-2026";
+let S={sec:{},ans:{},open:{},ql:{},plan:{},so:{},cz:{},qf:{},gq:{st:"all",d:0},filter:"all"};
+try{const r=JSON.parse(localStorage.getItem(KEY)||"null");if(r&&typeof r==="object")S=Object.assign(S,r);}catch(e){}
+["sec","ans","open","ql","plan","so","cz","qf"].forEach(k=>{if(!S[k]||typeof S[k]!=="object")S[k]={};});
+if(!S.gq||typeof S.gq!=="object")S.gq={st:"all",d:0};
+let saveT=null;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function saveSoon(){clearTimeout(saveT);saveT=setTimeout(save,400);}
+
+/* ===================== Secções ===================== */
+const SECS=$$("section.sec");
+const getSec=id=>Object.assign({r:false,l:false},S.sec[id]||{});
+function setSec(id,k,v){const o=getSec(id);o[k]=v;S.sec[id]=o;save();refreshAll();}
+SECS.forEach((sec,i)=>{
+  const id=sec.id,head=$(".sec-head",sec);
+  const st=el("div",{class:"st"});
+  st.append(el("button",{class:"st-read",type:"button","aria-pressed":"false",onclick:()=>setSec(id,"r",!getSec(id).r)}),
+            el("button",{class:"st-later",type:"button","aria-pressed":"false",onclick:()=>setSec(id,"l",!getSec(id).l)}),
+            el("button",{class:"ghost show-theory",type:"button",text:"Mostrar a matéria desta secção",onclick:e=>{const o=sec.classList.toggle("theory-open");e.currentTarget.textContent=o?"Esconder a matéria":"Mostrar a matéria desta secção";}}));
+  head.append(st);
+  const next=SECS[i+1];
+  const end=el("div",{class:"sec-end"},el("span",{class:"small qstat-end"}),
+    el("button",{class:"next",type:"button",onclick:()=>{setSec(id,"r",true);const t=next&&!next.hidden?next:$("#cabula");t.scrollIntoView({behavior:"smooth"});}}));
+  sec.append(end);
+});
+
+/* ===================== Perguntas ===================== */
+const LET="ABCD", LVL=["","Fácil","Médio","Difícil"];
+const QIDS={}, Qmap={};
+Object.keys(Q).forEach(s=>{QIDS[s]=Q[s].map((q,i)=>{const id=s+"-"+(i+1);Qmap[id]=Object.assign({id,s},q);return id;});});
+const isAnswered=id=>!!S.ans[id];
+const isRight=id=>!!(S.ans[id]&&S.ans[id].ok);
+const isWrong=id=>!!(S.ans[id]&&!S.ans[id].ok);
+const isLater=id=>!!S.ql[id];
+function secStats(s){const ids=QIDS[s]||[];let an=0,ok=0,l=0;ids.forEach(id=>{if(isAnswered(id))an++;if(isRight(id))ok++;if(isLater(id))l++;});return{n:ids.length,an,ok,bad:an-ok,l};}
+
+function qHead(q,n,type,id,persist){
+  const meta=el("div",{class:"qmeta"},el("span",{class:"lvl l"+q.d,text:LVL[q.d]}),el("span",{text:type}));
+  if(persist){
+    const b=el("button",{class:"qstar",type:"button","aria-pressed":isLater(id)?"true":"false"});
+    const paint=()=>{const on=isLater(id);b.setAttribute("aria-pressed",on?"true":"false");b.textContent=on?"★ Ver mais tarde":"☆ Ver mais tarde";};
+    b.addEventListener("click",()=>{if(isLater(id))delete S.ql[id];else S.ql[id]=1;save();paint();onAnswer(q.s);});
+    paint();meta.append(b);
+  }
+  return [el("div",{class:"qhead"},el("span",{class:"qn",text:n}),el("div",{class:"qt",html:q.q})),meta];
+}
+function renderQ(q,id,n,o){
+  o=o||{};const persist=o.persist!==false;
+  const box=el("div",{class:"q","data-qid":persist?id:null});
+  let reported=false;const record=(val,ok)=>{if(persist){S.ans[id]={v:val,ok};save();onAnswer(q.s);}if(o.onResult&&!reported){reported=true;o.onResult(ok);}};
+  if(q.t==="mc"||q.t==="tf"){
+    const isTF=q.t==="tf";
+    box.append(...qHead(q,n,isTF?"Verdadeiro ou falso":"Escolha múltipla",id,persist));
+    const wrap=el("div",{class:isTF?"tfb":"opts"});
+    const choices=isTF?[true,false]:q.o.map((_,i)=>i);
+    const btns=choices.map((c,i)=>{
+      const b=isTF?el("button",{type:"button",text:c?"Verdadeiro":"Falso"})
+                  :el("button",{class:"opt",type:"button"},el("b",{text:"("+LET[i]+")"}),el("span",{html:q.o[i]}));
+      b.addEventListener("click",()=>choose(c,true));wrap.append(b);return b;});
+    const fb=el("p",{class:"fb",hidden:true});
+    const ansTxt=isTF?(q.a?"Verdadeiro":"Falso"):"("+LET[q.a]+") "+q.o[q.a];
+    const sum=el("summary",{text:"Ver resposta e explicação"});
+    const sol=el("details",{class:"sol"},sum,el("div",{},el("p",{html:"<b>Resposta certa: "+ansTxt+"</b>"}),el("p",{html:q.e})));
+    const again=persist?el("button",{class:"ghost again",type:"button",hidden:true,text:"↻ Tentar outra vez",
+      onclick:()=>{delete S.ans[id];save();box.replaceWith(renderQ(q,id,n,o));onAnswer(q.s);}}):null;
+    box.append(wrap,fb,sol);if(again)box.append(again);
+    function choose(c,user){
+      const ok=c===q.a;
+      btns.forEach((b,i)=>{b.disabled=true;const v=choices[i];if(v===q.a)b.classList.add("right");else if(v===c)b.classList.add("wrong");});
+      box.classList.add(ok?"right":"wrong");fb.hidden=false;fb.className="fb "+(ok?"ok":"bad");
+      fb.textContent=ok?"Certo!":(isTF?"Não. A afirmação é "+(q.a?"verdadeira":"falsa")+".":"Não é essa. A certa é a ("+LET[q.a]+").");
+      sum.textContent=ok?"Ver explicação":"Porquê? Ver a explicação";
+      if(again)again.hidden=ok;
+      if(user){if(!ok)sol.open=true;record(c,ok);}
+    }
+    const prev=persist&&S.ans[id];if(prev&&prev.v!==undefined)choose(prev.v,false);
+  } else if(q.t==="op"){
+    box.append(...qHead(q,n,q.k==="x"?"Resposta extensa":"Resposta curta",id,persist));
+    const ta=el("textarea",{class:"ans",placeholder:"Escreve aqui a tua resposta. Fica guardada neste browser.","aria-label":"A tua resposta"});
+    const saved=el("span",{class:"saved"});
+    ta.value=(S.open&&S.open[id])||"";
+    ta.addEventListener("input",()=>{S.open[id]=ta.value;saved.textContent="A guardar…";saveSoon();clearTimeout(ta._t);ta._t=setTimeout(()=>saved.textContent="Guardado",500);});
+    const self=el("div",{class:"wg-tools small"},"Depois de comparares com a solução:",
+      el("button",{class:"chip",type:"button","data-k":"k",text:"✓ Estava bem",onclick:()=>rate("k")}),
+      el("button",{class:"chip",type:"button","data-k":"r",text:"↻ Tenho de rever",onclick:()=>rate("r")}));
+    function rate(k){const cur=S.ans[id]&&S.ans[id].self;if(cur===k){delete S.ans[id];}else S.ans[id]={self:k,ok:k==="k"};save();onAnswer(q.s);paint();}
+    function paint(){const cur=S.ans[id]&&S.ans[id].self;$$(".chip",self).forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===cur?"true":"false"));
+      box.classList.toggle("right",cur==="k");box.classList.toggle("wrong",cur==="r");}
+    box.append(ta,saved,el("details",{class:"sol"},el("summary",{text:"Ver solução"}),
+      el("div",{},el("p",{html:"<b>O que deves referir:</b>"}),el("ul",{},q.pts.map(p=>el("li",{html:p}))),
+        el("p",{html:"<b>Exemplo de resposta:</b>"}),el("p",{class:"model",html:q.m}))),self);
+    if(persist)paint();
+  }
+  return box;
+}
+
+/* Filtros das perguntas: estado + dificuldade.
+   Cada secção tem os seus; sem escolha própria, segue o filtro geral do menu "Secções". */
+const QF=[["all","Todas"],["wrong","✗ Erradas"],["todo","Por responder"],["right","✓ Certas"],["later","★ Ver mais tarde"]];
+const QD=[[0,"Todas"],[1,"Fácil"],[2,"Médio"],[3,"Difícil"]];
+const gqActive=()=>S.gq.st!=="all"||+S.gq.d!==0;
+function qfOf(s){const o=S.qf[s];return o?{st:o.st||"all",d:+o.d||0}:{st:S.gq.st,d:+S.gq.d||0};}
+function stMatch(k,id){switch(k){case"wrong":return isWrong(id);case"todo":return !isAnswered(id);case"right":return isRight(id);case"later":return isLater(id);default:return true;}}
+function qMatch(f,id){return stMatch(f.st,id)&&(!f.d||Qmap[id].d===f.d);}
+function countMatch(s,f){return (QIDS[s]||[]).filter(id=>qMatch(f,id)).length;}
+function setQF(s,patch){const cur=qfOf(s);S.qf[s]=Object.assign(cur,patch);save();applyQF(s);}
+function qfTools(s){
+  const r1=el("div",{class:"row",role:"group","aria-label":"Filtrar por estado"},el("span",{class:"lbl",text:"Mostrar"}),
+    QF.map(([k,t])=>el("button",{class:"chip",type:"button","data-qf":k,"data-t":t,"aria-pressed":"false",onclick:()=>setQF(s,{st:k})})));
+  const r2=el("div",{class:"row",role:"group","aria-label":"Filtrar por dificuldade"},el("span",{class:"lbl",text:"Dificuldade"}),
+    QD.map(([k,t])=>el("button",{class:"chip",type:"button","data-qd":k,"data-t":t,"aria-pressed":"false",onclick:()=>setQF(s,{d:k})})));
+  return [r1,r2];
+}
+function paintQF(s){const box=$('.qs[data-s="'+s+'"]');if(!box)return;const f=qfOf(s);
+  $$("[data-qf]",box).forEach(b=>{const k=b.dataset.qf;b.setAttribute("aria-pressed",k===f.st?"true":"false");b.textContent=b.dataset.t+" ("+countMatch(s,{st:k,d:f.d})+")";});
+  $$("[data-qd]",box).forEach(b=>{const k=+b.dataset.qd;b.setAttribute("aria-pressed",k===f.d?"true":"false");b.textContent=b.dataset.t+" ("+countMatch(s,{st:f.st,d:k})+")";});}
+const QFE={wrong:"Não tens perguntas erradas aqui.",todo:"Já respondeste a todas.",right:"Ainda não acertaste nenhuma.",later:"Não marcaste nenhuma pergunta com ★."};
+function applyQF(s){const box=$('.qs[data-s="'+s+'"]');if(!box)return;const f=qfOf(s);let n=0;
+  $$(".q[data-qid]",box).forEach(q=>{if(qMatch(f,q.dataset.qid)){q.removeAttribute("data-qhide");n++;}else q.setAttribute("data-qhide","");});
+  const e=$(".qf-empty",box);if(e){e.hidden=n>0;e.textContent=(QFE[f.st]||"Não há perguntas")+(f.d?" (nível "+LVL[f.d].toLowerCase()+")":"")+".";}
+  paintQF(s);}
+function renderSection(s){
+  const box=$('.qs[data-s="'+s+'"]');if(!box||!Q[s])return;
+  box.innerHTML="";
+  const st=el("span",{class:"stat"});
+  box.append(el("div",{class:"qs-head"},el("h3",{},el("span",{class:"ht"},el("span",{class:"hi","aria-hidden":"true",text:"❓"}),"Perguntas"),st),
+    el("p",{class:"small",text:"Escolha múltipla, verdadeiro/falso e respostas para escrever. A resposta fica escondida até a abrires. Usa ☆ para marcar perguntas para ver mais tarde."}),
+    el("div",{class:"qs-tools"},...qfTools(s),
+      el("div",{class:"row"},el("button",{class:"ghost",type:"button",text:"Recomeçar estas perguntas",onclick:()=>{QIDS[s].forEach(id=>delete S.ans[id]);save();renderSection(s);onAnswer(s);}})))));
+  QIDS[s].forEach((id,i)=>box.append(renderQ(Qmap[id],id,i+1)));
+  box.append(el("p",{class:"empty-filter qf-empty",hidden:true}));
+  updateQStat(s);applyQF(s);
+}
+function updateQStat(s){
+  const box=$('.qs[data-s="'+s+'"]');if(!box)return;const t=secStats(s);
+  const st=$(".qs-head .stat",box);if(st)st.textContent=t.an+"/"+t.n+" respondidas · "+t.ok+" certas"+(t.bad?" · "+t.bad+" erradas":"")+(t.l?" · ★ "+t.l:"");
+  const sec=document.getElementById(s);const e=sec&&$(".qstat-end",sec);
+  if(e)e.textContent="Perguntas: "+t.an+" de "+t.n+" respondidas, "+t.ok+" certas"+(t.bad?", "+t.bad+" erradas":"")+".";
+  paintQF(s);
+}
+function onAnswer(s){updateQStat(s);applyQF(s);updateProgress();renderIndex();if(gqActive())applyFilter();}
+Object.keys(Q).forEach(renderSection);
+
+/* ===================== Índice, filtros gerais e progresso ===================== */
+function renderIndex(){
+  const box=$("#idx-list");if(!box)return;box.innerHTML="";
+  const plain=S.filter==="all"&&!gqActive();
+  const groups=[["Início",[["plano","Plano de estudo"],["prova","Como é a prova e como responder"]]],
+    ["Parte A · Introdução à filosofia",SECS.filter(s=>s.id[0]==="a")],["Parte B · Determinismo e liberdade",SECS.filter(s=>s.id[0]==="b")],
+    ["Revisão final",[["cabula","Cábula"],["treino","Treino aleatório"]]]];
+  groups.forEach(([title,items])=>{
+    const ol=el("ol");
+    items.forEach(it=>{
+      if(Array.isArray(it)){ if(!plain)return; ol.append(el("li",{},el("a",{href:"#"+it[0]},el("span",{class:"c",text:"·"}),el("span",{class:"t",text:it[1]})))); return;}
+      if(!secVisible(it))return;
+      const o=getSec(it.id),t=secStats(it.id);
+      ol.append(el("li",{},el("a",{href:"#"+it.id},el("span",{class:"c",text:it.dataset.code}),el("span",{class:"t",text:it.dataset.title}),
+        el("span",{class:"s",text:(o.l?"★ ":"")+(o.r?"✓ ":"")+(t.bad?"✗"+t.bad+" ":"")+t.ok+"/"+t.n}))));
+    });
+    if(ol.children.length)box.append(el("h3",{text:title}),ol);
+  });
+  if(!box.children.length)box.append(el("p",{class:"small",text:"Não há secções com estes filtros."}));
+}
+function secMatches(sec){const o=getSec(sec.id);switch(S.filter){case"unread":return !o.r;case"later":return o.l;case"read":return o.r;default:return true;}}
+function secVisible(sec){return secMatches(sec)&&(!gqActive()||countMatch(sec.id,{st:S.gq.st,d:+S.gq.d})>0);}
+const FNAMES={unread:"por ler",later:"marcadas para ver melhor mais tarde",read:"já lidas"};
+const GNAMES={wrong:"erradas",todo:"por responder",right:"certas",later:"marcadas com ★"};
+function paintGQ(){
+  const a=$("#gq-st"),b=$("#gq-d");
+  if(!a.children.length){
+    QF.forEach(([k,t])=>a.append(el("button",{class:"chip",type:"button","data-k":k,"data-t":t,onclick:()=>setGQ({st:k})})));
+    QD.forEach(([k,t])=>b.append(el("button",{class:"chip",type:"button","data-k":k,"data-t":t,onclick:()=>setGQ({d:k})})));
+  }
+  const all=Object.keys(Qmap);const cnt=f=>all.filter(id=>qMatch(f,id)).length;
+  $$(".chip",a).forEach(c=>{c.setAttribute("aria-pressed",c.dataset.k===S.gq.st?"true":"false");c.textContent=c.dataset.t+" ("+cnt({st:c.dataset.k,d:+S.gq.d})+")";});
+  $$(".chip",b).forEach(c=>{c.setAttribute("aria-pressed",+c.dataset.k===+S.gq.d?"true":"false");c.textContent=c.dataset.t+" ("+cnt({st:S.gq.st,d:+c.dataset.k})+")";});
+}
+function applyFilter(){
+  const f=S.filter||"all",qm=gqActive();
+  $$("#filters .chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.f===f?"true":"false"));
+  paintGQ();
+  let shown=0,nq=0;
+  SECS.forEach(sec=>{const m=secVisible(sec);sec.hidden=!m;if(m){shown++;if(qm)nq+=countMatch(sec.id,qfOf(sec.id));}
+    sec.classList.toggle("qmode",qm);if(!qm)sec.classList.remove("theory-open");
+    const tb=$(".show-theory",sec);if(tb&&!sec.classList.contains("theory-open"))tb.textContent="Mostrar a matéria desta secção";
+    applyQF(sec.id);});
+  const plain=f==="all"&&!qm;
+  ["plano","prova","cabula"].forEach(id=>{const n=document.getElementById(id);if(n)n.hidden=!plain;});
+  const pa=$("#parte-a"),pb=$("#parte-b");
+  if(pa)pa.hidden=!SECS.some(s=>s.id[0]==="a"&&!s.hidden);
+  if(pb)pb.hidden=!SECS.some(s=>s.id[0]==="b"&&!s.hidden);
+  const note=$("#filter-note");
+  if(plain){note.hidden=true;return;}
+  note.hidden=false;note.innerHTML="";
+  const parts=[];if(f!=="all")parts.push("secções "+FNAMES[f]);
+  if(qm){let g="perguntas "+(S.gq.st!=="all"?GNAMES[S.gq.st]:"");if(+S.gq.d)g+=" de nível "+LVL[+S.gq.d].toLowerCase();parts.push(g.replace("  "," "));}
+  note.append(el("span",{html:shown?"A mostrar <b>"+shown+"</b> secç"+(shown===1?"ão":"ões")+" ("+parts.join("; ")+")"+(qm?": <b>"+nq+"</b> pergunta"+(nq===1?"":"s")+". A matéria fica escondida; podes abri-la em cada secção.":"."):"Não há nada com estes filtros ("+parts.join("; ")+")."}),
+    el("button",{type:"button",text:"Mostrar tudo",onclick:()=>{S.filter="all";S.gq={st:"all",d:0};S.qf={};save();applyFilter();renderIndex();}}));
+}
+function setFilter(f){S.filter=f;save();applyFilter();renderIndex();}
+function setGQ(patch){S.gq=Object.assign({},S.gq,patch);S.qf={};save();applyFilter();renderIndex();}
+$$("#filters .chip").forEach(c=>c.addEventListener("click",()=>setFilter(c.dataset.f)));
+const idxBtn=$("#idx-btn"),idx=$("#idx");
+idxBtn.addEventListener("click",()=>{const open=idx.hidden;idx.hidden=!open;idxBtn.setAttribute("aria-expanded",open?"true":"false");});
+idx.addEventListener("click",e=>{if(e.target.closest("a")){idx.hidden=true;idxBtn.setAttribute("aria-expanded","false");}});
+function updateProgress(){
+  const n=SECS.length,r=SECS.filter(s=>getSec(s.id).r).length,l=SECS.filter(s=>getSec(s.id).l&&!getSec(s.id).r).length,lt=SECS.filter(s=>getSec(s.id).l).length;
+  let an=0,ok=0,tot=0;Object.keys(QIDS).forEach(s=>{const t=secStats(s);an+=t.an;ok+=t.ok;tot+=t.n;});
+  $("#tb-txt").textContent=r+" de "+n+" secções lidas · ★ "+lt+" · "+ok+"/"+tot+" perguntas certas"+(an>ok?" · ✗ "+(an-ok):"");
+  $("#tb-k").style.width=(r/n*100)+"%";$("#tb-r").style.width=(l/n*100)+"%";
+}
+function refreshAll(){
+  SECS.forEach((sec,i)=>{const o=getSec(sec.id);sec.classList.toggle("is-read",o.r);
+    const br=$(".st-read",sec),bl=$(".st-later",sec);br.setAttribute("aria-pressed",o.r);br.textContent=o.r?"✓ Lida":"Marcar como lida";
+    bl.setAttribute("aria-pressed",o.l);bl.textContent=o.l?"★ Ver melhor mais tarde":"☆ Ver melhor mais tarde";
+    const nb=$(".sec-end .next",sec),nx=SECS[i+1];
+    nb.textContent=o.r?(nx?"Seguir para "+nx.dataset.code+" →":"Ir para a cábula →"):"✓ Marcar como lida e seguir";nb.classList.toggle("done",o.r);});
+  updateProgress();renderIndex();applyFilter();renderPlan();
+}
+
+/* ===================== Widget: classificar ===================== */
+$$("[data-sort]").forEach(host=>{
+  const key=host.dataset.sort,D=SORT[key];if(!D)return;
+  S.so[key]=S.so[key]||{};
+  const msg=el("p",{class:"wg-msg","aria-live":"polite"});
+  const list=el("div",{class:"sorter"});
+  const reset=el("button",{class:"ghost",type:"button",text:"Recomeçar",onclick:()=>{S.so[key]={};save();draw();}});
+  host.append(el("div",{class:"wg-tools"},msg,reset),list);
+  function draw(){
+    list.innerHTML="";let done=0,ok=0;
+    D.items.forEach(([txt,c,why],i)=>{
+      const pick=S.so[key][i];
+      const row=el("div",{class:"si"});
+      const fb=el("p",{class:"sfb small",hidden:pick==null});
+      const bs=el("div",{class:"sbtns"},D.cats.map((cat,j)=>el("button",{type:"button",text:cat,disabled:pick!=null,
+        class:pick!=null?(j===c?"right":(j===pick?"wrong":"")):null,
+        onclick:()=>{S.so[key][i]=j;save();draw();}})));
+      if(pick!=null){done++;if(pick===c)ok++;row.classList.add(pick===c?"right":"wrong");
+        fb.innerHTML=(pick===c?"<b>Certo.</b> ":"<b>É "+D.cats[c].toLowerCase()+".</b> ")+why;}
+      row.append(el("span",{class:"stx",html:txt}),bs,fb);list.append(row);
+    });
+    msg.className="wg-msg"+(done===D.items.length?(ok===done?" ok":" bad"):"");
+    msg.textContent=done?ok+" certas em "+done+" (de "+D.items.length+")"+(done===D.items.length&&ok===done?". Perfeito!":""):"";
+  }
+  draw();
+});
+
+/* ===================== Widget: completar (selects) ===================== */
+$$("[data-cloze]").forEach(host=>{
+  const key=host.dataset.cloze,L=CLOZE[key];if(!L)return;
+  S.cz[key]=S.cz[key]||{};
+  const msg=el("p",{class:"wg-msg","aria-live":"polite"});
+  const sels=[];
+  const lines=L.map((line,li)=>{
+    const p=el("p",{class:"cl"});let k=0;
+    line.split(/(\[\[.*?\]\])/).forEach(part=>{
+      const m=part.match(/^\[\[(.*)\]\]$/);
+      if(!m){if(part)p.append(part);return;}
+      const opts=m[1].split("|");const right=opts.findIndex(o=>o[0]==="*");const id=li+"-"+(k++);
+      const sel=el("select",{"aria-label":"Escolhe a opção"},el("option",{value:"",text:"…"}),
+        shuffle(opts.map((o,j)=>[o.replace(/^\*/,""),j])).map(([t,j])=>el("option",{value:String(j),text:t})));
+      if(S.cz[key][id]!=null)sel.value=S.cz[key][id];
+      sel.addEventListener("change",()=>{S.cz[key][id]=sel.value;save();sel.classList.remove("right","wrong");msg.textContent="";});
+      sel._right=String(right);sels.push(sel);p.append(sel);
+    });
+    return p;
+  });
+  const check=()=>{if(sels.every(s=>!s.value)){msg.className="wg-msg bad";msg.textContent="Preenche os espaços primeiro.";return;}let ok=0,empty=0;sels.forEach(s=>{s.classList.remove("right","wrong");if(!s.value){empty++;return;}const r=s.value===s._right;s.classList.add(r?"right":"wrong");if(r)ok++;});
+    msg.className="wg-msg "+(ok===sels.length?"ok":"bad");
+    msg.textContent=ok===sels.length?"Tudo certo!":ok+" certos em "+sels.length+(empty?" ("+empty+" por preencher)":"")+". Os vermelhos estão errados.";};
+  const show=()=>{sels.forEach(s=>{s.value=s._right;s.classList.remove("wrong");s.classList.add("right");});msg.className="wg-msg";msg.textContent="Estas são as respostas certas.";};
+  const reset=()=>{S.cz[key]={};save();sels.forEach(s=>{s.value="";s.classList.remove("right","wrong");});msg.textContent="";};
+  host.append(el("div",{class:"wg-tools"},el("button",{class:"btn",type:"button",text:"Verificar",onclick:check}),
+    el("button",{class:"ghost",type:"button",text:"Ver soluções",onclick:show}),el("button",{class:"ghost",type:"button",text:"Limpar",onclick:reset})),msg,...lines);
+});
+
+/* ===================== Widget: descobre a posição ===================== */
+(function(){const box=$("#pos");if(!box)return;
+  const st={d:null,l:null};
+  const out=el("div",{class:"pos-out","aria-live":"polite"});
+  const R={
+    "11":["Determinismo moderado","Compatibilista. Tudo está determinado e, mesmo assim, temos livre-arbítrio: somos livres quando não somos coagidos. Objeções: gomas vermelhas, mecânica quântica, ilusão."],
+    "10":["Determinismo radical","Incompatibilista. Tudo está determinado, logo não temos livre-arbítrio (Modus Ponens). Objeções: mecânica quântica, responsabilidade moral."],
+    "01":["Libertismo","Incompatibilista. Temos livre-arbítrio, logo nem tudo está determinado (Modus Tollens). Objeções: ilusão, aleatoriedade."],
+    "00":["Nenhuma das três","Nem tudo determinado e sem livre-arbítrio: nenhuma teoria estudada defende isto (seria um mundo com acaso, mas sem escolhas livres)."]};
+  function seg(label,k){const bs=[["Sim",1],["Não",0]].map(([t,v])=>el("button",{type:"button","aria-pressed":"false",text:t,onclick:()=>{st[k]=v;paint();}}));
+    const s=el("div",{class:"seg",role:"group","aria-label":label},bs);s._bs=bs;return [el("div",{class:"pq"},el("span",{text:label}),s),s];}
+  const [r1,s1]=seg("Tudo o que acontece está determinado?","d"),[r2,s2]=seg("Temos livre-arbítrio?","l");
+  function paint(){s1._bs.forEach((b,i)=>b.setAttribute("aria-pressed",st.d===(i?0:1)?"true":"false"));
+    s2._bs.forEach((b,i)=>b.setAttribute("aria-pressed",st.l===(i?0:1)?"true":"false"));
+    out.innerHTML="";if(st.d==null||st.l==null){out.append(el("span",{class:"small",text:"Escolhe as duas respostas."}));return;}
+    const r=R[""+st.d+st.l];out.append(el("b",{class:"big",text:r[0]}),el("span",{text:r[1]}));}
+  box.append(out,r1,r2);paint();
+})();
+
+/* ===================== Widget: quem aceita? ===================== */
+(function(){const box=$("#mx");if(!box)return;
+  const P=["Det. radical","Libertismo","Det. moderado"];
+  const msg=el("p",{class:"wg-msg","aria-live":"polite"});
+  const score={};
+  function upd(){const v=Object.values(score),ok=v.filter(Boolean).length;msg.className="wg-msg"+(v.length===MX.length?(ok===v.length?" ok":" bad"):"");
+    msg.textContent=v.length?ok+" certas em "+v.length+" (de "+MX.length+")":"";}
+  box.append(msg);
+  MX.forEach(([txt,ans,why],i)=>{
+    const sel=[0,0,0];
+    const row=el("div",{class:"mxi"});
+    const fb=el("p",{class:"mfb small",hidden:true});
+    const tgs=P.map((p,j)=>el("button",{class:"tg",type:"button","aria-pressed":"false",text:p,onclick:e=>{sel[j]=sel[j]?0:1;e.currentTarget.setAttribute("aria-pressed",sel[j]?"true":"false");clear();}}));
+    const chk=el("button",{class:"btn",type:"button",text:"Verificar",onclick:()=>{
+      const ok=sel.every((v,j)=>v===ans[j]);score[i]=ok;
+      tgs.forEach((t,j)=>{t.classList.toggle("miss",!!ans[j]&&!sel[j]);t.classList.toggle("extra",!ans[j]&&!!sel[j]);});
+      row.classList.toggle("right",ok);row.classList.toggle("wrong",!ok);
+      const who=P.filter((_,j)=>ans[j]);fb.hidden=false;
+      fb.innerHTML=(ok?"<b>Certo.</b> ":"<b>Aceitam: "+(who.length?who.join(", "):"nenhuma")+".</b> ")+why;upd();}});
+    function clear(){tgs.forEach(t=>t.classList.remove("miss","extra"));row.classList.remove("right","wrong");fb.hidden=true;delete score[i];upd();}
+    row.append(el("span",{html:"<b>"+txt+"</b>"}),el("div",{class:"mbtns"},tgs,chk),fb);box.append(row);
+  });
+})();
+
+/* ===================== Dominós ===================== */
+(function(){const box=$("#dom"),btn=$("#dom-go"),msg=$("#dom-msg");if(!box)return;
+  const n=9,w=16,h=64,gap=34,x0=24,y=92;
+  const svg=sv("svg",{viewBox:"0 0 "+(x0*2+(n-1)*gap+w+30)+" 120",role:"img","aria-label":"Fila de dominós: do passado distante à tua escolha de hoje."});
+  const ds=[];
+  for(let i=0;i<n;i++){const x=x0+i*gap;const g=sv("g",{class:"d"+(i===n-1?" hand":"")});
+    g.append(sv("rect",{x,y:y-h,width:w,height:h,rx:3}),sv("circle",{cx:x+w/2,cy:y-h+16,r:2.6}),sv("circle",{cx:x+w/2,cy:y-h+46,r:2.6}));
+    g.style.transitionDelay=(i*0.18)+"s";svg.append(g);ds.push(g);}
+  svg.append(sv("line",{x1:8,y1:y,x2:x0*2+(n-1)*gap+w+22,y2:y,stroke:"currentColor","stroke-opacity":".3"}),
+    sv("text",{x:x0-6,y:y+20,text:"passado distante"}),sv("text",{x:x0+(n-1)*gap-40,y:y+20,text:"a tua escolha"}));
+  box.append(svg);
+  let fallen=false;
+  btn.addEventListener("click",()=>{fallen=!fallen;box.classList.toggle("go",fallen);
+    btn.textContent=fallen?"Pôr os dominós de pé":"Empurrar o primeiro dominó";
+    msg.textContent=fallen?"Se o determinismo for verdadeiro, a tua escolha (o último) cai sempre, empurrada pelos anteriores. Dependeu de ti?":"";});
+})();
+
+/* ===================== Contagem e plano ===================== */
+const EXAM=new Date(2026,10,19);
+function todayISO(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+(function(){const t=new Date();const t0=new Date(t.getFullYear(),t.getMonth(),t.getDate());const days=Math.round((EXAM-t0)/864e5);
+  const c=$("#countdown");if(!c)return;
+  c.innerHTML=days>1?"Faltam "+days+" dias para a prova <span class='mono'>quinta, 19 de novembro</span>":days===1?"A prova é amanhã <span class='mono'>quinta, 19 de novembro</span>":days===0?"A prova é hoje. Boa sorte! 🍀":"A prova foi a 19 de novembro";})();
+const PLAN=[
+ {d:"2026-11-15",t:"Domingo, 15",m:"≈ 75 min, em 3 blocos",tasks:[
+  ["p1","prova","Ler «Como é a prova e como responder»","10 minutos. Vê os erros mais caros das fichas."],
+  ["p2","a1","A1 · O que é a filosofia: atitude crítica",""],
+  ["p3","a2","A2 · Sócrates, objeto e método",""],
+  ["p4","a3","A3 · Tipos de problemas","Faz o exercício de classificar problemas."]]},
+ {d:"2026-11-16",t:"Segunda, 16",m:"≈ 60 min",tasks:[
+  ["p5","a4","A4 · Áreas da filosofia",""],
+  ["p6","a5","A5 · Teses e argumentos","Decora as quatro definições: válido, forte, sólido, persuasivo."],
+  ["p7","treino","Uma ronda de treino aleatório só da Parte A","Escolhe «só A» no treino."]]},
+ {d:"2026-11-17",t:"Terça, 17",m:"≈ 75 min",tasks:[
+  ["p8","b1","B1 · O desafio do determinismo","Definições de livre-arbítrio e determinismo: atenção a «tudo» e «algumas»."],
+  ["p9","b2","B2 · Dois problemas, três posições","Faz «Descobre a posição» e as perguntas das pp. 156–157."],
+  ["p10","b3","B3 · Argumento da consequência","Completa o argumento até acertares tudo."],
+  ["p11","b4","B4 · Compatibilismo e gomas vermelhas","Faz o «Livre ou não livre?»."]]},
+ {d:"2026-11-18",t:"Quarta, 18",m:"≈ 75 min",tasks:[
+  ["p12","b5","B5 · Determinismo radical",""],
+  ["p13","b6","B6 · Libertismo",""],
+  ["p14","b7","B7 · Determinismo moderado, Darrow e síntese","Faz o «Quem aceita esta afirmação?»: é onde se perdem mais pontos."],
+  ["p15","*later","Rever o que marcaste com ★","Usa os filtros no menu «Secções»."],
+  ["p16","b7","Escrever uma resposta extensa (Grupo III)","Escolhe o poema de Lucrécio ou o texto de Schopenhauer, no fim de B7."]]},
+ {d:"2026-11-19",t:"Quinta, 19 · dia da prova",m:"de manhã, no comboio · 20–30 min",exam:true,tasks:[
+  ["p17","cabula","Ler a cábula","Hoje não estudes matéria nova."],
+  ["p18","treino","Uma ronda de treino aleatório",""],
+  ["p19","prova","Reler «Os erros mais caros»","Tudo vs algumas; verdadeiro vs válido; premissa (1)."]]}
+];
+function renderPlan(){
+  const box=$("#plan");if(!box)return;box.innerHTML="";const today=todayISO();
+  PLAN.forEach(day=>{
+    const done=day.tasks.filter(t=>S.plan[t[0]]).length,all=day.tasks.length;
+    const isToday=day.d===today,late=day.d<today&&done<all&&!day.exam;
+    const card=el("div",{class:"day"+(isToday?" today":"")+(day.exam?" exam":"")});
+    card.append(el("div",{class:"dhead"},el("h3",{text:day.t}),el("span",{class:"dmeta",text:day.m}),
+      isToday?el("span",{class:"badge",text:"Hoje"}):null,
+      done===all?el("span",{class:"badge done",text:"Feito ✓"}):late?el("span",{class:"badge late",text:"Em atraso: "+done+"/"+all}):el("span",{class:"dmeta",text:done+"/"+all})));
+    const ul=el("ul",{class:"tasks"});
+    day.tasks.forEach(([tid,target,title,sub])=>{
+      const cb=el("input",{type:"checkbox","aria-label":"Feito: "+title});cb.checked=!!S.plan[tid];
+      cb.addEventListener("change",()=>{S.plan[tid]=cb.checked;save();renderPlan();});
+      let link;
+      if(target==="*later")link=el("a",{href:"#",text:title,onclick:e=>{e.preventDefault();S.filter="later";S.gq={st:"all",d:0};save();applyFilter();renderIndex();idx.hidden=false;idxBtn.setAttribute("aria-expanded","true");$("#filter-note").scrollIntoView({behavior:"smooth",block:"center"});}});
+      else link=el("a",{href:"#"+target,text:title});
+      let stx="";const sec=document.getElementById(target);
+      if(sec&&sec.classList.contains("sec")){const o=getSec(target),t=secStats(target),pp=[];if(o.r)pp.push("✓ lida");if(o.l)pp.push("★ ver melhor");if(t.an)pp.push(t.ok+"/"+t.n+" certas");stx=pp.join(" · ");}
+      ul.append(el("li",{class:"task"+(cb.checked?" done":"")},cb,el("span",{class:"tt"},link,stx?el("span",{class:"st2",text:stx}):null,sub?el("span",{class:"sub",text:sub}):null)));
+    });
+    card.append(ul);box.append(card);
+  });
+}
+
+/* ===================== Treino aleatório ===================== */
+(function(){const box=$("#rnd"),btn=$("#rnd-new"),onlyL=$("#rnd-later"),onlyQ=$("#rnd-qlater"),onlyW=$("#rnd-wrong"),part=$("#rnd-part"),sc=$("#rnd-score");if(!box)return;
+  let res=[0,0];
+  function round(){box.innerHTML="";res=[0,0];paint();
+    let pool=Object.values(Qmap).filter(q=>q.t!=="op");
+    if(part.value)pool=pool.filter(q=>q.s[0]===part.value);
+    if(onlyL.checked){const later=SECS.filter(s=>getSec(s.id).l).map(s=>s.id);pool=pool.filter(q=>later.includes(q.s));}
+    if(onlyQ.checked)pool=pool.filter(q=>isLater(q.id));
+    if(onlyW.checked)pool=pool.filter(q=>isWrong(q.id));
+    if(!pool.length){box.append(el("p",{class:"empty-filter",text:"Não há perguntas com estas opções. Tira um dos vistos."}));return;}
+    shuffle(pool).slice(0,10).forEach((q,i)=>{const sec=document.getElementById(q.s);
+      const qq=Object.assign({},q,{q:q.q+" <span class='small'>· "+(sec?sec.dataset.code:"")+"</span>"});
+      box.append(renderQ(qq,"r-"+q.id,i+1,{persist:false,onResult:ok=>{res[1]++;if(ok)res[0]++;paint();}}));});}
+  function paint(){sc.textContent=res[1]?"Esta ronda: "+res[0]+" certas em "+res[1]:"";}
+  btn.addEventListener("click",round);[onlyL,onlyQ,onlyW,part].forEach(x=>x.addEventListener("change",round));round();})();
+
+/* ===================== Apagar tudo ===================== */
+$("#reset-all").addEventListener("click",()=>{if(confirm("Apagar todo o progresso desta página (secções lidas, respostas, ★ e textos escritos)?")){
+  try{localStorage.removeItem(KEY);}catch(e){}location.reload();}});
+
+refreshAll();
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}));}
+})();
+</script>
+</body>
+</html>
