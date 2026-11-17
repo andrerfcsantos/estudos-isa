@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("isa-tema")==="dark"?"dark":"light")}catch(e){document.documentElement.setAttribute("data-theme","light")}</script>
+<title>Correção do 1.º teste</title>
+<meta name="description" content="Correção do teste de avaliação n.º 1 de Filosofia, pontos fortes e fracos e treino focado nos erros.">
+<link rel="icon" href="/icone.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Uma coluna de leitura com barra fixa de secções: resultado → análise → correção por grupos → treino. */
+:root{
+  --paper:#F0F2F5; --card:#FFFFFF; --ink:#18202E; --muted:#596476; --line:#D7DCE4;
+  /* Cores da Filosofia: azul-escuro e branco */
+  --accent:#1E3A6E; --accent-soft:#E3E9F4; --navy:#1E3A6E; --on-navy:#FFFFFF; --card-line:#C3CDE0;
+  --ochre:#9C6110; --ochre-soft:#F5E9D4;
+  --yes:#2A7449; --yes-soft:#DCEFE3; --no:#B0333A; --no-soft:#F6DFE0;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+:root[data-theme="dark"]{
+  --paper:#10141B; --card:#181F2A; --ink:#E5E9F0; --muted:#9AA4B5; --line:#2A3341;
+  --accent:#B4C7EE; --accent-soft:#1B2840; --navy:#24427A; --on-navy:#FFFFFF; --card-line:#2C3A57;
+  --ochre:#E2A64C; --ochre-soft:#382B16;
+  --yes:#72C597; --yes-soft:#17301F; --no:#F08B90; --no-soft:#3A1C20; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--paper)}
+.wrap{max-width:760px;margin:0 auto;padding-block:40px 80px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.2;margin:0}
+h1{font-size:clamp(2.1rem,6vw,3rem)}
+h2{font-size:1.75rem} h3{font-size:1.2rem} h4{font-size:1.05rem}
+h1,h2,h3,h4{color:var(--accent)}
+.ht{min-width:0}
+.hi{font-style:normal;margin-right:.3em;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:.9em}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);max-width:62ch}
+header.top{display:grid;gap:14px;padding-bottom:20px}
+header.top::before{content:"";display:block;width:84px;height:6px;border-radius:3px;
+  background:linear-gradient(var(--navy) 0 38%,#fff 38% 62%,var(--navy) 62%)}
+.portal-back{justify-self:start;font-size:.92rem;text-decoration:none;color:var(--muted)}
+.portal-back:hover{color:var(--ink)}
+
+nav.bar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--paper);
+  border-bottom:1px solid var(--line);margin-bottom:28px;padding-block:10px;display:flex;gap:8px;align-items:center}
+nav.bar ul{list-style:none;margin:0;padding:0;display:flex;gap:6px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:thin}
+nav.bar a,nav.bar .navf{display:block;white-space:nowrap;text-decoration:none;color:var(--ink);font-size:.9rem;
+  padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.bar a:hover{border-color:var(--navy);background:var(--navy);color:var(--on-navy)}
+nav.bar a.done::after{content:" ✓";color:var(--yes);font-weight:700}
+nav.bar a.later::before{content:"🔖 "}
+nav.bar .navf{flex:none;cursor:pointer;font:inherit;font-size:.9rem}
+nav.bar .navf[aria-pressed="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+a:focus-visible,button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+section.block{display:grid;gap:18px;padding-block:28px;scroll-margin-top:64px}
+.part-head{display:grid;gap:8px;border-top:3px solid var(--navy);padding-top:14px}
+.sub-head{display:grid;gap:6px;border-top:1px solid var(--card-line);padding-top:14px;margin-top:8px}
+.sectools{display:flex;gap:6px;flex-wrap:wrap}
+.sectools button{font-size:.82rem;padding:4px 12px;border-radius:999px;border:1px solid var(--card-line);background:var(--card);color:var(--muted)}
+.sectools button[aria-pressed="true"].rd{background:var(--yes-soft);border-color:var(--yes);color:var(--yes)}
+.sectools button[aria-pressed="true"].lt{background:var(--ochre-soft);border-color:var(--ochre);color:var(--ochre)}
+.card{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:18px 20px;display:grid;gap:12px;min-width:0}
+.card h3{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.card ul,.card ol{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.key{background:var(--accent-soft);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:12px 14px}
+mark{background:var(--ochre-soft);color:var(--ink);padding:0 .2em;border-radius:3px}
+button{font:inherit;cursor:pointer}
+.pill{display:inline-block;font-family:var(--mono);font-size:.75rem;padding:2px 8px;border-radius:999px;font-weight:500;white-space:nowrap}
+.pill.y{background:var(--yes-soft);color:var(--yes)} .pill.n{background:var(--no-soft);color:var(--no)}
+.pill.o{background:var(--ochre-soft);color:var(--ochre)} .pill.b{background:var(--accent-soft);color:var(--accent)}
+
+/* Resultado */
+.result{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.big{font-family:var(--display);font-size:3.2rem;line-height:1;color:var(--accent)}
+.big small{font-size:1.2rem;color:var(--muted)}
+.big + p{color:var(--muted);font-size:.95rem}
+@media (max-width:520px){.result{grid-template-columns:1fr;gap:10px}}
+.bars{display:grid;gap:10px}
+.barrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;font-size:.92rem}
+.barrow .lab b{color:var(--accent)}
+.barrow .val{font-family:var(--mono);font-size:.82rem;color:var(--muted)}
+.barrow .track{grid-column:1/-1;height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.barrow .track i{display:block;height:100%;border-radius:99px;background:var(--navy)}
+.barrow.low .track i{background:var(--ochre)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px}
+.tile{display:grid;gap:0;text-align:center;text-decoration:none;border-radius:8px;padding:6px 4px;border:1px solid transparent;color:var(--ink)}
+.tile b{font-family:var(--mono);font-size:.72rem;color:var(--muted);font-weight:500}
+.tile span{font-family:var(--mono);font-size:.85rem;font-weight:500}
+.tile.ok{background:var(--yes-soft)} .tile.ok span{color:var(--yes)}
+.tile.ko{background:var(--no-soft);border-color:var(--no)} .tile.ko span{color:var(--no)}
+.tile:hover{border-color:var(--accent)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+
+/* Análise */
+.sw{display:grid;gap:10px}
+.sw li{list-style:none;padding:12px 14px;border-radius:8px;background:var(--paper);display:grid;gap:4px}
+.sw.good li{border-left:4px solid var(--yes)}
+.sw.bad li{border-left:4px solid var(--ochre)}
+.sw{padding:0!important;margin:0}
+.sw b.t{font-size:1rem}
+.sw .ev{font-size:.88rem;color:var(--muted)}
+.sw .tip{font-size:.92rem}
+.steps{counter-reset:s;list-style:none;padding:0!important}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2em 1fr;gap:8px;align-items:start}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:1.7em;height:1.7em;border-radius:50%;background:var(--navy);color:var(--on-navy);font-family:var(--mono);font-size:.8rem}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vs > div{border-radius:8px;padding:12px 14px;min-width:0}
+.vs .good{background:var(--yes-soft)} .vs .bad{background:var(--no-soft)}
+.vs b{display:block;margin-bottom:2px}
+@media (max-width:560px){.vs{grid-template-columns:1fr}}
+
+/* Filtros e perguntas */
+.filters{display:grid;gap:8px;background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:10px 12px}
+.frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.frow .fl{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px;min-width:5.5em}
+.chip{font-size:.85rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.fcount{font-size:.85rem;color:var(--muted)}
+.qwrap,.qlist{display:grid;gap:12px}
+.empty{color:var(--muted);font-size:.92rem;padding:10px 4px}
+.q{background:var(--card);border:1px solid var(--card-line);border-radius:10px;padding:16px 18px;display:grid;gap:12px;min-width:0;scroll-margin-top:70px}
+.q[data-s="k"]{border-left:4px solid var(--yes)} .q[data-s="w"]{border-left:4px solid var(--no)}
+.qhead{display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+.qnum{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.qmeta{font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.04em;margin-left:auto}
+.qtext{font-weight:700}
+.opts{display:grid;gap:6px}
+.opt{text-align:left;padding:9px 12px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:.95rem;display:grid;grid-template-columns:2em 1fr;gap:4px}
+.opt b{font-family:var(--mono);font-weight:500;color:var(--muted)}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt:disabled{cursor:default;opacity:1}
+.opt.right{background:var(--yes-soft);border-color:var(--yes)}
+.opt.wrong{background:var(--no-soft);border-color:var(--no)}
+.tfbtns{display:flex;gap:8px;flex-wrap:wrap}
+.tfbtns .opt{grid-template-columns:1fr;min-width:120px;text-align:center}
+.fb{font-size:.92rem;font-weight:700}
+.fb.k{color:var(--yes)} .fb.w{color:var(--no)}
+.qact{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.reveal{font-size:.9rem;padding:6px 14px;border-radius:6px;border:1px solid var(--accent);color:var(--accent);background:transparent}
+.reveal[aria-expanded="true"]{background:var(--accent-soft)}
+.ghost{font-size:.85rem;padding:5px 12px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--muted)}
+.ghost:hover{color:var(--ink);border-color:var(--ink)}
+.bm[aria-pressed="true"]{background:var(--ochre-soft);border-color:var(--ochre);color:var(--ochre)}
+.ans{background:var(--paper);border-radius:8px;padding:12px 14px;display:grid;gap:10px;font-size:.96rem}
+.ans h5{margin:0;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.ans ul,.ans ol{margin:0;padding-left:1.2em;display:grid;gap:4px}
+.ans .good-l li::marker{color:var(--yes)} .ans .bad-l li::marker{color:var(--no)}
+.model{border-left:3px solid var(--navy);padding-left:12px}
+.her{display:grid;gap:6px;padding:12px 14px;border-radius:8px;background:var(--paper);font-size:.95rem}
+.her .lab{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.her p.t{font-style:italic;border-left:3px solid var(--line);padding-left:10px}
+.prof{color:var(--no);font-size:.9rem}
+.prof::before{content:"✍️ ";font-style:normal}
+textarea{width:100%;min-height:110px;resize:vertical;font:inherit;font-size:.95rem;line-height:1.5;padding:10px 12px;border-radius:8px;
+  border:1px solid var(--card-line);background:var(--paper);color:var(--ink)}
+.tlab{font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.self{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:.85rem;color:var(--muted)}
+.self button{font-size:.85rem;padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.self button.k[aria-pressed="true"]{background:var(--yes-soft);border-color:var(--yes);color:var(--yes)}
+.self button.w[aria-pressed="true"]{background:var(--no-soft);border-color:var(--no);color:var(--no)}
+.arg{font-size:.93rem;display:grid;gap:3px}
+.arg .l{display:grid;grid-template-columns:2.4em 1fr;gap:6px}
+.arg .n{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding-top:2px}
+.arg .c{font-weight:700}
+.arg .r{font-family:var(--mono);font-size:.72rem;color:var(--muted);display:block;font-weight:400}
+
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num{font-family:var(--mono);font-size:.85rem;white-space:nowrap}
+footer{color:var(--muted);font-size:.85rem;padding-top:30px;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+</style>
+<script src="/tema.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="portal-back" href="/filosofia/">← Filosofia</a>
+    <span class="eyebrow">Teste de avaliação n.º 1 · 2 de novembro de 2026</span>
+    <h1>Correção do 1.º teste</h1>
+    <p class="lede">O resultado, o que correu bem e o que falta afinar, a correção de cada item com a tua resposta ao lado e um treino feito à medida dos erros. Ótimo para preparar a <a href="/filosofia/prova-comum-filosofia.html">prova comum de quinta-feira</a>.</p>
+  </header>
+
+  <nav class="bar" aria-label="Secções" data-tema-barra>
+    <ul id="navlist">
+      <li><a href="#resultado">Resultado</a></li>
+      <li><a href="#analise">Fortes e fracos</a></li>
+      <li><a href="#grupo-a" data-sec="grupo-a">Grupo A</a></li>
+      <li><a href="#grupo-b" data-sec="grupo-b">Grupo B</a></li>
+      <li><a href="#grupo-c" data-sec="grupo-c">Grupo C</a></li>
+      <li><a href="#grupo-d" data-sec="grupo-d">Grupo D</a></li>
+      <li><a href="#grupo-e" data-sec="grupo-e">Grupo E</a></li>
+      <li><a href="#extra" data-sec="extra">Trabalho 9/11</a></li>
+      <li><a href="#treino" data-sec="treino">Treino</a></li>
+    </ul>
+    <button type="button" class="navf" id="nav-later" aria-pressed="false" title="Mostrar só as secções marcadas para ver mais tarde">🔖</button>
+  </nav>
+
+  <!-- ===================== RESULTADO ===================== -->
+  <section class="block" id="resultado">
+    <div class="part-head">
+      <span class="eyebrow">Classificação</span>
+      <h2>Resultado</h2>
+    </div>
+    <div class="card">
+      <div class="result">
+        <div><div class="big">155<small> / 200</small></div><p>15,5 valores</p></div>
+        <p><b>Bom teste.</b> Acertaste em <b>14 dos 16 itens</b> com a cotação toda. Os 45 pontos perdidos vêm só de <b>2 itens</b>: no 13 respondeste a outra pergunta e no 15 não tomaste posição. São erros de <i>como responder</i>, mais do que de matéria, e é isso que dá para corrigir já até quinta.</p>
+      </div>
+      <div class="bars" aria-label="Pontuação por grupo">
+        <div class="barrow"><span class="lab"><b>A</b> · Verdadeiro/falso</span><span class="val">30 / 30</span><span class="track"><i style="width:100%"></i></span></div>
+        <div class="barrow"><span class="lab"><b>B</b> · Escolha múltipla</span><span class="val">40 / 40</span><span class="track"><i style="width:100%"></i></span></div>
+        <div class="barrow low"><span class="lab"><b>C</b> · Definições (resposta curta)</span><span class="val">20 / 40</span><span class="track"><i style="width:50%"></i></span></div>
+        <div class="barrow low"><span class="lab"><b>D</b> · Explicar e justificar (resposta curta)</span><span class="val">25 / 50</span><span class="track"><i style="width:50%"></i></span></div>
+        <div class="barrow"><span class="lab"><b>E</b> · Comentário de texto (resposta extensa)</span><span class="val">40 / 40</span><span class="track"><i style="width:100%"></i></span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Mapa dos 16 itens</h3>
+      <p class="lede" style="font-size:.92rem">Toca num item para ir à correção.</p>
+      <div class="tiles" id="tiles"></div>
+      <div class="legend"><span><i style="background:var(--yes)"></i>Cotação toda</span><span><i style="background:var(--no)"></i>0 pontos</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== ANÁLISE ===================== -->
+  <section class="block" id="analise">
+    <div class="part-head">
+      <span class="eyebrow">Como respondes</span>
+      <h2>Pontos fortes e fracos</h2>
+      <p class="lede">O que este teste mostra sobre a tua maneira de responder, com o item onde se vê cada coisa. Comparado com as fichas formativas, já há uma melhoria clara: não deixaste nada em branco.</p>
+    </div>
+
+    <div class="card">
+      <h3>💪 Pontos fortes</h3>
+      <ul class="sw good">
+        <li><b class="t">Sabes bem as definições e o mapa das posições</b>
+          <span>Os 11 itens de seleção (V/F e escolha múltipla) estão todos certos: o que é um problema filosófico, a definição de livre-arbítrio, o que defende cada posição e a ligação entre responsabilidade e liberdade.</span>
+          <span class="ev">Itens 1–11 · 70/70</span></li>
+        <li><b class="t">Interpretas bem um texto e ligas-o à teoria</b>
+          <span>No texto de Churchland identificaste a ideia central (os genes e mecanismos do cérebro controlam impulsos, desejos e decisões), usaste exemplos do próprio texto e disseste claramente que teoria ele apoia.</span>
+          <span class="ev">Item 16 · 40/40</span></li>
+        <li><b class="t">Percebes a ligação entre liberdade e responsabilidade moral</b>
+          <span>Explicaste que, para haver responsabilidade, tem de haver escolha, e que isso exige que o determinismo seja falso. Era isto que se pedia.</span>
+          <span class="ev">Itens 10 e 14 · 33/33</span></li>
+        <li><b class="t">Respondes a tudo e usas o vocabulário da matéria</b>
+          <span>Nas fichas formativas havia grupos inteiros em branco. Neste teste escreveste em todos os itens e usaste os termos certos: livre-arbítrio, coação, sequência causal, acontecimentos anteriores.</span>
+          <span class="ev">Grupos C, D e E</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🔧 Pontos a melhorar</h3>
+      <ul class="sw bad">
+        <li><b class="t">1. Responder exatamente ao que é pedido</b>
+          <span>Pediam a filosofia como <b>atividade conceptual</b> e respondeste sobre a <b>atitude crítica</b> e o método (questionar, não aceitar teorias sem razões, imparcialidade). Tudo certo, mas era a resposta a outra pergunta. Por isso valeu 0.</span>
+          <span class="tip">👉 Sublinha o conceito da pergunta e começa a resposta com ele: <i>"A filosofia é uma atividade conceptual porque…"</i>. Depois relê: a resposta explica <u>esse</u> conceito?</span>
+          <span class="ev">Item 13 · 0/20 · <a href="#q-i13">ver correção</a></span></li>
+        <li><b class="t">2. Tomar posição: "sim e não" não é resposta</b>
+          <span>Em "Poderia…? Justifica" é preciso escolher um lado. "Sim e não", com uma hipótese para cada lado, não responde à pergunta e vale 0 mesmo que parte do raciocínio esteja certa.</span>
+          <span class="tip">👉 A primeira palavra é <b>Sim</b> ou <b>Não</b>. Depois justifica com a tese da teoria (aqui, "tudo é a consequência necessária de acontecimentos anteriores").</span>
+          <span class="ev">Item 15 · 0/25 · <a href="#q-i15">ver correção</a></span></li>
+        <li><b class="t">3. Precisão nas palavras e nos quantificadores</b>
+          <span>"Todas as <i>consequências ou conclusões</i>" em vez de "todos os <i>acontecimentos</i>"; "nenhum de nós é livre de tomar <i>algumas</i> decisões" em vez de "<i>nenhuma</i> decisão é livre"; faltam as palavras <i>necessária</i> e <i>leis da natureza</i>. O mesmo tipo de erro já aparecia nas fichas.</span>
+          <span class="tip">👉 Decora as definições palavra a palavra: tudo · algumas · nenhuma mudam tudo.</span>
+          <span class="ev">Itens 12 e 16 · trabalho de 9/11</span></li>
+        <li><b class="t">4. Misturar o critério de liberdade das posições</b>
+          <span>"Só é livre se não for coagido" é o critério do <b>determinismo moderado</b>. Para o <b>libertismo</b> isso não chega: a escolha tem de não estar determinada pelo passado. No trabalho de 9/11, a ponte do compatibilismo apareceu como "escolher entre os dois lados", quando a ideia é que os dois lados são verdadeiros ao mesmo tempo.</span>
+          <span class="tip">👉 Treina a tabela das três posições: tudo determinado? livre-arbítrio? o que é ser livre?</span>
+          <span class="ev">Item 14 (teve a cotação toda, mas fica o aviso) · trabalho de 9/11</span></li>
+        <li><b class="t">5. Frases muito longas, ligadas por vírgulas</b>
+          <span>Nos itens 14 e 15 as ideias estão encadeadas numa só frase com "ou seja", "caso contrário", "por outro lado" e terminam com uma pergunta. Fica difícil perceber qual é a tua resposta.</span>
+          <span class="tip">👉 Uma ideia por frase: <b>resposta</b>. <b>razão</b>. <b>conclusão</b>. Nunca acabes uma resposta com uma pergunta.</span>
+          <span class="ev">Itens 14 e 15</span></li>
+        <li><b class="t">6. Usar a estrutura dos argumentos</b>
+          <span>No item 16 explicaste bem a ideia, mas não disseste <i>como</i> o texto é usado: é uma defesa da premissa "o determinismo é verdadeiro" do argumento do determinismo radical. Referir isso dá uma resposta mais segura.</span>
+          <span class="tip">👉 Quando pedem "o argumento e a sua utilização", diz que premissa o texto apoia e qual é a conclusão.</span>
+          <span class="ev">Item 16</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🧭 Receita para as respostas curtas</h3>
+      <ol class="steps">
+        <li><span><b>Lê o verbo</b>: <i>define</i> (o que é), <i>explicita</i> (mostra em que consiste), <i>justifica</i> (dá razões).</span></li>
+        <li><span><b>Sublinha o conceito</b> que a pergunta quer (ex.: <i>conceptual</i>, não <i>crítica</i>).</span></li>
+        <li><span><b>Primeira frase = a resposta</b>: "Sim/Não, …" ou "X é…".</span></li>
+        <li><span><b>Justifica</b> com a definição ou a tese da teoria, com as palavras da matéria.</span></li>
+        <li><span><b>Fecha</b> ligando à pergunta: "Por isso, …".</span></li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>🗓️ Até à prova comum (quinta, 19 nov)</h3>
+      <ol>
+        <li>Nesta página, <b>reescreve os itens 13 e 15</b> antes de abrir a correção.</li>
+        <li>Faz o <a href="#treino">treino dos erros</a> e marca 🔖 as que precisares de rever.</li>
+        <li>Na página da prova comum, revê <a href="/filosofia/prova-comum-filosofia.html#a2">A2 · atividade conceptual</a>, <a href="/filosofia/prova-comum-filosofia.html#b5">B5 · determinismo radical</a>, <a href="/filosofia/prova-comum-filosofia.html#b6">B6 · libertismo</a>, <a href="/filosofia/prova-comum-filosofia.html#b7">B7 · determinismo moderado</a> e <a href="/filosofia/prova-comum-filosofia.html#c1">C1 · respostas de desenvolvimento</a>.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>🔎 Todas as perguntas da página</h3>
+      <p class="fcount">Este filtro aplica-se a todas as listas de perguntas de uma vez (correção e treino). Cada secção tem também o seu filtro.</p>
+      <div id="global-filter"></div>
+      <div class="scroll"><table id="global-table"><thead><tr><th>Secção</th><th>Total</th><th>Certas</th><th>Erradas</th><th>Por responder</th><th>🔖</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <!-- ===================== GRUPO A ===================== -->
+  <section class="block" id="grupo-a" data-sec="grupo-a">
+    <div class="part-head">
+      <span class="eyebrow">Itens 1–6 · 30/30</span>
+      <h2><span class="ht"><span class="hi" aria-hidden="true">✅</span>Grupo A · Verdadeiro ou falso</span></h2>
+      <p class="lede">Acertaste em todos. Volta a responder para confirmar que sabes porquê: a explicação está escondida.</p>
+    </div>
+    <div class="qwrap" data-list="grupo-a"></div>
+  </section>
+
+  <!-- ===================== GRUPO B ===================== -->
+  <section class="block" id="grupo-b" data-sec="grupo-b">
+    <div class="part-head">
+      <span class="eyebrow">Itens 7–11 · 40/40</span>
+      <h2><span class="ht"><span class="hi" aria-hidden="true">✅</span>Grupo B · Escolha múltipla</span></h2>
+      <p class="lede">Também todos certos. Na explicação vês porque é que as outras opções estão erradas, que é o que costuma sair nas perguntas de resposta curta.</p>
+    </div>
+    <div class="qwrap" data-list="grupo-b"></div>
+  </section>
+
+  <!-- ===================== GRUPO C ===================== -->
+  <section class="block" id="grupo-c" data-sec="grupo-c">
+    <div class="part-head">
+      <span class="eyebrow">Itens 12–13 · 20/40</span>
+      <h2><span class="ht"><span class="hi" aria-hidden="true">✍️</span>Grupo C · Definições</span></h2>
+      <p class="lede">Lê a tua resposta, reescreve-a na caixa e só depois abre a correção. O que escreves fica guardado só neste aparelho.</p>
+    </div>
+    <div class="qwrap" data-list="grupo-c"></div>
+  </section>
+
+  <!-- ===================== GRUPO D ===================== -->
+  <section class="block" id="grupo-d" data-sec="grupo-d">
+    <div class="part-head">
+      <span class="eyebrow">Itens 14–15 · 25/50</span>
+      <h2><span class="ht"><span class="hi" aria-hidden="true">✍️</span>Grupo D · Explicar e justificar</span></h2>
+    </div>
+    <div class="qwrap" data-list="grupo-d"></div>
+  </section>
+
+  <!-- ===================== GRUPO E ===================== -->
+  <section class="block" id="grupo-e" data-sec="grupo-e">
+    <div class="part-head">
+      <span class="eyebrow">Item 16 · 40/40</span>
+      <h2><span class="ht"><span class="hi" aria-hidden="true">✍️</span>Grupo E · Comentário de texto</span></h2>
+    </div>
+    <div class="qwrap" data-list="grupo-e"></div>
+  </section>
+
+  <!-- ===================== TRABALHO 9/11 ===================== -->
+  <section class="block" id="extra" data-sec="extra">
+    <div class="part-head">
+      <span class="eyebrow">Trabalho de 9 de novembro · sem nota</span>
+      <h2><span class="ht"><span class="hi" aria-hidden="true">📝</span>Descrição da imagem do determinismo moderado</span></h2>
+      <p class="lede">Não vi a imagem, por isso o comentário é só sobre as ideias de filosofia do texto.</p>
+    </div>
+    <div class="qwrap" data-list="extra"></div>
+  </section>
+
+  <!-- ===================== TREINO ===================== -->
+  <section class="block" id="treino" data-sec="treino">
+    <div class="part-head">
+      <span class="eyebrow">Feito à medida dos pontos fracos</span>
+      <h2><span class="ht"><span class="hi" aria-hidden="true">🎯</span>Treino dos erros</span></h2>
+      <p class="lede">Quatro grupos de perguntas, um para cada ponto fraco. Nas de escolha, a explicação abre quando respondes. Nas abertas, escreve primeiro e depois compara com a solução.</p>
+    </div>
+
+    <div class="sub-head">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">🎯</span>Atitude crítica ou atividade conceptual?</span></h3>
+      <p class="lede" style="font-size:.95rem">Para não voltar a responder a outra pergunta (item 13).</p>
+    </div>
+    <div class="qwrap" data-list="t1"></div>
+
+    <div class="sub-head">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">🎯</span>Tomar posição: o determinismo radical e o agente</span></h3>
+      <p class="lede" style="font-size:.95rem">Para responder "Sim" ou "Não" com segurança (item 15).</p>
+    </div>
+    <div class="qwrap" data-list="t2"></div>
+
+    <div class="sub-head">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">🎯</span>Precisão: definições e quantificadores</span></h3>
+      <p class="lede" style="font-size:.95rem">Tudo, algumas, nenhuma: uma palavra muda a teoria (itens 12 e 16).</p>
+    </div>
+    <div class="qwrap" data-list="t3"></div>
+
+    <div class="sub-head">
+      <h3><span class="ht"><span class="hi" aria-hidden="true">🎯</span>Distinguir as três posições</span></h3>
+      <p class="lede" style="font-size:.95rem">O que é ser livre para cada uma, e como se usa um texto num argumento (itens 14 e 16, trabalho de 9/11).</p>
+    </div>
+    <div class="qwrap" data-list="t4"></div>
+  </section>
+
+  <footer>Baseado no teste de avaliação n.º 1 (2/11/2026), no trabalho de 9/11 e no manual, pp. 10–19 e 134–159.</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+const P = "filo-t1-";
+function load(k, d){ try{ const v = localStorage.getItem(P + k); return v ? JSON.parse(v) : d; }catch(e){ return d; } }
+function save(k, v){ try{ localStorage.setItem(P + k, JSON.stringify(v)); }catch(e){} }
+
+const st = load("st", {});       // id -> {s:"k"|"w", p:idx}
+const later = load("later", {}); // id -> true
+const txt = load("txt", {});     // id -> texto
+const secs = load("secs", {});   // sec -> {rd:bool, lt:bool}
+
+const DIFF = {1:"Fácil", 2:"Média", 3:"Difícil"};
+const LISTS = {
+  "grupo-a":"Grupo A", "grupo-b":"Grupo B", "grupo-c":"Grupo C", "grupo-d":"Grupo D", "grupo-e":"Grupo E",
+  "extra":"Trabalho 9/11", "t1":"Treino · crítica ou conceptual", "t2":"Treino · tomar posição",
+  "t3":"Treino · precisão", "t4":"Treino · três posições"
+};
+
+/* ---------- Dados ---------- */
+const TF = ["Verdadeiro", "Falso"];
+const Q = [
+/* Grupo A */
+{id:"i1", list:"grupo-a", num:"Item 1", pts:"5/5", type:"tf", diff:1, q:"Os problemas filosóficos são empíricos.", a:1, teste:1,
+ exp:"Falso. Os problemas filosóficos <b>não são empíricos</b>: não se resolvem pela observação e pela experiência (como os científicos) nem por cálculos (como os matemáticos). Resolvem-se pelo pensamento: reflexão crítica, argumentação e discussão racional. Ex.: \"O aborto é moralmente aceitável?\" não se resolve com uma experiência."},
+{id:"i2", list:"grupo-a", num:"Item 2", pts:"5/5", type:"tf", diff:1, q:"Um obstáculo ao conhecimento é pensar que já se sabe tudo.", a:0, teste:0,
+ exp:"Verdadeiro. É a lição de Sócrates (\"Só sei que nada sei\"): quem julga que já sabe não procura saber. A sabedoria de Sócrates era ter <b>consciência da sua ignorância</b>. Pensar que já se sabe tudo é próprio da atitude dogmática."},
+{id:"i3", list:"grupo-a", num:"Item 3", pts:"5/5", type:"tf", diff:1, q:"Para defendermos o livre-arbítrio temos de aceitar que: \"Algumas das coisas que fazemos dependem, em última análise, da nossa vontade.\"", a:0, teste:0,
+ exp:"Verdadeiro. É a própria definição: temos livre-arbítrio se, e só se, <b>algumas</b> das coisas que acontecem dependem, <b>em última análise</b>, da nossa vontade. Repara no quantificador: \"algumas\", não \"todas\"."},
+{id:"i4", list:"grupo-a", num:"Item 4", pts:"5/5", type:"tf", diff:1, q:"Afirmar que temos responsabilidade moral apoia a teoria do determinismo radical.", a:1, teste:1,
+ exp:"Falso. É ao contrário: a responsabilidade moral é usada <b>contra</b> o determinismo radical (objeção de van Inwagen). Se não houvesse livre-arbítrio, nada seria culpa de ninguém. Mas atribuímos culpa, louvamos e censuramos. Logo, o determinismo é falso."},
+{id:"i5", list:"grupo-a", num:"Item 5", pts:"5/5", type:"tf", diff:2, q:"O libertismo concorda com a frase: \"Se o determinismo for verdadeiro, então não temos possibilidades alternativas.\"", a:0, teste:0,
+ exp:"Verdadeiro. É a premissa (1) do argumento da consequência. O libertismo é <b>incompatibilista</b>, por isso aceita-a (tal como o determinismo radical). Quem a rejeita é o <b>determinismo moderado</b>, com a análise condicional."},
+{id:"i6", list:"grupo-a", num:"Item 6", pts:"5/5", type:"tf", diff:1, q:"O problema do livre-arbítrio é relevante para se saber se algumas das ações humanas são livres.", a:0, teste:0,
+ exp:"Verdadeiro. O problema tradicional do livre-arbítrio é precisamente \"Temos livre-arbítrio?\", ou seja, se algumas das nossas ações dependem de nós."},
+
+/* Grupo B */
+{id:"i7", list:"grupo-b", num:"Item 7", pts:"8/8", type:"mc", diff:1, q:"O trabalho filosófico consiste em:", a:1, teste:1,
+ opts:["analisar problemas empíricos.","questionar as nossas crenças fundamentais.","encontrar problemas sem solução.","defender teorias de forma acrítica."],
+ exp:"(B) é a definição: a filosofia é a atividade de questionamento crítico e radical das nossas crenças fundamentais. (A) os problemas filosóficos não são empíricos. (C) \"não há resposta certa\" é uma conclusão precipitada. (D) defender teorias sem crítica é a atitude dogmática."},
+{id:"i8", list:"grupo-b", num:"Item 8", pts:"8/8", type:"mc", diff:3, q:"A frase «Eu acredito no livre-arbítrio, não tenho escolha» é um exemplo de que:", a:2, teste:2,
+ opts:["a crença no livre-arbítrio não é compreensível.","a crença no livre-arbítrio deve ser considerada correta.","a crença no livre-arbítrio é compreensível mas não está correta.","a crença no livre-arbítrio é compreensível e está correta."],
+ exp:"(C). A crença percebe-se: temos sempre a sensação de que algumas coisas dependem de nós e não conseguimos viver sem pressupor o livre-arbítrio (é a defesa da premissa (4*) do libertismo). Mas a frase é contraditória: quem diz \"não tenho escolha\" admite que esta crença não depende da sua vontade. E sentir que somos livres não prova que somos (objeção da ilusão, Espinosa)."},
+{id:"i9", list:"grupo-b", num:"Item 9", pts:"8/8", type:"mc", diff:2, q:"Se dissermos que numa determinada circunstância poderíamos não ter realizado a ação que realizámos, estamos a admitir que:", a:1, teste:1,
+ opts:["o determinismo moderado não é aceitável.","o determinismo radical é falso.","o libertismo é falso.","o determinismo radical é verdadeiro."],
+ exp:"(B). \"Poderíamos não ter feito\" = há <b>possibilidades alternativas</b>. O determinismo radical nega que existam, por isso fica refutado. (A) o determinismo moderado aceita possibilidades alternativas (análise condicional). (C) o libertismo também as aceita. (D) é o contrário."},
+{id:"i10", list:"grupo-b", num:"Item 10", pts:"8/8", type:"mc", diff:1, q:"A ideia da responsabilidade do ser humano pelas suas ações constitui:", a:0, teste:0,
+ opts:["a afirmação da liberdade do ser humano.","a rejeição da liberdade do ser humano.","uma crítica ao libertismo.","a defesa do determinismo radical."],
+ exp:"(A). Só faz sentido culpar ou louvar alguém se a ação dependeu dele, isto é, se ele era livre. Por isso a responsabilidade moral pressupõe a liberdade (e é usada pelos libertistas contra o determinismo radical)."},
+{id:"i11", list:"grupo-b", num:"Item 11", pts:"8/8", type:"mc", diff:1, q:"O determinismo radical defende que o determinismo se aplica:", a:3, teste:3,
+ opts:["a alguns acontecimentos e estados de espírito do ser humano.","a todos os acontecimentos menos às ações humanas.","apenas aos acontecimentos exteriores ao ser humano.","a todos os acontecimentos, incluindo as ações humanas."],
+ exp:"(D). O determinismo diz que <b>tudo</b> o que acontece é a consequência necessária de acontecimentos anteriores e das leis da natureza. Não há exceções: as ações e decisões humanas também. As outras opções põem exceções, que o determinista radical não aceita."},
+
+/* Grupo C */
+{id:"i12", list:"grupo-c", num:"Item 12", pts:"20/20", ok:true, type:"open", diff:1, q:"Define o conceito de determinismo radical.",
+ her:"O conceito de determinismo radical defende que todas as consequências ou conclusões são um desfecho inevitável de ações/acontecimentos anteriores. O ser humano não tem liberdade de escolha e o seu comportamento é previsível e manipulável.",
+ good:["Ideia central certa: o que acontece é inevitável por causa do que aconteceu antes.","Tiraste a consequência: não há liberdade de escolha (falta só a palavra <i>livre-arbítrio</i>)."],
+ bad:["\"Todas as <i>consequências ou conclusões</i>\" → o determinismo fala de <b>todos os acontecimentos</b>, incluindo as ações humanas. \"Conclusões\" é vocabulário dos argumentos.","Falta <b>\"e das leis da natureza\"</b> e a palavra <b>necessária</b>.","\"Manipulável\" não faz parte da definição: corta.","Podias dizer que é uma posição <b>incompatibilista</b> que aceita o determinismo."],
+ points:["Tudo o que acontece, incluindo as ações humanas, é a consequência necessária de acontecimentos anteriores e das leis da natureza.","O determinismo é verdadeiro e é incompatível com o livre-arbítrio (incompatibilismo).","Logo, não temos livre-arbítrio: nenhuma ação depende, em última análise, da nossa vontade."],
+ model:"O determinismo radical é a teoria segundo a qual tudo o que acontece, incluindo as ações humanas, é a consequência necessária de acontecimentos anteriores e das leis da natureza. É uma posição incompatibilista: defende que o determinismo é verdadeiro e que, por isso, não temos livre-arbítrio, isto é, nenhuma das nossas ações depende, em última análise, da nossa vontade."},
+{id:"i13", list:"grupo-c", num:"Item 13", pts:"0/20", ok:false, type:"open", diff:2, q:"Define Filosofia como atividade conceptual.",
+ her:"A Filosofia é uma atividade conceptual que não aceita qualquer teoria sem o questionamento, estuda conceitos fundamentais como crenças e religiões, conhecimento do valor, natureza da realidade e por não ser uma atividade empírica o seu estudo baseia-se em perguntas: \"Como?\", \"Porquê?\", \"De que forma?\", \"Em que circunstância?\", em reflexões críticas, discussões racionais e argumentos válidos, sendo tudo estudado de forma totalmente imparcial.",
+ prof:"Seria uma resposta à atitude crítica.",
+ good:["Tudo o que escreveste está certo… sobre a <b>atitude crítica</b> e o <b>método</b> (reflexão crítica, discussão racional, não empírica).","Começaste bem: a primeira frase usa a expressão da pergunta."],
+ bad:["Não explicaste o que torna a filosofia <b>conceptual</b>: ocupa-se de <b>problemas acerca de conceitos</b>, do tipo <b>\"O que é x?\"</b>.","\"Não aceita qualquer teoria sem questionamento\" e \"imparcial\" são a definição de <b>atividade crítica</b>, outra característica.","As perguntas \"Como? Porquê?\" não são as típicas: a pergunta conceptual é <b>\"O que é a justiça? a coragem? o conhecimento?\"</b>","\"Crenças e religiões\" não são exemplos de conceitos fundamentais. Exemplos do manual: justiça, coragem, conhecimento, beleza, Deus, liberdade, número, verdade.","Faltou o exemplo de Sócrates, que é o caso do manual."],
+ points:["A filosofia ocupa-se de problemas conceptuais, isto é, problemas acerca de conceitos.","Esses problemas têm a estrutura \"O que é x?\" (O que é a justiça? O que é a liberdade?).","Analisa conceitos fundamentais que usamos sem pensar no seu significado: justiça, coragem, conhecimento, beleza, verdade…","Quer saber em que consistem, a que se aplicam e como se relacionam com outros conceitos.","Exemplo: Sócrates pergunta \"O que é a justiça?\" e refuta a definição de Polemarco com um contraexemplo (devolver as armas a um amigo que enlouqueceu)."],
+ model:"A filosofia é uma atividade conceptual porque se ocupa de problemas conceptuais, isto é, de problemas acerca de conceitos, com a estrutura \"O que é x?\". Analisa conceitos fundamentais que usamos no dia a dia e nas ciências sem pensar no seu significado, como justiça, coragem, conhecimento, beleza ou liberdade, e procura saber em que consistem, a que se aplicam e como se relacionam com outros conceitos. Por exemplo, Sócrates perguntava \"O que é a justiça?\" e mostrou que a definição de Polemarco (\"restituir a cada um o que se lhe deve\") falhava, pois não seria justo devolver as armas a um amigo que enlouqueceu.",
+ link:'<a href="/filosofia/prova-comum-filosofia.html#a2">Rever A2 na página da prova comum</a>'},
+
+/* Grupo D */
+{id:"i14", list:"grupo-d", num:"Item 14", pts:"25/25", ok:true, type:"open", diff:2, q:"Explicita o problema da responsabilidade nas ações do indivíduo segundo o libertismo.",
+ her:"O ser humano só é realmente livre de escolher ou tomar decisões se não for coagido a tomar essas mesmas decisões, ou seja, só tem responsabilidade moral se houver opção de escolha, se o determinismo for falso; caso contrário, até que ponto é que o ser humano é realmente responsável pelas suas ações, terá liberdade?",
+ good:["Ligaste responsabilidade moral a haver escolha.","Disseste que isso exige que o determinismo seja falso, que é o ponto central do libertismo."],
+ bad:["\"Só é livre se não for coagido\" é o critério do <b>determinismo moderado</b>. Para o libertista, a escolha tem de <b>não estar determinada</b> pelo passado e pelas leis da natureza (possibilidades alternativas genuínas).","A resposta termina com uma pergunta. Numa resposta, afirma: \"Por isso, se o determinismo fosse verdadeiro, ninguém seria responsável.\"","Uma frase só, muito longa. Divide em: problema. tese. razão.","Podias usar a objeção da responsabilidade moral (van Inwagen) ou o caso Darrow."],
+ points:["O problema: seremos moralmente responsáveis pelas nossas ações? Isso depende de termos livre-arbítrio.","Para o libertista, só somos responsáveis se a ação depender, em última análise, da nossa vontade (podíamos ter agido de outra maneira).","Se o determinismo fosse verdadeiro, nada dependeria de nós e ninguém seria culpado de nada.","Mas louvamos, censuramos e culpamos: somos responsáveis por algumas ações. Logo, temos livre-arbítrio e o determinismo é falso.","O passado pode influenciar as ações, mas não as determina (caso Darrow: os jovens eram responsáveis)."],
+ model:"Para o libertismo, o problema é saber se somos moralmente responsáveis pelas nossas ações, e isso depende de termos livre-arbítrio. Só faz sentido culpar ou louvar alguém se a ação dependeu, em última análise, da sua vontade, isto é, se podia ter agido de outra maneira. Se o determinismo fosse verdadeiro, todas as ações seriam a consequência necessária do passado e das leis da natureza, e ninguém seria responsável por nada. Mas é evidente que atribuímos culpa e mérito (van Inwagen: \"Isto é culpa tua\"). Por isso, o libertista conclui que temos livre-arbítrio e que o determinismo é falso: o passado pode influenciar as nossas ações, mas não as determina."},
+{id:"i15", list:"grupo-d", num:"Item 15", pts:"0/25", ok:false, type:"open", diff:3, q:"Um defensor do determinismo radical poderia afirmar que existem sequências causais com origem no agente? Justifica a tua resposta.",
+ her:"Sim e não. Se o agente tiver liberdade para escolher o que deu origem a essa sequência causal, então não, o agente usou o seu livre-arbítrio, algo que o determinismo radical não aceita; por outro lado, se a origem dessa sequência causal tiver começado no agente de forma determinada e sem espaço de escolha, então sim, o determinismo radical poderá afirmar que existem sequências causais de origem no agente.",
+ prof:"\"Sim\" sublinhado e o \"e\" de \"Sim e não\" assinalado: a resposta contradiz-se.",
+ good:["A primeira hipótese está certa: se a sequência começasse numa escolha livre do agente, isso seria livre-arbítrio, e o determinismo radical não o aceita."],
+ bad:["<b>\"Sim e não\" não é uma resposta.</b> A pergunta pedia uma posição justificada.","A segunda hipótese contradiz-se: se a decisão do agente está <b>determinada</b>, então foi causada por acontecimentos anteriores. A sequência <b>não começa</b> no agente, só passa por ele.","Faltou usar a definição: tudo é a consequência necessária de acontecimentos anteriores e das leis da natureza."],
+ points:["Resposta: <b>Não</b>.","Para o determinismo radical, tudo, incluindo as decisões do agente, é a consequência necessária de acontecimentos anteriores e das leis da natureza.","Por isso, uma decisão nunca é o início de uma sequência causal: é um elo de uma cadeia que começou antes do agente (genes, educação, ambiente, até antes de ele nascer).","Uma sequência com origem no agente seria uma ação que depende, em última análise, da sua vontade, ou seja, livre-arbítrio, que o determinismo radical nega.","Só o libertismo pode aceitar sequências causais com origem no agente."],
+ model:"Não. Para o determinismo radical, tudo o que acontece, incluindo as decisões e ações do agente, é a consequência necessária de acontecimentos anteriores e das leis da natureza. Assim, a decisão de um agente nunca é o início de uma sequência causal: é apenas um elo de uma cadeia de causas que começou antes dele, até antes de ele nascer. Dizer que uma sequência causal tem origem no agente seria dizer que a ação depende, em última análise, da sua vontade, isto é, que ele tem livre-arbítrio. Ora, é precisamente isso que o determinista radical nega. Só um libertista poderia aceitar sequências causais com origem no agente.",
+ link:'<a href="/filosofia/prova-comum-filosofia.html#b5">Rever B5 na página da prova comum</a>'},
+
+/* Grupo E */
+{id:"i16", list:"grupo-e", num:"Item 16", pts:"40/40", ok:true, type:"open", diff:3,
+ q:"«As neurociências, e a biologia comportamental na generalidade, têm gradualmente revelado os mecanismos que nos fazem ser quem somos: como tomamos decisões e controlamos os nossos impulsos, como os genes moldam os nossos desejos sociais e como o nosso sistema de recompensa se adapta em resposta a experiências satisfatórias. À medida que as neurociências descobrem estes e outros mecanismos que regulam as escolhas e o comportamento social, não podemos deixar de nos perguntar se alguém realmente escolhe alguma coisa.» (Patricia Churchland) — A partir do texto, explique o argumento aí presente e a sua utilização para defender o determinismo radical.",
+ her:"No argumento apresentado, Patricia Churchland explica que os nossos genes e mecanismos controlam os nossos impulsos, desejos sociais e algumas decisões que moldam o ser humano, e fazem-no ser quem é e se comportar de uma determinada forma. Este argumento questiona a nossa liberdade de escolha e defende que nenhum de nós é realmente livre de tomar algumas decisões ou escolher, tudo é determinado por antecedentes (genes) ou biologia comportamental (mecanismos), apoiando portanto o conceito de determinismo radical.",
+ good:["Explicaste a ideia do texto com os exemplos dele (genes, mecanismos, impulsos, desejos sociais).","Disseste que conclusão tira (não somos livres de escolher) e que teoria apoia.","\"Tudo é determinado por antecedentes\" é a ideia certa."],
+ bad:["Quantificadores: \"<i>algumas</i> decisões\" e \"não é livre de tomar <i>algumas</i> decisões\" enfraquecem a tese. O texto diz que os mecanismos regulam <b>as</b> escolhas, e o determinismo radical diz que <b>nenhuma</b> decisão é livre.","Faltou dizer <b>como</b> o texto é usado: é uma defesa da premissa \"O determinismo é verdadeiro\", como o sucesso da ciência a explicar e prever.","Podias reconstruir o argumento com premissas e conclusão."],
+ points:["Ideia do texto: as neurociências mostram que decisões, impulsos e desejos são produzidos por mecanismos (genes, sistema de recompensa) que não escolhemos.","Se as escolhas resultam desses mecanismos, são a consequência necessária de causas anteriores e não dependem, em última análise, da nossa vontade.","Utilização: é uma razão a favor da premissa (4) do determinismo radical, \"O determinismo é verdadeiro\" (o sucesso da ciência a explicar o comportamento).","Com o argumento da consequência, chega-se por Modus Ponens a \"não temos livre-arbítrio\"."],
+ model:"O texto defende que as neurociências e a biologia comportamental mostram, cada vez mais, que as nossas decisões, impulsos e desejos são produzidos por mecanismos que não escolhemos, como os genes e o sistema de recompensa do cérebro. Se é assim, as nossas escolhas são a consequência necessária de causas anteriores e das leis da natureza, e não dependem, em última análise, da nossa vontade. Daí a pergunta da autora: alguém escolhe realmente alguma coisa?<br><br>O determinista radical usa isto para defender a premissa \"o determinismo é verdadeiro\", tal como usa o sucesso da ciência a explicar e prever acontecimentos. Juntando-a ao argumento da consequência, fica:",
+ arg:[["(1)","Se o determinismo é verdadeiro, então não temos possibilidades alternativas."],["(2)","Se não temos possibilidades alternativas, então não temos livre-arbítrio."],["(3)","Se o determinismo é verdadeiro, então não temos livre-arbítrio.","De 1 e 2, por Silogismo Hipotético",1],["(4)","O determinismo é verdadeiro. (apoiada pelas neurociências)"],["(5)","Logo, não temos livre-arbítrio.","De 3 e 4, por Modus Ponens",1]],
+ link:'<a href="/filosofia/prova-comum-filosofia.html#b5">Rever B5 na página da prova comum</a>'},
+
+/* Trabalho 9/11 */
+{id:"x1", list:"extra", num:"Trabalho", pts:"sem nota", type:"open", diff:2, q:"Descreve a imagem e explica que teoria representa.",
+ her:"A imagem representa a definição de determinismo moderado. Do lado esquerdo existem fábricas, relógios e cenário desprovido de cor. Este lado representa o determinismo, todas as causas são consequência inevitável de ações/causas anteriores, percebo isto pelo fumo, a poluição e a ausência de natureza. Já do lado direito o cenário muda totalmente, as pessoas convivem alegremente, passeiam pela natureza e o cenário é representado com cor, o pôr do sol, flores e árvores. Este lado representa o libertismo, a liberdade de escolher o que fazer, identifico isto pelo à-vontade das pessoas na imagem. A ponte simboliza a compatibilidade, podes escolher entre os dois lados que ela une. Isto é, mesmo quando tudo está determinado tens possibilidade de escolha se não houver coação, mesmo quando as consequências são o final inevitável de causas anteriores tens espaço de decisão e \"atravessar a ponte\", ser livre, agir sobre uma vontade pessoal e, mesmo quando a causa dessa vontade foi determinada, podes decidir se queres satisfazer essa vontade ou não.",
+ good:["Identificaste a teoria certa e descreveste bem os pormenores (relógios e fábricas = mundo mecânico, determinado).","O final é muito bom: \"mesmo quando tudo está determinado tens possibilidade de escolha se não houver coação\" e \"agir segundo uma vontade pessoal mesmo quando a causa dessa vontade foi determinada\" é exatamente o compatibilismo."],
+ bad:["\"Todas as <i>causas</i> são consequência…\" → \"todos os <b>acontecimentos</b> são a consequência necessária de acontecimentos anteriores e das leis da natureza\".","O lado direito representa a <b>liberdade / o livre-arbítrio</b>, não o <b>libertismo</b>. O libertismo é a teoria que diz que o determinismo é falso, por isso não pode estar \"ligado\" ao determinismo por uma ponte.","\"Podes escolher entre os dois lados\": não se escolhe entre determinismo e liberdade. O compatibilismo diz que os <b>dois são verdadeiros ao mesmo tempo</b>; a ponte mostra que são compatíveis.","\"Podes decidir se queres satisfazer essa vontade\": para o determinismo moderado essa decisão também está determinada. É livre porque vem da tua vontade, sem coação, não porque escape às causas.","Podias referir a análise condicional: \"se tivesse escolhido outra coisa, teria feito outra coisa\"."],
+ points:["Lado esquerdo: o determinismo (tudo é a consequência necessária do passado e das leis da natureza).","Lado direito: o livre-arbítrio (agir de acordo com a própria vontade).","Ponte: o compatibilismo, os dois lados são verdadeiros ao mesmo tempo.","Ser livre = agir de acordo com a vontade, sem coação externa, mesmo que essa vontade tenha causas.","Análise condicional das possibilidades alternativas."],
+ model:"A imagem representa o determinismo moderado. Do lado esquerdo, as fábricas e os relógios representam o determinismo: tudo o que acontece é a consequência necessária de acontecimentos anteriores e das leis da natureza, como uma máquina. Do lado direito, as pessoas a passear à vontade representam o livre-arbítrio. A ponte representa o compatibilismo: o determinismo e o livre-arbítrio são compatíveis, ou seja, podem ser os dois verdadeiros ao mesmo tempo. Para o determinista moderado, somos livres quando agimos de acordo com a nossa vontade, sem coação externa, mesmo que essa vontade tenha sido causada por acontecimentos anteriores. Temos possibilidades alternativas no sentido condicional: se tivéssemos escolhido fazer outra coisa, teríamos feito outra coisa.",
+ link:'<a href="/filosofia/prova-comum-filosofia.html#b7">Rever B7 na página da prova comum</a>'},
+
+/* Treino 1: crítica vs conceptual */
+{id:"t1a", list:"t1", type:"tf", diff:1, q:"Dizer que a filosofia é uma atividade conceptual significa que ela não aceita nenhuma crença sem a questionar.", a:1,
+ exp:"Falso. Isso é a <b>atividade crítica</b>: avaliar de forma rigorosa e imparcial as razões para pensar desta ou daquela maneira. <b>Conceptual</b> quer dizer que se ocupa de problemas acerca de conceitos (\"O que é x?\"). Foi esta a confusão do item 13."},
+{id:"t1b", list:"t1", type:"mc", diff:1, q:"Qual destas perguntas mostra melhor que a filosofia é uma atividade conceptual?", a:1,
+ opts:["Será que as minhas crenças têm boas razões?","O que é a justiça?","Quantos dentes tem um urso polar?","Qual é a área deste triângulo?"],
+ exp:"(B): tem a estrutura \"O que é x?\", com x = um conceito. (A) mostra a atitude crítica. (C) é um problema empírico (científico). (D) é matemático."},
+{id:"t1c", list:"t1", type:"mc", diff:2, q:"\"Examinar de forma rigorosa e imparcial as razões que temos para pensar desta ou daquela maneira.\" Esta frase descreve:", a:0,
+ opts:["a atividade crítica.","a atividade conceptual.","o objeto da filosofia.","a etimologia de \"filosofia\"."],
+ exp:"(A). É a definição de atitude/atividade crítica (pp. 12–13). O <b>objeto</b> são os problemas fundamentais acerca da realidade, do conhecimento e do valor. A <b>etimologia</b> é \"amor pela sabedoria\"."},
+{id:"t1d", list:"t1", type:"tf", diff:1, q:"Sócrates mostrou que Polemarco não sabia o que era a justiça usando um contraexemplo.", a:0,
+ exp:"Verdadeiro. Polemarco disse que justiça é \"restituir a cada um o que se lhe deve\". Sócrates mostrou um caso em que isso não é justo: devolver as armas a um amigo que enlouqueceu. Um caso que mostra que uma definição falha chama-se <b>contraexemplo</b>."},
+{id:"t1e", list:"t1", type:"tf", diff:2, q:"A filosofia é crítica e conceptual: são duas características diferentes, e uma pergunta do teste pode pedir só uma delas.", a:0,
+ exp:"Verdadeiro. O manual conclui que a filosofia é uma atividade <b>conceptual e crítica</b>. Se a pergunta pede uma, explica essa. Podes referir a outra no fim, mas nunca em vez dela."},
+{id:"t1f", list:"t1", type:"open", diff:1, q:"Porque se diz que a filosofia é uma atividade crítica?",
+ points:["Não aceitamos crenças só porque nos foram transmitidas ou parecem óbvias (atitude dogmática).","Examinamos de forma rigorosa e imparcial as razões a favor e contra as nossas crenças.","Exemplo: Kenneth (weatherfieldianos), Pitágoras (o filósofo procura o saber), Sócrates (\"só sei que nada sei\")."],
+ model:"A filosofia é uma atividade crítica porque não aceita as crenças só por serem habituais ou transmitidas por uma autoridade (atitude dogmática). Em vez disso, examina de forma rigorosa e imparcial as razões que temos para pensar desta ou daquela maneira, a favor e contra. Por exemplo, Sócrates questionava quem julgava saber e tinha consciência da sua própria ignorância."},
+{id:"t1g", list:"t1", type:"open", diff:3, q:"Em 4 a 6 linhas, distingue a filosofia como atividade crítica da filosofia como atividade conceptual, com um exemplo de cada.",
+ points:["Crítica: avaliar de forma rigorosa e imparcial as razões das nossas crenças (contra a atitude dogmática).","Conceptual: ocupa-se de problemas acerca de conceitos, \"O que é x?\".","Exemplo crítica: Kenneth, que desafia o líder e descobre que as novelas são ficção.","Exemplo conceptual: Sócrates e \"O que é a justiça?\".","As duas juntas: a filosofia é uma atividade conceptual e crítica."],
+ model:"A filosofia é uma atividade crítica porque examina de forma rigorosa e imparcial as razões que temos para as nossas crenças, em vez de as aceitar sem pensar; por exemplo, Kenneth desafia o líder dos weatherfieldianos e descobre que as novelas não são documentários. É uma atividade conceptual porque se ocupa de problemas acerca de conceitos, do tipo \"O que é x?\"; por exemplo, Sócrates pergunta \"O que é a justiça?\" e testa as definições com contraexemplos. A primeira diz respeito à atitude com que pensamos; a segunda, ao tipo de problemas que a filosofia estuda."},
+
+/* Treino 2: tomar posição */
+{id:"t2a", list:"t2", type:"tf", diff:1, q:"Para o determinismo radical, há decisões humanas que são o início absoluto de uma sequência causal.", a:1,
+ exp:"Falso. Se tudo é a consequência necessária de acontecimentos anteriores, toda a decisão também foi causada. Nenhuma sequência começa no agente: passa por ele."},
+{id:"t2b", list:"t2", type:"tf", diff:3, q:"Para o determinismo radical, as decisões do agente podem ser causas de outros acontecimentos.", a:0,
+ exp:"Verdadeiro, e é aqui que está a subtileza do item 15. A decisão causa a ação (é um elo da cadeia), mas também foi causada por acontecimentos anteriores. Ser <b>causa</b> não é o mesmo que ser <b>origem</b>."},
+{id:"t2c", list:"t2", type:"mc", diff:1, q:"Um determinista radical diria que a decisão da Ana de ir estudar Humanidades:", a:2,
+ opts:["não teve causa nenhuma.","dependeu, em última análise, apenas da vontade dela.","foi a consequência necessária de acontecimentos anteriores e das leis da natureza.","foi fruto do acaso."],
+ exp:"(C) é a tese do determinismo. (B) seria livre-arbítrio no sentido libertista. (A) e (D) descrevem um acontecimento indeterminado, que o determinista nega existir."},
+{id:"t2d", list:"t2", type:"mc", diff:2, q:"Quem aceita que algumas decisões não são determinadas por acontecimentos anteriores e começam no próprio agente?", a:1,
+ opts:["Só o determinismo radical.","Só o libertismo.","O determinismo radical e o moderado.","O determinismo moderado e o libertismo."],
+ exp:"(B). Só o libertismo nega o determinismo. O determinismo moderado aceita que somos livres, mas também aceita que tudo está determinado: as nossas decisões têm causas anteriores."},
+{id:"t2e", list:"t2", type:"tf", diff:2, q:"Numa pergunta \"Poderia…? Justifica\", responder \"Sim e não\" e explorar as duas hipóteses dá a cotação toda se as duas estiverem bem explicadas.", a:1,
+ exp:"Falso. A pergunta pede uma posição. Começa com <b>Sim</b> ou <b>Não</b> e justifica. Podes referir a outra posição no fim (\"só um libertista diria que sim\"), mas a tua resposta tem de ser clara."},
+{id:"t2f", list:"t2", type:"open", diff:2, q:"Um determinista radical poderia defender que devemos castigar os criminosos? Justifica.",
+ points:["Sim, mas não por merecerem (não são moralmente responsáveis).","Para o determinismo radical não podiam ter agido de outra maneira, por isso não têm culpa no sentido moral.","Mas o castigo pode ser útil: dissuadir crimes futuros e proteger a sociedade (caso Darrow)."],
+ model:"Sim, mas não por os criminosos o merecerem. Para o determinismo radical, todas as ações são a consequência necessária de acontecimentos anteriores e das leis da natureza, por isso o criminoso não podia ter agido de outra maneira e não é moralmente responsável. Ainda assim, o castigo pode ser justificado pelas suas consequências: dissuadir crimes futuros e proteger a sociedade. Por isso, no caso Darrow, um determinista radical concordaria que os jovens não eram culpados, mas podia aceitar uma pena para dissuadir outros."},
+{id:"t2g", list:"t2", type:"open", diff:3, q:"Um libertista poderia aceitar que algumas das nossas ações são influenciadas pelo passado? Justifica.",
+ points:["Sim.","O libertista só nega que <b>todas</b> as ações estejam <b>determinadas</b>.","Influenciar ≠ determinar: o passado pode tornar uma escolha mais provável sem a tornar necessária.","Basta que <b>algumas</b> ações dependam, em última análise, da nossa vontade (definição de livre-arbítrio)."],
+ model:"Sim. O libertista não diz que o passado não tem efeito nenhum nas nossas ações; diz que não as determina. O passado pode influenciar as escolhas, tornando umas mais prováveis do que outras, sem as tornar necessárias. Para haver livre-arbítrio basta que algumas das nossas ações dependam, em última análise, da nossa vontade. Por isso, no caso Darrow, o libertista aceita que a educação dos jovens os influenciou, mas defende que eram livres e, portanto, responsáveis."},
+
+/* Treino 3: precisão */
+{id:"t3a", list:"t3", type:"tf", diff:2, q:"O determinismo radical defende que algumas das nossas decisões não são livres.", a:1,
+ exp:"Falso, porque é fraco demais. O determinismo radical defende que <b>nenhuma</b> decisão é livre. Que <b>algumas</b> não são livres (compulsões, coação) até um libertista aceita. Foi este o deslize do item 16."},
+{id:"t3b", list:"t3", type:"tf", diff:1, q:"Determinismo: tudo o que acontece é a consequência necessária de acontecimentos anteriores e das leis da natureza.", a:0,
+ exp:"Verdadeiro. Esta é a frase a saber de cor. Repara nas três partes: <b>tudo</b> · <b>consequência necessária</b> · <b>acontecimentos anteriores e leis da natureza</b>."},
+{id:"t3c", list:"t3", type:"mc", diff:2, q:"Qual é a definição de livre-arbítrio do manual?", a:1,
+ opts:["Todas as coisas que fazemos dependem da nossa vontade.","Algumas das coisas que acontecem dependem, em última análise, da nossa vontade.","Fazemos o que queremos sem sermos coagidos.","Nenhuma das nossas ações tem causas."],
+ exp:"(B). (A) exige demais (\"todas\"). (C) é a ideia de liberdade do determinismo moderado, não a definição de livre-arbítrio. (D) não é o que se diz: o libertista aceita que as ações têm influências."},
+{id:"t3d", list:"t3", type:"mc", diff:2, q:"Qual destas frases descreve corretamente o determinismo radical?", a:3,
+ opts:["Todas as conclusões são o desfecho de ações anteriores.","Algumas ações humanas estão determinadas, por isso não somos totalmente livres.","O determinismo é verdadeiro, mas somos livres quando não há coação.","Tudo está determinado, incluindo as ações humanas; por isso, não temos livre-arbítrio."],
+ exp:"(D). (A) usa \"conclusões\" em vez de \"acontecimentos\" (deslize do item 12). (B) usa \"algumas\" em vez de \"todas\". (C) é o determinismo moderado."},
+{id:"t3e", list:"t3", type:"open", diff:2, q:"Corrige esta definição: \"O determinismo radical defende que todas as consequências são um desfecho inevitável de ações anteriores e o ser humano é manipulável.\"",
+ points:["\"Consequências\" → todos os acontecimentos, incluindo as ações humanas.","\"Desfecho inevitável de ações anteriores\" → consequência necessária de acontecimentos anteriores e das leis da natureza.","Cortar \"manipulável\" (não faz parte da definição).","Acrescentar a conclusão: não temos livre-arbítrio (incompatibilismo)."],
+ model:"O determinismo radical defende que tudo o que acontece, incluindo as ações humanas, é a consequência necessária de acontecimentos anteriores e das leis da natureza, e que, por isso, não temos livre-arbítrio."},
+{id:"t3f", list:"t3", type:"open", diff:1, q:"Escreve de cor as definições de determinismo, livre-arbítrio, compatibilismo e incompatibilismo.",
+ points:["Determinismo: tudo o que acontece é a consequência necessária de acontecimentos anteriores e das leis da natureza.","Livre-arbítrio: temos livre-arbítrio se, e só se, algumas das coisas que acontecem dependem, em última análise, da nossa vontade.","Incompatibilismo: o livre-arbítrio não é compatível com o determinismo.","Compatibilismo: o livre-arbítrio é compatível com o determinismo."],
+ model:"Determinismo: tudo o que acontece é a consequência necessária de acontecimentos anteriores e das leis da natureza. Livre-arbítrio: temos livre-arbítrio se, e só se, algumas das coisas que acontecem dependem, em última análise, da nossa vontade. Incompatibilismo: o livre-arbítrio não é compatível com o determinismo. Compatibilismo: o livre-arbítrio é compatível com o determinismo."},
+
+/* Treino 4: três posições */
+{id:"t4a", list:"t4", type:"mc", diff:2, q:"Dizer que \"somos livres quando agimos de acordo com a nossa vontade, sem coação externa\" é típico de:", a:2,
+ opts:["determinismo radical.","libertismo.","determinismo moderado.","todas as posições."],
+ exp:"(C). É a ideia de liberdade do determinismo moderado (compatibilismo). Para o libertismo não chega: além de não haver coação, a escolha não pode estar determinada pelo passado."},
+{id:"t4b", list:"t4", type:"tf", diff:2, q:"Para o libertismo, basta não sermos coagidos para sermos livres.", a:1,
+ exp:"Falso. Para o libertista, mesmo sem coação, se a escolha estivesse determinada por acontecimentos anteriores não seria livre. É preciso haver possibilidades alternativas genuínas. Atenção ao item 14."},
+{id:"t4c", list:"t4", type:"tf", diff:1, q:"O compatibilismo defende que podemos escolher entre o determinismo e a liberdade.", a:1,
+ exp:"Falso. Defende que o determinismo e o livre-arbítrio podem ser <b>os dois verdadeiros ao mesmo tempo</b>. Não há escolha entre um e outro (confusão do trabalho de 9/11)."},
+{id:"t4d", list:"t4", type:"mc", diff:2, q:"Numa imagem sobre o determinismo moderado, uma ponte entre um lado \"determinismo\" e um lado \"liberdade\" simboliza melhor:", a:1,
+ opts:["a escolha entre ser determinado ou ser livre.","a ideia de que o determinismo e o livre-arbítrio podem ser verdadeiros ao mesmo tempo.","a passagem do determinismo radical para o libertismo.","a rejeição das duas teses."],
+ exp:"(B). A ponte une os dois lados: são compatíveis. (C) está errado porque o libertismo nega o determinismo, por isso não pode ser um dos lados de uma imagem compatibilista."},
+{id:"t4e", list:"t4", type:"mc", diff:3, q:"No texto de Churchland (item 16), as descobertas das neurociências servem ao determinista radical para defender:", a:1,
+ opts:["a premissa (1): se o determinismo é verdadeiro, não temos possibilidades alternativas.","a premissa (4): o determinismo é verdadeiro.","a premissa (4*): temos livre-arbítrio.","a análise condicional das possibilidades alternativas."],
+ exp:"(B). Tal como o sucesso da ciência a explicar e prever, as neurociências são uma razão para aceitar que o determinismo é verdadeiro. Depois, por Modus Ponens com (3), conclui-se que não temos livre-arbítrio."},
+{id:"t4f", list:"t4", type:"tf", diff:2, q:"O determinismo radical e o libertismo concordam com a premissa \"Se o determinismo é verdadeiro, então não temos livre-arbítrio\".", a:0,
+ exp:"Verdadeiro. São os dois incompatibilistas e partilham as linhas (1)–(3) do argumento. Separam-se na premissa seguinte: (4) o determinismo é verdadeiro / (4*) temos livre-arbítrio."},
+{id:"t4g", list:"t4", type:"open", diff:2, q:"Reconstrói o argumento do determinismo radical (premissas e conclusão) e diz que regras de inferência usa.",
+ points:["(1) Se o determinismo é verdadeiro, então não temos possibilidades alternativas.","(2) Se não temos possibilidades alternativas, então não temos livre-arbítrio.","(3) Logo, se o determinismo é verdadeiro, não temos livre-arbítrio (Silogismo Hipotético).","(4) O determinismo é verdadeiro.","(5) Logo, não temos livre-arbítrio (Modus Ponens, de 3 e 4)."],
+ model:"(1) Se o determinismo é verdadeiro, então não temos possibilidades alternativas. (2) Se não temos possibilidades alternativas, então não temos livre-arbítrio. (3) Logo, se o determinismo é verdadeiro, então não temos livre-arbítrio (de 1 e 2, por Silogismo Hipotético). (4) O determinismo é verdadeiro. (5) Logo, não temos livre-arbítrio (de 3 e 4, por Modus Ponens)."},
+{id:"t4h", list:"t4", type:"open", diff:3, q:"Como poderia um libertista responder ao texto de Churchland?",
+ points:["Influenciar não é determinar: os genes e o cérebro influenciam as escolhas sem as tornarem necessárias.","Mecânica quântica: há acontecimentos genuinamente indeterminados, logo o determinismo pode ser falso.","Responsabilidade moral (van Inwagen): se não escolhêssemos nada, ninguém seria culpado de nada, e isso é inaceitável.","Defesa de (4*): não conseguimos viver, escolher e agir sem pressupor o livre-arbítrio."],
+ model:"O libertista diria que as neurociências mostram que os genes e o cérebro influenciam as nossas escolhas, mas não que as determinam: influenciar não é o mesmo que tornar necessário. Além disso, a mecânica quântica sugere que há acontecimentos genuinamente indeterminados, por isso não é certo que o determinismo seja verdadeiro. Por fim, se ninguém escolhesse realmente nada, ninguém seria responsável por nada; como é evidente que atribuímos culpa e mérito, é mais plausível que tenhamos livre-arbítrio do que estarmos sempre enganados."}
+];
+
+/* ---------- Pontuações para o mapa ---------- */
+const TILES = [
+  ["i1","1","5/5",1],["i2","2","5/5",1],["i3","3","5/5",1],["i4","4","5/5",1],["i5","5","5/5",1],["i6","6","5/5",1],
+  ["i7","7","8/8",1],["i8","8","8/8",1],["i9","9","8/8",1],["i10","10","8/8",1],["i11","11","8/8",1],
+  ["i12","12","20/20",1],["i13","13","0/20",0],["i14","14","25/25",1],["i15","15","0/25",0],["i16","16","40/40",1]
+];
+document.getElementById("tiles").innerHTML = TILES.map(t =>
+  `<a class="tile ${t[3] ? "ok" : "ko"}" href="#q-${t[0]}"><b>Item ${t[1]}</b><span>${t[2]}</span></a>`).join("");
+
+/* ---------- Render ---------- */
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+const LETTERS = "ABCD";
+
+function cardHTML(q){
+  const meta = (q.type === "tf" ? "V/F" : q.type === "mc" ? "Escolha múltipla" : "Resposta aberta") + " · " + DIFF[q.diff];
+  const ptsPill = q.pts ? ` <span class="pill ${q.ok === false ? "n" : q.pts === "sem nota" ? "b" : "y"}">${q.pts}</span>` : "";
+  let h = `<article class="q" id="q-${q.id}" data-id="${q.id}">
+    <div class="qhead">${q.num ? `<span class="qnum">${q.num}</span>` : ""}${ptsPill}<span class="qmeta">${meta}</span></div>
+    <p class="qtext">${q.q}</p>`;
+  if(q.type === "tf" || q.type === "mc"){
+    const opts = q.type === "tf" ? TF : q.opts;
+    h += `<div class="${q.type === "tf" ? "tfbtns" : "opts"}">` + opts.map((o,i) =>
+      `<button type="button" class="opt" data-i="${i}">${q.type === "mc" ? `<b>(${LETTERS[i]})</b>` : ""}<span>${o}</span></button>`).join("") + `</div>
+      <p class="fb" aria-live="polite"></p>`;
+  } else {
+    if(q.her){
+      h += `<div class="her"><span class="lab">${q.list === "extra" ? "O teu texto" : "A tua resposta no teste"}</span><p class="t">${esc(q.her)}</p>${q.prof ? `<p class="prof">Professor: ${esc(q.prof)}</p>` : ""}</div>`;
+    }
+    h += `<label class="tlab" for="ta-${q.id}"><span>${q.her ? "Reescreve a tua resposta (antes de abrir a correção)" : "Escreve a tua resposta"}</span><span class="saved" aria-live="polite"></span></label>
+      <textarea id="ta-${q.id}" placeholder="Escreve aqui…"></textarea>`;
+  }
+  const label = q.type === "open" ? (q.her ? "Ver correção e resposta-modelo" : "Ver solução") : "Ver resposta e explicação";
+  h += `<div class="qact"><button type="button" class="reveal" aria-expanded="false" aria-controls="ans-${q.id}">${label}</button>
+    <button type="button" class="ghost bm" aria-pressed="false">🔖 Ver mais tarde</button>
+    ${q.type !== "open" ? `<button type="button" class="ghost retry" hidden>Tentar outra vez</button>` : ""}</div>
+    <div class="ans" id="ans-${q.id}" hidden>${ansHTML(q)}</div>
+  </article>`;
+  return h;
+}
+
+function ansHTML(q){
+  if(q.type === "tf" || q.type === "mc"){
+    const opts = q.type === "tf" ? TF : q.opts;
+    const right = (q.type === "mc" ? `(${LETTERS[q.a]}) ` : "") + opts[q.a];
+    let h = `<p><b>Resposta certa:</b> ${right}</p><p>${q.exp}</p>`;
+    if(q.teste !== undefined){
+      const ok = q.teste === q.a;
+      h += `<p class="fcount">No teste escolheste ${q.type === "mc" ? "(" + LETTERS[q.teste] + ")" : opts[q.teste].toLowerCase()} ${ok ? "✅" : "❌"}</p>`;
+    }
+    return h;
+  }
+  let h = "";
+  if(q.good) h += `<h5>O que está bem</h5><ul class="good-l">${q.good.map(x => `<li>${x}</li>`).join("")}</ul>`;
+  if(q.bad) h += `<h5>${q.ok === false ? "O que está errado ou falta" : "O que melhorar"}</h5><ul class="bad-l">${q.bad.map(x => `<li>${x}</li>`).join("")}</ul>`;
+  h += `<h5>Pontos que a resposta deve ter</h5><ul>${q.points.map(x => `<li>${x}</li>`).join("")}</ul>`;
+  h += `<h5>Exemplo de resposta</h5><div class="model"><p>${q.model}</p>`;
+  if(q.arg) h += `<div class="arg" style="margin-top:8px">${q.arg.map(l => `<div class="l"><span class="n">${l[0]}</span><span class="${l[3] ? "c" : ""}">${l[1]}${l[2] ? `<span class="r">${l[2]}</span>` : ""}</span></div>`).join("")}</div>`;
+  h += `</div>`;
+  if(q.link) h += `<p>${q.link}</p>`;
+  h += `<div class="self"><span>Comparando com a solução, a tua resposta (reescrita) está:</span>
+    <button type="button" class="k" aria-pressed="false">✓ Certa</button><button type="button" class="w" aria-pressed="false">✗ Errada ou incompleta</button></div>`;
+  return h;
+}
+
+/* ---------- Estado de cada cartão ---------- */
+function paint(card){
+  const q = byId[card.dataset.id], s = st[q.id];
+  card.dataset.s = s ? s.s : "";
+  card.querySelector(".bm").setAttribute("aria-pressed", later[q.id] ? "true" : "false");
+  if(q.type === "open"){
+    card.querySelectorAll(".self button").forEach(b => b.setAttribute("aria-pressed", s && s.s === (b.classList.contains("k") ? "k" : "w") ? "true" : "false"));
+    return;
+  }
+  const btns = card.querySelectorAll(".opt"), fb = card.querySelector(".fb"), retry = card.querySelector(".retry");
+  btns.forEach((b,i) => {
+    b.disabled = !!s;
+    b.classList.toggle("right", !!s && i === q.a);
+    b.classList.toggle("wrong", !!s && i === s.p && s.p !== q.a);
+  });
+  retry.hidden = !s;
+  if(!s){ fb.textContent = ""; fb.className = "fb"; }
+  else if(s.s === "k"){ fb.textContent = "Certo! ✓"; fb.className = "fb k"; }
+  else { fb.textContent = "Errado. A resposta certa está a verde; a explicação está em baixo."; fb.className = "fb w"; }
+}
+function setOpen(card, open){
+  const btn = card.querySelector(".reveal"), ans = card.querySelector(".ans");
+  btn.setAttribute("aria-expanded", open ? "true" : "false");
+  ans.hidden = !open;
+}
+
+const byId = {};
+Q.forEach(q => byId[q.id] = q);
+
+/* ---------- Filtros ---------- */
+const ESTADOS = [["all","Todas"],["k","Certas"],["w","Erradas"],["n","Por responder"],["later","🔖 Ver mais tarde"]];
+const DIFS = [["0","Todas"],["1","Fácil"],["2","Média"],["3","Difícil"]];
+const filt = {};
+
+function filterBar(key){
+  return `<div class="filters" data-fkey="${key}">
+    <div class="frow" role="group" aria-label="Filtrar por estado"><span class="fl">Estado</span>${ESTADOS.map(e => `<button type="button" class="chip" data-k="e" data-v="${e[0]}">${e[1]}</button>`).join("")}</div>
+    <div class="frow" role="group" aria-label="Filtrar por dificuldade"><span class="fl">Dificuldade</span>${DIFS.map(e => `<button type="button" class="chip" data-k="d" data-v="${e[0]}">${e[1]}</button>`).join("")}</div>
+    <div class="frow"><span class="fcount"></span></div>
+  </div>`;
+}
+function matches(q, f){
+  const s = st[q.id];
+  if(f.e === "k" && !(s && s.s === "k")) return false;
+  if(f.e === "w" && !(s && s.s === "w")) return false;
+  if(f.e === "n" && s) return false;
+  if(f.e === "later" && !later[q.id]) return false;
+  if(f.d !== "0" && String(q.diff) !== f.d) return false;
+  return true;
+}
+function paintChips(bar, f){
+  bar.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", (c.dataset.k === "e" ? f.e : f.d) === c.dataset.v ? "true" : "false"));
+}
+function applyList(key){
+  const wrap = document.querySelector(`.qwrap[data-list="${key}"]`), f = filt[key];
+  let shown = 0, total = 0;
+  wrap.querySelectorAll(".q").forEach(card => {
+    total++;
+    const ok = matches(byId[card.dataset.id], f);
+    card.hidden = !ok; if(ok) shown++;
+  });
+  wrap.querySelector(".empty").hidden = shown > 0;
+  const bar = wrap.querySelector(".filters");
+  paintChips(bar, f);
+  bar.querySelector(".fcount").textContent = `A mostrar ${shown} de ${total}`;
+}
+
+/* Montar as listas */
+document.querySelectorAll(".qwrap").forEach(wrap => {
+  const key = wrap.dataset.list, qs = Q.filter(q => q.list === key);
+  filt[key] = {e:"all", d:"0"};
+  wrap.innerHTML = (qs.length > 1 ? filterBar(key) : `<div class="filters" data-fkey="${key}" hidden><span class="fcount"></span><span class="chip"></span></div>`) +
+    `<div class="qlist">${qs.map(cardHTML).join("")}</div><p class="empty" hidden>Nenhuma pergunta com este filtro.</p>`;
+});
+
+document.querySelectorAll(".q").forEach(card => {
+  const q = byId[card.dataset.id];
+  paint(card);
+  card.querySelector(".reveal").addEventListener("click", () => setOpen(card, card.querySelector(".ans").hidden));
+  card.querySelector(".bm").addEventListener("click", () => {
+    if(later[q.id]) delete later[q.id]; else later[q.id] = true;
+    save("later", later); paint(card); refreshAll();
+  });
+  if(q.type === "open"){
+    const ta = card.querySelector("textarea"), saved = card.querySelector(".saved");
+    ta.value = txt[q.id] || "";
+    let t;
+    ta.addEventListener("input", () => {
+      txt[q.id] = ta.value; clearTimeout(t);
+      t = setTimeout(() => { save("txt", txt); saved.textContent = "Guardado neste aparelho"; }, 400);
+    });
+    card.querySelectorAll(".self button").forEach(b => b.addEventListener("click", () => {
+      const v = b.classList.contains("k") ? "k" : "w";
+      if(st[q.id] && st[q.id].s === v) delete st[q.id]; else st[q.id] = {s:v};
+      save("st", st); paint(card); refreshAll();
+    }));
+  } else {
+    card.querySelectorAll(".opt").forEach(b => b.addEventListener("click", () => {
+      if(st[q.id]) return;
+      const i = +b.dataset.i;
+      st[q.id] = {s: i === q.a ? "k" : "w", p:i};
+      save("st", st); paint(card); setOpen(card, true); refreshAll();
+    }));
+    card.querySelector(".retry").addEventListener("click", () => {
+      delete st[q.id]; save("st", st); paint(card); setOpen(card, false); refreshAll();
+    });
+  }
+});
+
+document.querySelectorAll(".qwrap .filters").forEach(bar => {
+  const key = bar.dataset.fkey;
+  bar.addEventListener("click", e => {
+    const c = e.target.closest(".chip"); if(!c || !c.dataset.k) return;
+    filt[key][c.dataset.k] = c.dataset.v; applyList(key);
+  });
+});
+
+/* Filtro global */
+const gf = {e:"all", d:"0"};
+const gbox = document.getElementById("global-filter");
+gbox.innerHTML = filterBar("global");
+const gbar = gbox.querySelector(".filters");
+gbar.addEventListener("click", e => {
+  const c = e.target.closest(".chip"); if(!c) return;
+  gf[c.dataset.k] = c.dataset.v;
+  Object.keys(filt).forEach(k => { filt[k] = {e:gf.e, d:gf.d}; });
+  refreshAll();
+});
+
+function refreshAll(){
+  Object.keys(filt).forEach(applyList);
+  paintChips(gbar, gf);
+  let rows = "", shown = 0;
+  Object.keys(LISTS).forEach(k => {
+    const qs = Q.filter(q => q.list === k);
+    const c = qs.filter(q => st[q.id] && st[q.id].s === "k").length;
+    const w = qs.filter(q => st[q.id] && st[q.id].s === "w").length;
+    const l = qs.filter(q => later[q.id]).length;
+    shown += qs.filter(q => matches(q, gf)).length;
+    const anchor = k.startsWith("t") ? "treino" : k;
+    rows += `<tr><td><a href="#${anchor}">${LISTS[k]}</a></td><td class="num">${qs.length}</td><td class="num">${c}</td><td class="num">${w}</td><td class="num">${qs.length - c - w}</td><td class="num">${l}</td></tr>`;
+  });
+  document.querySelector("#global-table tbody").innerHTML = rows;
+  gbar.querySelector(".fcount").textContent = `Com este filtro: ${shown} de ${Q.length} perguntas`;
+}
+refreshAll();
+
+/* ---------- Secções: revisto / ver mais tarde ---------- */
+const navLater = document.getElementById("nav-later");
+let onlyLater = false;
+function paintSecs(){
+  document.querySelectorAll("section[data-sec]").forEach(sec => {
+    const k = sec.dataset.sec, s = secs[k] || {};
+    sec.querySelector(".sectools .rd").setAttribute("aria-pressed", s.rd ? "true" : "false");
+    sec.querySelector(".sectools .lt").setAttribute("aria-pressed", s.lt ? "true" : "false");
+    const a = document.querySelector(`nav.bar a[data-sec="${k}"]`);
+    if(a){ a.classList.toggle("done", !!s.rd); a.classList.toggle("later", !!s.lt); }
+    sec.hidden = onlyLater && !s.lt;
+    if(a) a.parentElement.hidden = onlyLater && !s.lt;
+  });
+  navLater.setAttribute("aria-pressed", onlyLater ? "true" : "false");
+}
+document.querySelectorAll("section[data-sec]").forEach(sec => {
+  const k = sec.dataset.sec, tools = document.createElement("div");
+  tools.className = "sectools";
+  tools.innerHTML = `<button type="button" class="rd">✓ Revisto</button><button type="button" class="lt">🔖 Ver mais tarde</button>`;
+  sec.querySelector(".part-head").appendChild(tools);
+  tools.addEventListener("click", e => {
+    const b = e.target.closest("button"); if(!b) return;
+    const f = b.classList.contains("rd") ? "rd" : "lt";
+    secs[k] = secs[k] || {}; secs[k][f] = !secs[k][f];
+    save("secs", secs); paintSecs();
+  });
+});
+navLater.addEventListener("click", () => {
+  const any = Object.keys(secs).some(k => secs[k].lt);
+  if(!onlyLater && !any){ navLater.title = "Ainda não marcaste nenhuma secção com 🔖"; alert("Ainda não marcaste nenhuma secção com 🔖 Ver mais tarde."); return; }
+  onlyLater = !onlyLater; paintSecs();
+});
+paintSecs();
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js").catch(function(){})}</script>
+</body>
+</html>

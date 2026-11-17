@@ -2,7 +2,7 @@
    - Páginas e ficheiros do site: tenta a rede (máx. 3 s) e, se falhar, usa a cópia guardada.
    - Fontes do Google: usa a cópia guardada se existir.
    Ao acrescentar uma página nova, junta-a a PRECACHE e muda VERSION. */
-const VERSION = "v7";
+const VERSION = "v8";
 const CACHE = "isa-" + VERSION;
 const PRECACHE = [
   "/",
@@ -12,6 +12,7 @@ const PRECACHE = [
   "/icone.svg",
   "/filosofia/",
   "/filosofia/prova-comum-filosofia.html",
+  "/filosofia/correcao-teste-1.html",
   "/filosofia/revisoes-introducao-determinismo-liberdade.html",
   "/geografia/",
   "/geografia/prova-comum-modulo-inicial-populacao.html",
